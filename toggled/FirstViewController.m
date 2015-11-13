@@ -15,10 +15,22 @@
 
 @implementation org_lenitionFirstViewController
 
+
+//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+//{
+////    return Int(UIInterfaceOrientationMask.Landscape.rawValue)
+//    return UIInterfaceOrientationPortrait;
+//}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+//    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+//    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+
     
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed

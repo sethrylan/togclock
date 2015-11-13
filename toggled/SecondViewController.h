@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface org_lenitionSecondViewController : UIViewController
+@interface SecondViewController : UIViewController
 
 @end

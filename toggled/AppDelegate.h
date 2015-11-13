@@ -1,5 +1,5 @@
 //
-//  org_lenitionAppDelegate.h
+//  AppDelegate.h
 //  toggled
 //
 //  Created by Seth Rylan Gainey on 10/14/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface org_lenitionAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -89,4 +89,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)toggleButtonUp:(id)sender
+{
+    NSLog(@"Toggled!");
+
+}
+
+- (IBAction)switchButtonUp:(id)sender {
+    NSLog(@"Switched!");
+}
+
 @end

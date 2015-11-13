@@ -92,7 +92,10 @@
 - (IBAction)toggleButtonUp:(id)sender
 {
     NSLog(@"Toggled!");
-
+    self.toggleButton.selected = !self.toggleButton.selected;
+    
+    [self.toggleButton setTitle:@"start" forState:UIControlStateNormal];
+    [self.toggleButton setTitle:@"stop" forState:UIControlStateSelected];
 }
 
 - (IBAction)switchButtonUp:(id)sender {

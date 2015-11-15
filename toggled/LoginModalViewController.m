@@ -14,6 +14,8 @@
 
 @implementation LoginModalViewController
 
+@synthesize passwordField, emailField;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,6 +33,16 @@
 - (IBAction)okButtonUp:(id)sender {
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
+
+// Advance to password field on Done
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if(theTextField==emailField){
+        [passwordField becomeFirstResponder];
+    }
+    return YES;
+}
+
+
 
 
 @end

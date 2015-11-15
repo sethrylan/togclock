@@ -7,4 +7,7 @@
 
 @interface LoginModalViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+
 @end

@@ -13,5 +13,4 @@
 @property (strong, nonatomic) IBOutlet UIButton *toggleButton;
 @property (strong, nonatomic) IBOutlet UIButton *switchButton;
 
-
 @end

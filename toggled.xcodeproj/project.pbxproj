@@ -24,6 +24,8 @@
 		546FEE521BCF35A800FC960B /* toggledTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 546FEE511BCF35A800FC960B /* toggledTests.m */; };
 		5471F6CA1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */; };
 		5471F6CB1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */; };
+		54829EEB1BF81E0800F93A86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54829EEA1BF81E0800F93A86 /* Security.framework */; };
+		54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		546FEE511BCF35A800FC960B /* toggledTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = toggledTests.m; sourceTree = "<group>"; };
 		5471F6C81BD453F800DB74C8 /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
 		5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
+		54829EEA1BF81E0800F93A86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		54829EEC1BF81E6E00F93A86 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54829EEB1BF81E0800F93A86 /* Security.framework in Frameworks */,
 				546FEE231BCF35A800FC960B /* CoreGraphics.framework in Frameworks */,
 				546FEE251BCF35A800FC960B /* UIKit.framework in Frameworks */,
 				546FEE211BCF35A800FC960B /* Foundation.framework in Frameworks */,
@@ -108,6 +114,7 @@
 		546FEE1F1BCF35A800FC960B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54829EEA1BF81E0800F93A86 /* Security.framework */,
 				546FEE201BCF35A800FC960B /* Foundation.framework */,
 				546FEE221BCF35A800FC960B /* CoreGraphics.framework */,
 				546FEE241BCF35A800FC960B /* UIKit.framework */,
@@ -121,6 +128,8 @@
 			children = (
 				5471F6C81BD453F800DB74C8 /* JPSVolumeButtonHandler.h */,
 				5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */,
+				54829EEC1BF81E6E00F93A86 /* KeychainItemWrapper.h */,
+				54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */,
 				546FEE2F1BCF35A800FC960B /* AppDelegate.h */,
 				546FEE301BCF35A800FC960B /* AppDelegate.m */,
 				546FEE321BCF35A800FC960B /* Main_iPhone.storyboard */,
@@ -265,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				546FEE2D1BCF35A800FC960B /* main.m in Sources */,
+				54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */,
 				546FEE3D1BCF35A800FC960B /* SecondViewController.m in Sources */,
 				546FEE311BCF35A800FC960B /* AppDelegate.m in Sources */,
 				546FEE3A1BCF35A800FC960B /* FirstViewController.m in Sources */,

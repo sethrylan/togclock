@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class KeychainItemWrapper;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) KeychainItemWrapper *passwordItem;
+@property (nonatomic, retain) KeychainItemWrapper *accountNumberItem;
+
 
 @end

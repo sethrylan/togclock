@@ -31,6 +31,7 @@
 //    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
 //    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
@@ -101,5 +102,24 @@
 - (IBAction)switchButtonUp:(id)sender {
     NSLog(@"Switched!");
 }
+
++ (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
+{
+    if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)])
+    {
+        //iOS 8.0 and above
+        presentingController.providesPresentationContextTransitionStyle = YES;
+        presentingController.definesPresentationContext = YES;
+        
+        [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+    }
+    else
+    {
+        [selfController setModalPresentationStyle:UIModalPresentationCurrentContext];
+        [selfController.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
+    }
+}
+
+
 
 @end

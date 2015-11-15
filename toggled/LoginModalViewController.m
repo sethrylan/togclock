@@ -5,7 +5,6 @@
 //  See http://stackoverflow.com/questions/16230700/display-uiviewcontroller-as-popup-in-iphone for development hints
 //
 
-
 #import "LoginModalViewController.h"
 
 @interface LoginModalViewController ()
@@ -34,15 +33,21 @@
     [self dismissViewControllerAnimated:YES completion:Nil];
 }
 
-// Advance to password field on Done
+// Add actions to "Return" key
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if(theTextField==emailField){
+    if(theTextField==emailField)
+    {
+        // advance to password field
         [passwordField becomeFirstResponder];
+    }
+    else if (theTextField==passwordField)
+    {
+        // close keyboard
+        [passwordField resignFirstResponder];
+         // TODO: do login
+        return NO;
     }
     return YES;
 }
-
-
-
 
 @end

@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Seth Rylan Gainey. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "MainViewController.h"
 #include "JPSVolumeButtonHandler.h"
 
-@interface org_lenitionFirstViewController ()
+@interface MainViewController ()
 @property JPSVolumeButtonHandler *volumeButtonHandler;
 @end
 
-@implementation org_lenitionFirstViewController
+@implementation MainViewController
 
 
 //- (UIInterfaceOrientationMask)supportedInterfaceOrientations

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface org_lenitionFirstViewController : UIViewController
+@interface MainViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIButton *toggleButton;
 @property (strong, nonatomic) IBOutlet UIButton *switchButton;

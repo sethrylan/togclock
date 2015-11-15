@@ -7,7 +7,7 @@
         <!--First-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="First" modalPresentationStyle="currentContext" id="CZ4-MO-1fc" customClass="org_lenitionFirstViewController" sceneMemberID="viewController">
+                <viewController title="First" modalPresentationStyle="currentContext" id="CZ4-MO-1fc" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="A4s-V7-LUj"/>
                         <viewControllerLayoutGuide type="bottom" id="1Fw-zK-dga"/>

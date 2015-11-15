@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Seth Rylan Gainey. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "LoginModalViewController.h"
 
-@interface SecondViewController ()
+@interface LoginModalViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation LoginModalViewController
 
 - (void)viewDidLoad
 {

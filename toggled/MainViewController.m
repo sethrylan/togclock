@@ -21,7 +21,15 @@
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
     
-    // TODO: holdbutton with http://stackoverflow.com/questions/4815296/action-trigger-when-i-hold-uibutton-for-2-second-in-iphone
+    // see http://stackoverflow.com/questions/4815296/action-trigger-when-i-hold-uibutton-for-2-second-in-
+    UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
+    [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2 seconds of press
+    [self.vupSelectButton addGestureRecognizer:vupSelectButtonLongPress];
+
+    
+    [self.vupSelectButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+
+    
     
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
@@ -119,6 +127,18 @@
         [selfController setModalPresentationStyle:UIModalPresentationCurrentContext];
         [selfController.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
     }
+}
+
+
+
+- (void)vupSelect:(UILongPressGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"held");
+    }
+}
+
+- (IBAction)vupSelectButtonTouchUp:(id)sender {
+    NSLog(@"SELECT!");
 }
 
 @end

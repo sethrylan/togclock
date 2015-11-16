@@ -27,6 +27,7 @@
 		54829EEB1BF81E0800F93A86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54829EEA1BF81E0800F93A86 /* Security.framework */; };
 		54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */; };
 		54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */; };
+		54E1EC861BF9A0A600123FDA /* MJPopupViewController in Resources */ = {isa = PBXBuildFile; fileRef = 54E1EC851BF9A0A600123FDA /* MJPopupViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		54E1EC821BF9833E00123FDA /* UIButton+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BackgroundColor.h"; sourceTree = "<group>"; };
 		54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BackgroundColor.m"; sourceTree = "<group>"; };
+		54E1EC851BF9A0A600123FDA /* MJPopupViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MJPopupViewController; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		546FEE261BCF35A800FC960B /* toggled */ = {
 			isa = PBXGroup;
 			children = (
+				54E1EC851BF9A0A600123FDA /* MJPopupViewController */,
 				5471F6C81BD453F800DB74C8 /* JPSVolumeButtonHandler.h */,
 				5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */,
 				54829EEC1BF81E6E00F93A86 /* KeychainItemWrapper.h */,
@@ -260,6 +263,7 @@
 				546FEE3F1BCF35A800FC960B /* Images.xcassets in Resources */,
 				546FEE341BCF35A800FC960B /* Main_iPhone.storyboard in Resources */,
 				546FEE2B1BCF35A800FC960B /* InfoPlist.strings in Resources */,
+				54E1EC861BF9A0A600123FDA /* MJPopupViewController in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

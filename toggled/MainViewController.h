@@ -10,4 +10,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *vupButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *vupSelectButton;
+@property (strong, nonatomic) IBOutlet UIButton *vdownSelectButton;
+
+
 @end

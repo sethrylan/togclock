@@ -5,8 +5,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginModalViewController : UIViewController
-
+@interface LoginModalViewController : UIViewController <NSURLSessionDelegate>
 
 // see http://www.makemegeek.com/implement-uitextfield-ios/ for implementing UITextField delegates
 @property (strong, nonatomic) IBOutlet UITextField *emailField;

@@ -18,6 +18,11 @@
 
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
+    [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
+    [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
+    
+    // TODO: holdbutton with http://stackoverflow.com/questions/4815296/action-trigger-when-i-hold-uibutton-for-2-second-in-iphone
+    
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
         [self vupButtonUp:self];
@@ -55,6 +60,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)vdownButtonDown:(id)sender {
+}
+
+- (IBAction)vupButtonDown:(id)sender {
 }
 
 - (IBAction)vupButtonUp:(id)sender

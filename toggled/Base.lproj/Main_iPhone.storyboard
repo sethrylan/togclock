@@ -26,16 +26,16 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="vdown">
                                 <rect key="frame" x="31" y="4" width="414" height="79"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="start"/>
                                 <connections>
+                                    <action selector="vdownButtonDown:" destination="CZ4-MO-1fc" eventType="touchDown" id="zcf-x1-2T7"/>
                                     <action selector="vdownButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="gl6-uN-W4d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-O5-VWJ" userLabel="vup">
                                 <rect key="frame" x="31" y="91" width="478" height="79"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="start"/>
                                 <connections>
+                                    <action selector="vupButtonDown:" destination="CZ4-MO-1fc" eventType="touchDown" id="30k-HK-w57"/>
                                     <action selector="vupButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="rcU-F5-uVM"/>
                                 </connections>
                             </button>

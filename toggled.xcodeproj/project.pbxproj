@@ -26,6 +26,7 @@
 		5471F6CB1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */; };
 		54829EEB1BF81E0800F93A86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54829EEA1BF81E0800F93A86 /* Security.framework */; };
 		54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */; };
+		54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		54829EEA1BF81E0800F93A86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		54829EEC1BF81E6E00F93A86 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		54E1EC821BF9833E00123FDA /* UIButton+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BackgroundColor.h"; sourceTree = "<group>"; };
+		54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BackgroundColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				546FEE3C1BCF35A800FC960B /* LoginModalViewController.m */,
 				546FEE3E1BCF35A800FC960B /* Images.xcassets */,
 				546FEE271BCF35A800FC960B /* Supporting Files */,
+				54E1EC821BF9833E00123FDA /* UIButton+BackgroundColor.h */,
+				54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */,
 			);
 			path = toggled;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			files = (
 				546FEE2D1BCF35A800FC960B /* main.m in Sources */,
 				54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */,
+				54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */,
 				546FEE3D1BCF35A800FC960B /* LoginModalViewController.m in Sources */,
 				546FEE311BCF35A800FC960B /* AppDelegate.m in Sources */,
 				546FEE3A1BCF35A800FC960B /* MainViewController.m in Sources */,

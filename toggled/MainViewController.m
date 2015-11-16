@@ -60,14 +60,30 @@
 - (IBAction)vupButtonUp:(id)sender
 {
     NSLog(@"VUP!");
+//    self.vupButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
     self.vupButton.selected = !self.vupButton.selected;
-    
     [self.vupButton setTitle:@"start" forState:UIControlStateNormal];
     [self.vupButton setTitle:@"stop" forState:UIControlStateSelected];
+
+    if (self.vupButton.selected) {
+        [self.vupButton setBackgroundColor:[UIColor redColor]];
+    } else {
+        [self.vupButton setBackgroundColor:[UIColor greenColor]];
+    }
 }
 
 - (IBAction)vdownButtonUp:(id)sender {
     NSLog(@"VDOWN!");
+    self.vdownButton.selected = !self.vdownButton.selected;
+    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+    [self.vdownButton setTitle:@"stop" forState:UIControlStateSelected];
+    
+    if (self.vdownButton.selected) {
+        [self.vdownButton setBackgroundColor:[UIColor redColor]];
+    } else {
+        [self.vdownButton setBackgroundColor:[UIColor greenColor]];
+    }
 }
 
 // Also set in the plist files, which usually override the VC methods

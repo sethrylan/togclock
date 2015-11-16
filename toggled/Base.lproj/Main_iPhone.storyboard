@@ -16,14 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-O5-VWJ">
-                                <rect key="frame" x="462" y="4" width="50" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="start"/>
-                                <connections>
-                                    <action selector="vupButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="rcU-F5-uVM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
                                 <rect key="frame" x="0.0" y="257" width="74" height="63"/>
                                 <state key="normal" title="login"/>
@@ -31,12 +23,20 @@
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="switch">
-                                <rect key="frame" x="395" y="4" width="50" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="switch"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="vdown">
+                                <rect key="frame" x="31" y="4" width="414" height="79"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="start"/>
                                 <connections>
                                     <action selector="vdownButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="gl6-uN-W4d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-O5-VWJ" userLabel="vup">
+                                <rect key="frame" x="31" y="91" width="478" height="79"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="vupButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="rcU-F5-uVM"/>
                                 </connections>
                             </button>
                         </subviews>

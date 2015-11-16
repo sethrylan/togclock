@@ -16,20 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="switch">
-                                <rect key="frame" x="395" y="4" width="50" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="switch"/>
-                                <connections>
-                                    <action selector="switchButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="jcT-7F-sc0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-O5-VWJ">
                                 <rect key="frame" x="462" y="4" width="50" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="start"/>
                                 <connections>
-                                    <action selector="toggleButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="qTd-j5-5Xu"/>
+                                    <action selector="vupButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="rcU-F5-uVM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
@@ -39,14 +31,22 @@
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="switch">
+                                <rect key="frame" x="395" y="4" width="50" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="switch"/>
+                                <connections>
+                                    <action selector="vdownButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="gl6-uN-W4d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="u1e-5L-l1D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="switchButton" destination="nrs-DZ-7yd" id="QeU-T6-Aow"/>
-                        <outlet property="toggleButton" destination="0nI-O5-VWJ" id="R3V-YR-XWA"/>
+                        <outlet property="vdownButton" destination="nrs-DZ-7yd" id="sYR-Yd-uRJ"/>
+                        <outlet property="vupButton" destination="0nI-O5-VWJ" id="ffn-w1-Nfn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>

@@ -7,7 +7,7 @@
 
 @interface MainViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIButton *toggleButton;
-@property (strong, nonatomic) IBOutlet UIButton *switchButton;
+@property (strong, nonatomic) IBOutlet UIButton *vupButton;
+@property (strong, nonatomic) IBOutlet UIButton *vdownButton;
 
 @end

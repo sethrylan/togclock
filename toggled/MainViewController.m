@@ -76,17 +76,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)toggleButtonUp:(id)sender
+- (IBAction)vupButtonUp:(id)sender
 {
-    NSLog(@"Toggled!");
-    self.toggleButton.selected = !self.toggleButton.selected;
+    NSLog(@"VUP!");
+    self.vupButton.selected = !self.vupButton.selected;
     
-    [self.toggleButton setTitle:@"start" forState:UIControlStateNormal];
-    [self.toggleButton setTitle:@"stop" forState:UIControlStateSelected];
+    [self.vupButton setTitle:@"start" forState:UIControlStateNormal];
+    [self.vupButton setTitle:@"stop" forState:UIControlStateSelected];
 }
 
-- (IBAction)switchButtonUp:(id)sender {
-    NSLog(@"Switched!");
+- (IBAction)vdownButtonUp:(id)sender {
+    NSLog(@"VDOWN!");
 }
 
 // Also set in the plist files, which usually override the VC methods

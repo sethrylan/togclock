@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
-                                <rect key="frame" x="236" y="128" width="74" height="63"/>
+                                <rect key="frame" x="0.0" y="257" width="74" height="63"/>
                                 <state key="normal" title="login"/>
                                 <connections>
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>

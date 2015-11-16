@@ -13,20 +13,9 @@
 @implementation MainViewController
 
 
-//- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-//{
-////    return Int(UIInterfaceOrientationMask.Landscape.rawValue)
-//    return UIInterfaceOrientationPortrait;
-//}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-//    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
-//    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
@@ -100,6 +89,13 @@
     NSLog(@"Switched!");
 }
 
+// Also set in the plist files, which usually override the VC methods
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeLeft;
+}
+
+// Force landscape-leaf orientation
 + (void)setPresentationStyleForSelfController:(UIViewController *)selfController presentingController:(UIViewController *)presentingController
 {
     if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)])
@@ -116,7 +112,5 @@
         [selfController.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
     }
 }
-
-
 
 @end

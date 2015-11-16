@@ -27,7 +27,8 @@
 		54829EEB1BF81E0800F93A86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54829EEA1BF81E0800F93A86 /* Security.framework */; };
 		54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */; };
 		54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */; };
-		54E1EC861BF9A0A600123FDA /* MJPopupViewController in Resources */ = {isa = PBXBuildFile; fileRef = 54E1EC851BF9A0A600123FDA /* MJPopupViewController */; };
+		54E1EC9A1BF9A37B00123FDA /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC971BF9A37B00123FDA /* MJPopupBackgroundView.m */; };
+		54E1EC9B1BF9A37B00123FDA /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC991BF9A37B00123FDA /* UIViewController+MJPopupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +70,10 @@
 		54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		54E1EC821BF9833E00123FDA /* UIButton+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BackgroundColor.h"; sourceTree = "<group>"; };
 		54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BackgroundColor.m"; sourceTree = "<group>"; };
-		54E1EC851BF9A0A600123FDA /* MJPopupViewController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MJPopupViewController; sourceTree = SOURCE_ROOT; };
+		54E1EC961BF9A37B00123FDA /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
+		54E1EC971BF9A37B00123FDA /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
+		54E1EC981BF9A37B00123FDA /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
+		54E1EC991BF9A37B00123FDA /* UIViewController+MJPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MJPopupViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,11 +135,9 @@
 		546FEE261BCF35A800FC960B /* toggled */ = {
 			isa = PBXGroup;
 			children = (
-				54E1EC851BF9A0A600123FDA /* MJPopupViewController */,
-				5471F6C81BD453F800DB74C8 /* JPSVolumeButtonHandler.h */,
-				5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */,
-				54829EEC1BF81E6E00F93A86 /* KeychainItemWrapper.h */,
-				54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */,
+				54E1EC9D1BF9A3E500123FDA /* JPSVolumButtonHanlder */,
+				54E1EC9C1BF9A38000123FDA /* MJPopupViewController */,
+				54E1EC9E1BF9A3F400123FDA /* KeychainItemWrapper */,
 				546FEE2F1BCF35A800FC960B /* AppDelegate.h */,
 				546FEE301BCF35A800FC960B /* AppDelegate.m */,
 				546FEE321BCF35A800FC960B /* Main_iPhone.storyboard */,
@@ -178,6 +180,35 @@
 				546FEE4E1BCF35A800FC960B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54E1EC9C1BF9A38000123FDA /* MJPopupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				54E1EC961BF9A37B00123FDA /* MJPopupBackgroundView.h */,
+				54E1EC971BF9A37B00123FDA /* MJPopupBackgroundView.m */,
+				54E1EC981BF9A37B00123FDA /* UIViewController+MJPopupViewController.h */,
+				54E1EC991BF9A37B00123FDA /* UIViewController+MJPopupViewController.m */,
+			);
+			name = MJPopupViewController;
+			sourceTree = "<group>";
+		};
+		54E1EC9D1BF9A3E500123FDA /* JPSVolumButtonHanlder */ = {
+			isa = PBXGroup;
+			children = (
+				5471F6C81BD453F800DB74C8 /* JPSVolumeButtonHandler.h */,
+				5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */,
+			);
+			name = JPSVolumButtonHanlder;
+			sourceTree = "<group>";
+		};
+		54E1EC9E1BF9A3F400123FDA /* KeychainItemWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				54829EEC1BF81E6E00F93A86 /* KeychainItemWrapper.h */,
+				54829EED1BF81E9A00F93A86 /* KeychainItemWrapper.m */,
+			);
+			name = KeychainItemWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +294,6 @@
 				546FEE3F1BCF35A800FC960B /* Images.xcassets in Resources */,
 				546FEE341BCF35A800FC960B /* Main_iPhone.storyboard in Resources */,
 				546FEE2B1BCF35A800FC960B /* InfoPlist.strings in Resources */,
-				54E1EC861BF9A0A600123FDA /* MJPopupViewController in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54E1EC9A1BF9A37B00123FDA /* MJPopupBackgroundView.m in Sources */,
 				546FEE2D1BCF35A800FC960B /* main.m in Sources */,
 				54829EEE1BF81E9A00F93A86 /* KeychainItemWrapper.m in Sources */,
 				54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */,
@@ -289,6 +320,7 @@
 				546FEE311BCF35A800FC960B /* AppDelegate.m in Sources */,
 				546FEE3A1BCF35A800FC960B /* MainViewController.m in Sources */,
 				5471F6CA1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */,
+				54E1EC9B1BF9A37B00123FDA /* UIViewController+MJPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

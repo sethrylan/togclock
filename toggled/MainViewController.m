@@ -12,7 +12,6 @@
 
 @implementation MainViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -21,30 +20,11 @@
     
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
-        UIAlertController* alert= [UIAlertController
-                                        alertControllerWithTitle:@"Info"
-                                        message:@"Volume Up Pressed"
-                                        preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction
-                                actionWithTitle:@"OK"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action)
-                                    {
-                                        [alert dismissViewControllerAnimated:YES completion:nil];
-                                    }];
-        UIAlertAction* cancel = [UIAlertAction
-                                    actionWithTitle:@"Cancel"
-                                    style:UIAlertActionStyleDefault
-                                    handler:^(UIAlertAction * action)
-                                        {
-                                            [alert dismissViewControllerAnimated:YES completion:nil];
-                                        }];
-        [alert addAction:ok];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:nil];
-        
+        [self vupButtonUp:self];
     } downBlock:^{
         // Volume Down Button Pressed
+        [self vdownButtonUp:self];
+        /*
         UIAlertController* alert= [UIAlertController
                                    alertControllerWithTitle:@"Info"
                                    message:@"Volume Down Pressed"
@@ -66,6 +46,7 @@
         [alert addAction:ok];
         [alert addAction:cancel];
         [self presentViewController:alert animated:YES completion:nil];
+         */
     }];
 
 }

@@ -14,18 +14,14 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView reloadData];
-    
-    self.view = tableView;
+    self.tableView = tableView;
+    self.projects = [[NSMutableArray alloc] init];
+    [self getRelatedData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.projects = [[NSArray alloc] init];
-    // TODO: Replace with API data
-    NSArray *projects = [NSTimeZone knownTimeZoneNames];
-    self.projects = [projects sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-    [self getRelatedData];
 }
 
 -(void)getRelatedData
@@ -46,19 +42,22 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
-    NSURLSessionDataTask *getMeDataTask = [session dataTaskWithRequest:request
-                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                        if(error == nil)
-                                                        {
-                                                            NSString * text = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-                                                            NSLog(@"Data = %@",text);
-                                                            NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
-//                                                            NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-//                                                            for (NSMutableDictionary *project in json[@"data"][@"projects"]) {
-//                                                                [self.projects addObject: project[@"name"]];
-//                                                            }
-                                                        }
-                                                    }];
+    NSURLSessionDataTask *getMeDataTask =
+        [session dataTaskWithRequest:request
+                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                       if(error == nil)
+                       {
+                           NSString * text = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+                           NSLog(@"Data = %@",text);
+                           NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
+                           NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                           for (NSMutableDictionary *project in json[@"data"][@"projects"]) {
+                               [self.projects addObject: project[@"name"]];
+                           }
+                           NSLog(@"%@", self.projects);
+                           [self.tableView reloadData];
+                       }
+                   }];
     [getMeDataTask resume];
 }
 

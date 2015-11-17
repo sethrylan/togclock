@@ -5,6 +5,6 @@
 
 @interface SelectTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>
 
-@property (strong, nonatomic) NSArray *projects;
+@property (strong, nonatomic) NSMutableArray *projects;
 
 @end

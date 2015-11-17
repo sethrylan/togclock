@@ -22,6 +22,7 @@
     self.previousEntries = [[NSMutableArray alloc] init];
     self.sections = @[self.projects, self.previousEntries];
     [self getRelatedData];
+//    NSLog(@"self.entry = %@", self.entry);
 }
 
 - (void)viewDidLoad
@@ -129,6 +130,10 @@
 
 - (IBAction)closePopup:(id)sender
 {
+    if (self.callback) {
+        self.callback(@{@"project" : @"callbackproject"});
+    }
+
     if (self.delegate && [self.delegate respondsToSelector:@selector(tableDismissed:withEntry:)]) {
         [self.delegate tableDismissed:self withEntry:@{@"project" : @"someproject"}];
     }

@@ -115,6 +115,9 @@
         
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
+        selectTableViewController.callback = ^(NSDictionary *entry) {
+            self.vupEntry = entry;
+        };
         
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;
@@ -128,7 +131,9 @@
         
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
-        
+        selectTableViewController.callback = ^(NSDictionary *entry) {
+            self.vdownEntry = entry;
+        };
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;
         [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
@@ -169,8 +174,11 @@
 
 - (void)tableDismissed:(SelectTableViewController *)selectTableViewController withEntry:(NSDictionary *)entry
 {
-    NSLog(@"entry = %@", entry);
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+    NSLog(@"passedentry = %@", entry);
+    NSLog(@"self.vupEntry = %@", self.vupEntry);
+    NSLog(@"self.vdownEntry = %@", self.vdownEntry);
+
 }
 
 

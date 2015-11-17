@@ -7,6 +7,8 @@
 
 @implementation SelectTableViewController
 
+@synthesize myDelegate;
+
 - (void)loadView
 {
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,45,320,200) style:UITableViewStylePlain];
@@ -112,6 +114,32 @@
             return @"Previous Entries";
             break;
     };
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+//    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
+//    oldCell.accessoryType = UITableViewCellAccessoryNone;
+    
+    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+    newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+//    // close the window when an option is selected.
+//    [self.delegate movieCinemaViewControllerDidFinish: self];
+    [self closePopup:indexPath];
+//    if([self.myDelegate respondsToSelector:@selector(secondViewControllerDismissed:)])
+//    {
+//        //    [self setSelectedIndexPath:indexPath];
+//        // see http://stackoverflow.com/questions/6203799/dismissmodalviewcontroller-and-pass-data-back
+//        [self.myDelegate secondViewControllerDismissed:@"THIS IS THE STRING TO SEND!!!"];
+//    }
+}
+
+
+- (IBAction)closePopup:(id)sender
+{
+    if (self.myDelegate && [self.myDelegate respondsToSelector:@selector(cancelButtonClicked:)]) {
+        [self.myDelegate cancelButtonClicked:self];
+    }
 }
 
 @end

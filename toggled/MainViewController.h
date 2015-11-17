@@ -4,8 +4,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectTableViewController.h"
 
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController<SecondDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *vupButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownButton;
@@ -13,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *vupSelectButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownSelectButton;
 
+@property (strong, nonatomic) IBOutlet NSString *vupProject;
 
 @end

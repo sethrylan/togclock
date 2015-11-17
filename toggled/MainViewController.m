@@ -134,7 +134,10 @@
 - (void)vupSelect:(UILongPressGestureRecognizer *)recognizer {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"held");
+        
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        selectTableViewController.myDelegate = self;
+
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;
         [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
@@ -144,5 +147,11 @@
 - (IBAction)vupSelectButtonTouchUp:(id)sender {
     NSLog(@"SELECT!");
 }
+
+- (void)cancelButtonClicked:(SelectTableViewController *)aSecondDetailViewController
+{
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
+}
+
 
 @end

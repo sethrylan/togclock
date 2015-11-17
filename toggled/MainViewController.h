@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *vupSelectButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownSelectButton;
 
-@property (strong, nonatomic) IBOutlet NSString *vupProject;
+@property (strong, nonatomic) IBOutlet NSString *vupEntry;
 
 @end

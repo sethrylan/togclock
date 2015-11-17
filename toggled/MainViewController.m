@@ -148,9 +148,9 @@
     NSLog(@"SELECT!");
 }
 
-- (void)tableDismissed:(SelectTableViewController *)selectTableViewController withProject:(NSString *)project
+- (void)tableDismissed:(SelectTableViewController *)selectTableViewController withEntry:(NSDictionary *)entry
 {
-    NSLog(@"project = %@", project);
+    NSLog(@"entry = %@", entry);
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }
 

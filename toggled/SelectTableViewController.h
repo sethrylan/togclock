@@ -3,8 +3,8 @@
 //  toggled
 //
 
-@interface SelectTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>
 
-@property (nonatomic) NSArray *timeZoneNames;
+@property (strong, nonatomic) NSArray *projects;
 
 @end

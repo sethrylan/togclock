@@ -137,9 +137,6 @@
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;
-        // TODO: Replace with API data
-        NSArray *timeZones = [NSTimeZone knownTimeZoneNames];
-        selectTableViewController.timeZoneNames = [timeZones sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
         [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
     }
 }

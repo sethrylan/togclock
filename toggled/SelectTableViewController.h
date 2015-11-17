@@ -17,5 +17,5 @@
 
 @protocol SelectTableDelegate<NSObject>
 @optional
-- (void)tableDismissed:(SelectTableViewController *)selectTableViewController;
+- (void)tableDismissed:(SelectTableViewController *)selectTableViewController withProject:(NSString*)project;
 @end

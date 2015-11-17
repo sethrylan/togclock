@@ -137,8 +137,8 @@
 
 - (IBAction)closePopup:(id)sender
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(tableDismissed:)]) {
-        [self.delegate tableDismissed:self];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableDismissed:withProject:)]) {
+        [self.delegate tableDismissed:self withProject:@"someproject"];
     }
 }
 

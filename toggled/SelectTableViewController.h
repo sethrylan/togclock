@@ -3,7 +3,7 @@
 //  toggled
 //
 
-@interface SelectTableViewController : UITableViewController
+@interface SelectTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSArray *timeZoneNames;
 

@@ -9,7 +9,7 @@
 
 - (void)loadView
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,45,320,200) style:UITableViewStylePlain];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -27,31 +27,46 @@
     return [self.timeZoneNames count];
 }
 
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    // The header for the section is the region name -- get this from the region at the section index.
-//    Region *region = [regions objectAtIndex:section];
-//    return [region name];
-//}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *MyIdentifier = @"MyIdentifier";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
     
     /*
      Retrieve a cell with the given identifier from the table view.
      The cell is defined in the main storyboard: its identifier is MyIdentifier, and  its selection style is set to None.
      */
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Set up the cell.
-    NSString *timeZoneName = [self.timeZoneNames objectAtIndex:indexPath.row];
-    cell.textLabel.text = timeZoneName;
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
+    }
+    
+    switch (indexPath.section) {
+        case 0:
+            cell.textLabel.text = [self.timeZoneNames objectAtIndex:indexPath.row];
+            break;
+        default:
+            cell.textLabel.text = [self.timeZoneNames objectAtIndex:indexPath.row];
+            break;
+    }
     
     return cell;
 }
 
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"Projects";
+            break;
+            
+        default:
+            return @"Client";
+            break;
+    };
+}
 
 @end

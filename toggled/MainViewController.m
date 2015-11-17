@@ -4,6 +4,8 @@
 //
 
 #import "MainViewController.h"
+#import "SelectTableViewController.h"
+#import "UIViewController+MJPopupViewController.h"
 #include "JPSVolumeButtonHandler.h"
 
 @interface MainViewController ()
@@ -134,6 +136,26 @@
 - (void)vupSelect:(UILongPressGestureRecognizer *)recognizer {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"held");
+        
+        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        selectTableViewController.navigationController.navigationBarHidden = NO;
+//                NSArray *timeZones = [NSTimeZone knownTimeZoneNames];
+//                selectTableViewController.timeZoneNames = [timeZones sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+
+        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
+
+//        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] init];
+////        SelectTableViewController *selectTableViewController = (SelectTableViewController *)navController.viewControllers[0];
+//        
+//        // Retrieve the array of known time zone names, then sort the array and pass it to the root view controller.
+//        NSArray *timeZones = [NSTimeZone knownTimeZoneNames];
+//        selectTableViewController.timeZoneNames = [timeZones sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+//        
+//        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero];
+//        selectTableViewController.view = tableView;
+//
+//        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
     }
 }
 

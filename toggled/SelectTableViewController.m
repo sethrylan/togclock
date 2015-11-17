@@ -122,16 +122,8 @@
     
     UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
     newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-//    // close the window when an option is selected.
-//    [self.delegate movieCinemaViewControllerDidFinish: self];
+
     [self closePopup:indexPath];
-//    if([self.myDelegate respondsToSelector:@selector(secondViewControllerDismissed:)])
-//    {
-//        //    [self setSelectedIndexPath:indexPath];
-//        // see http://stackoverflow.com/questions/6203799/dismissmodalviewcontroller-and-pass-data-back
-//        [self.myDelegate secondViewControllerDismissed:@"THIS IS THE STRING TO SEND!!!"];
-//    }
 }
 
 

@@ -184,7 +184,7 @@ static void * const keypath = (void*)&keypath;
             case MJPopupViewAnimationSlideLeftRight:
             case MJPopupViewAnimationSlideRightLeft:
             case MJPopupViewAnimationSlideRightRight:
-                [self dismissPopupViewControllerWithanimationType:dismissButton.tag];
+                [self dismissPopupViewControllerWithanimationType:(MJPopupViewAnimation)dismissButton.tag];
                 break;
             default:
                 [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];

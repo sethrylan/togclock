@@ -3,11 +3,11 @@
 //  toggled
 //
 
-@protocol SecondDelegate;
+@protocol SelectTableDelegate;
 
 @interface SelectTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>
 
-@property (nonatomic, assign) id<SecondDelegate>    myDelegate;
+@property (nonatomic, assign) id<SelectTableDelegate> delegate;
 
 @property (strong, nonatomic) NSArray *sections;
 @property (strong, nonatomic) NSMutableArray *projects;
@@ -15,7 +15,7 @@
 
 @end
 
-@protocol SecondDelegate<NSObject>
+@protocol SelectTableDelegate<NSObject>
 @optional
-- (void)cancelButtonClicked:(SelectTableViewController *)secondDetailViewController;
+- (void)tableDismissed:(SelectTableViewController *)selectTableViewController;
 @end

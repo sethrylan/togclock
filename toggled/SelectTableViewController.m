@@ -7,7 +7,7 @@
 
 @implementation SelectTableViewController
 
-@synthesize myDelegate;
+@synthesize delegate;
 
 - (void)loadView
 {
@@ -137,8 +137,8 @@
 
 - (IBAction)closePopup:(id)sender
 {
-    if (self.myDelegate && [self.myDelegate respondsToSelector:@selector(cancelButtonClicked:)]) {
-        [self.myDelegate cancelButtonClicked:self];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableDismissed:)]) {
+        [self.delegate tableDismissed:self];
     }
 }
 

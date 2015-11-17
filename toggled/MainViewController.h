@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "SelectTableViewController.h"
 
-@interface MainViewController : UIViewController<SecondDelegate>
+@interface MainViewController : UIViewController<SelectTableDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *vupButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownButton;

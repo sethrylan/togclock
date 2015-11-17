@@ -136,7 +136,7 @@
         NSLog(@"held");
         
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        selectTableViewController.myDelegate = self;
+        selectTableViewController.delegate = self;
 
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;
@@ -148,7 +148,7 @@
     NSLog(@"SELECT!");
 }
 
-- (void)cancelButtonClicked:(SelectTableViewController *)aSecondDetailViewController
+- (void)tableDismissed:(SelectTableViewController *)selectTableViewController
 {
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
 }

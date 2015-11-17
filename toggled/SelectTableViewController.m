@@ -15,7 +15,10 @@
     tableView.dataSource = self;
     [tableView reloadData];
     self.tableView = tableView;
+    self.sections = [[NSArray alloc] init];
     self.projects = [[NSMutableArray alloc] init];
+    self.previousEntries = [[NSMutableArray alloc] init];
+    self.sections = @[self.projects, self.previousEntries];
     [self getRelatedData];
 }
 
@@ -32,7 +35,7 @@
     NSURL *url = [NSURL URLWithString:@"https://www.toggl.com/api/v8/me?with_related_data=true"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
+                                                       timeoutInterval:10.0];
     
     NSString *authString = @"d72c72d4e4594c56dae41204d0860ce4:api_token"; // [NSString stringWithFormat:@"%@:%@", [self passwordField], [self password]];
     NSData *authData = [authString dataUsingEncoding:NSASCIIStringEncoding];
@@ -63,12 +66,11 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [self.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of time zone names.
-    return [self.projects count];
+    return [self.sections[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,9 +108,8 @@
         case 0:
             return @"Projects";
             break;
-            
         default:
-            return @"Client";
+            return @"Previous Entries";
             break;
     };
 }

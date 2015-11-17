@@ -23,15 +23,17 @@
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
     
-    // see http://stackoverflow.com/questions/4815296/action-trigger-when-i-hold-uibutton-for-2-second-in-
+
+    // Register long press gesture
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
     [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2 seconds of press
     [self.vupSelectButton addGestureRecognizer:vupSelectButtonLongPress];
-
-    
     [self.vupSelectButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
-    
+    UILongPressGestureRecognizer *vdownSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vdownSelect:)];
+    [vdownSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2 seconds of press
+    [self.vdownSelectButton addGestureRecognizer:vdownSelectButtonLongPress];
+    [self.vdownSelectButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
     
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
@@ -107,6 +109,40 @@
     }
 }
 
+- (void)vupSelect:(UILongPressGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"held");
+        
+        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        selectTableViewController.delegate = self;
+        
+        selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        selectTableViewController.navigationController.navigationBarHidden = NO;
+        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
+    }
+}
+
+- (void)vdownSelect:(UILongPressGestureRecognizer *)recognizer {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"held");
+        
+        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        selectTableViewController.delegate = self;
+        
+        selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        selectTableViewController.navigationController.navigationBarHidden = NO;
+        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
+    }
+}
+
+- (IBAction)vupSelectButtonTouchUp:(id)sender {
+    NSLog(@"SELECT!");
+}
+
+- (IBAction)vdownSelectButtonTouchUp:(id)sender {
+    NSLog(@"SELECT!");
+}
+
 // Also set in the plist files, which usually override the VC methods
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
@@ -129,23 +165,6 @@
         [selfController setModalPresentationStyle:UIModalPresentationCurrentContext];
         [selfController.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
     }
-}
-
-- (void)vupSelect:(UILongPressGestureRecognizer *)recognizer {
-    if (recognizer.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"held");
-        
-        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        selectTableViewController.delegate = self;
-
-        selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        selectTableViewController.navigationController.navigationBarHidden = NO;
-        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
-    }
-}
-
-- (IBAction)vupSelectButtonTouchUp:(id)sender {
-    NSLog(@"SELECT!");
 }
 
 - (void)tableDismissed:(SelectTableViewController *)selectTableViewController withEntry:(NSDictionary *)entry

@@ -4,6 +4,7 @@
 //
 
 #import "SelectTableViewController.h"
+#import "Project.h"
 
 @implementation SelectTableViewController
 
@@ -54,9 +55,19 @@
             NSString * text = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
             NSLog(@"Data = %@",text);
             NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
-            NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            for (NSMutableDictionary *project in json[@"data"][@"projects"]) {
-                [self.projects addObject: project[@"name"]];
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                        options:NSJSONReadingMutableContainers
+                                                                          error:nil];
+            for (NSDictionary *projectJson in json[@"data"][@"projects"]) {
+                Project *project = [[Project alloc] init];
+                [projectJson enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
+//                    NSLog(@"%@ => %@", key, value);
+                    if ([project respondsToSelector:NSSelectorFromString(key)]) {
+                        [project setValue:value forKey:key];
+                    }
+                }];
+
+                [self.projects addObject:project];
             }
             NSLog(@"%@", self.projects);
             [self.tableView reloadData];
@@ -95,10 +106,10 @@
     
     switch (indexPath.section) {
         case 0:
-            cell.textLabel.text = [self.projects objectAtIndex:indexPath.row];
+            cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] name];
             break;
         default:
-            cell.textLabel.text = [self.projects objectAtIndex:indexPath.row];
+            cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] name];
             break;
     }
     

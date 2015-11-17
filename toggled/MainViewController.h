@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *vupSelectButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownSelectButton;
 
-@property (strong, nonatomic) IBOutlet NSDictionary *vupEntry;
-@property (strong, nonatomic) IBOutlet NSDictionary *vdownEntry;
+@property (strong, nonatomic) IBOutlet NSMutableDictionary *vupEntry;
+@property (strong, nonatomic) IBOutlet NSMutableDictionary *vdownEntry;
 
 @end

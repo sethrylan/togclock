@@ -116,7 +116,7 @@
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
         selectTableViewController.callback = ^(NSDictionary *entry) {
-            self.vupEntry = entry;
+            self.vupEntry = [entry mutableCopy];
         };
         
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -132,7 +132,7 @@
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
         selectTableViewController.callback = ^(NSDictionary *entry) {
-            self.vdownEntry = entry;
+            self.vdownEntry = [entry mutableCopy];
         };
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;

@@ -26,12 +26,12 @@
 
     // Register long press gesture
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
-    [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2 seconds of press
+    [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
     [self.vupSelectButton addGestureRecognizer:vupSelectButtonLongPress];
     [self.vupSelectButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
     UILongPressGestureRecognizer *vdownSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vdownSelect:)];
-    [vdownSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2 seconds of press
+    [vdownSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 250ms of press
     [self.vdownSelectButton addGestureRecognizer:vdownSelectButtonLongPress];
     [self.vdownSelectButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -162,7 +162,6 @@
         //iOS 8.0 and above
         presentingController.providesPresentationContextTransitionStyle = YES;
         presentingController.definesPresentationContext = YES;
-        
         [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     }
     else
@@ -178,8 +177,6 @@
     NSLog(@"passedentry = %@", entry);
     NSLog(@"self.vupEntry = %@", self.vupEntry);
     NSLog(@"self.vdownEntry = %@", self.vdownEntry);
-
 }
-
 
 @end

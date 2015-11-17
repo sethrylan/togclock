@@ -160,8 +160,8 @@
     if ([NSProcessInfo instancesRespondToSelector:@selector(isOperatingSystemAtLeastVersion:)])
     {
         //iOS 8.0 and above
-        presentingController.providesPresentationContextTransitionStyle = YES;
-        presentingController.definesPresentationContext = YES;
+        [presentingController setProvidesPresentationContextTransitionStyle:YES];
+        [presentingController setDefinesPresentationContext:YES];
         [presentingController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     }
     else

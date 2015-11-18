@@ -108,7 +108,7 @@
             cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] _name];
             break;
         default:
-            cell.textLabel.text = [[[self.previousEntries objectAtIndex:indexPath.row] _project] _name];
+            cell.textLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _projectName];
             cell.detailTextLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _description];
             break;
     }

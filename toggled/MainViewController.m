@@ -177,6 +177,10 @@
     NSLog(@"passedentry = %@", entry);
     NSLog(@"self.vupEntry = %@", self.vupEntry);
     NSLog(@"self.vdownEntry = %@", self.vdownEntry);
+    
+    // update vup/vdown buttons
+    //    [self.vupButton setTitle:[self.vupEntry[@"project"]] forState:UIControlStateNormal];
+
 }
 
 @end

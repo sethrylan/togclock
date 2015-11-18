@@ -3,11 +3,16 @@
 #import "Entry.h"
 
 @interface Entry : NSObject
-@property (strong, nonatomic) Project *_project;
+@property (strong, nonatomic) Project *_project;      // convenience property; constructed
+@property (strong, nonatomic) NSString *_projectName; // convenience property; constructed
 @property (nonatomic) long _uid;
 @property (nonatomic) long _id;
 @property (strong, nonatomic) NSString *_description;
 @property (strong, nonatomic) NSString *_pid;
+@property (strong, nonatomic) NSString *_start;
+@property (strong, nonatomic) NSString *_stop;
+@property (nonatomic) long _duration;
+@property (strong, nonatomic) NSString *_createdWith;
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary withProjects:(NSArray*)projects;
 @end
 
@@ -22,7 +27,6 @@
                 [self setValue:value forKey:propertyName];
             }
         }];
-        
     }
     
     // add project info
@@ -32,6 +36,7 @@
         NSArray *filteredArray = [projects filteredArrayUsingPredicate:predicate];
         if ([filteredArray count] > 0 && [filteredArray objectAtIndex:0]) {
             [self setValue:[filteredArray objectAtIndex:0] forKey:@"_project"];
+            [self setValue:[[filteredArray objectAtIndex:0] _name] forKey:@"_projectName"];
         }
     }
 

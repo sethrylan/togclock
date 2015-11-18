@@ -133,8 +133,21 @@
 //    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
 //    oldCell.accessoryType = UITableViewCellAccessoryNone;
     
+    // add check mark
     UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
     newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+
+    if (self.callback) {
+        switch (indexPath.section) {
+            case 0:
+                self.callback(@{@"project" : [self.projects objectAtIndex:indexPath.row]});
+                break;
+            default:
+                self.callback(@{@"entry" : [self.previousEntries objectAtIndex:indexPath.row]});
+                break;
+        }
+
+    }
 
     [self closePopup:indexPath];
 }
@@ -142,10 +155,6 @@
 
 - (IBAction)closePopup:(id)sender
 {
-    if (self.callback) {
-        self.callback(@{@"project" : @"callbackproject"});
-    }
-
     if (self.delegate && [self.delegate respondsToSelector:@selector(tableDismissed:withEntry:)]) {
         [self.delegate tableDismissed:self withEntry:@{@"project" : @"someproject"}];
     }

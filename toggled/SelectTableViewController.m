@@ -5,6 +5,7 @@
 
 #import "SelectTableViewController.h"
 #import "Project.h"
+#import "Entry.h"
 
 @implementation SelectTableViewController
 
@@ -59,16 +60,15 @@
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:nil];
             for (NSDictionary *projectJson in json[@"data"][@"projects"]) {
-                Project *project = [[Project alloc] init];
-                [projectJson enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
-//                    NSLog(@"%@ => %@", key, value);
-                    if ([project respondsToSelector:NSSelectorFromString(key)]) {
-                        [project setValue:value forKey:key];
-                    }
-                }];
-
+                Project *project = [[Project alloc] initWithDictionary:projectJson];
                 [self.projects addObject:project];
             }
+            
+            for (NSDictionary *entryJson in json[@"data"][@"time_entries"]) {
+                Entry *entry = [[Entry alloc] initWithDictionary:entryJson];
+                [self.previousEntries addObject:entry];
+            }
+
             NSLog(@"%@", self.projects);
             [self.tableView reloadData];
         }
@@ -106,10 +106,10 @@
     
     switch (indexPath.section) {
         case 0:
-            cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] name];
+            cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] _name];
             break;
         default:
-            cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] name];
+            cell.textLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _description];
             break;
     }
     

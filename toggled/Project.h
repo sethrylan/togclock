@@ -1,6 +1,5 @@
 @interface Project : NSObject
 
-@property (nonatomic) long _pid;
 @property (nonatomic) long _id;
 @property (strong, nonatomic) NSString *_name;
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary;

@@ -140,18 +140,15 @@
     if (self.callback) {
         switch (indexPath.section) {
             case 0:
-                self.callback(@{@"project" : [self.projects objectAtIndex:indexPath.row]});
+                self.callback(@{@"entry" : [[Entry alloc] initFromProject:[self.projects objectAtIndex:indexPath.row]]});
                 break;
             default:
                 self.callback(@{@"entry" : [self.previousEntries objectAtIndex:indexPath.row]});
                 break;
         }
-
     }
-
     [self closePopup:indexPath];
 }
-
 
 - (IBAction)closePopup:(id)sender
 {

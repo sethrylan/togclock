@@ -65,21 +65,10 @@
             }
             
             for (NSDictionary *entryJson in json[@"data"][@"time_entries"]) {
-                Entry *entry = [[Entry alloc] initWithDictionary:entryJson];
-
-                if (entry._pid) {
-                    NSString *propertyName = @"_id";
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", propertyName, entry._pid];
-                    NSArray *filteredArray = [self.projects filteredArrayUsingPredicate:predicate];
-                    if ([filteredArray objectAtIndex:0]) {
-                        [entry setValue:[filteredArray objectAtIndex:0] forKey:@"_project"];
-                    }
-                }
-                
+                Entry *entry = [[Entry alloc] initWithDictionary:entryJson withProjects:self.projects];
                 [self.previousEntries addObject:entry];
             }
 
-            NSLog(@"%@", self.projects);
             [self.tableView reloadData];
         }
     };

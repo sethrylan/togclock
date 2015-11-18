@@ -66,6 +66,16 @@
             
             for (NSDictionary *entryJson in json[@"data"][@"time_entries"]) {
                 Entry *entry = [[Entry alloc] initWithDictionary:entryJson];
+
+                if (entry._pid) {
+                    NSString *propertyName = @"_id";
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", propertyName, entry._pid];
+                    NSArray *filteredArray = [self.projects filteredArrayUsingPredicate:predicate];
+                    if ([filteredArray objectAtIndex:0]) {
+                        [entry setValue:[filteredArray objectAtIndex:0] forKey:@"_project"];
+                    }
+                }
+                
                 [self.previousEntries addObject:entry];
             }
 
@@ -100,7 +110,7 @@
     
     // Configure the cell...
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:CellIdentifier];
     }
     
@@ -109,7 +119,8 @@
             cell.textLabel.text = [[self.projects objectAtIndex:indexPath.row] _name];
             break;
         default:
-            cell.textLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _description];
+            cell.textLabel.text = [[[self.previousEntries objectAtIndex:indexPath.row] _project] _name];
+            cell.detailTextLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _description];
             break;
     }
     

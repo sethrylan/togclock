@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		542990051BFD72D600D8ED24 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990041BFD72D600D8ED24 /* Project.m */; };
 		542990071BFD72FB00D8ED24 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990061BFD72FB00D8ED24 /* Entry.m */; };
+		542990091BFE640200D8ED24 /* LoginModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 542990081BFE640200D8ED24 /* LoginModal.xib */; };
 		546FEE211BCF35A800FC960B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE201BCF35A800FC960B /* Foundation.framework */; };
 		546FEE231BCF35A800FC960B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE221BCF35A800FC960B /* CoreGraphics.framework */; };
 		546FEE251BCF35A800FC960B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE241BCF35A800FC960B /* UIKit.framework */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		542990041BFD72D600D8ED24 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		542990061BFD72FB00D8ED24 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		542990081BFE640200D8ED24 /* LoginModal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginModal.xib; sourceTree = "<group>"; };
 		546FEE1D1BCF35A800FC960B /* toggled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toggled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FEE201BCF35A800FC960B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		546FEE221BCF35A800FC960B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +152,7 @@
 				546FEE2F1BCF35A800FC960B /* AppDelegate.h */,
 				546FEE301BCF35A800FC960B /* AppDelegate.m */,
 				546FEE321BCF35A800FC960B /* Main_iPhone.storyboard */,
+				542990081BFE640200D8ED24 /* LoginModal.xib */,
 				546FEE381BCF35A800FC960B /* MainViewController.h */,
 				546FEE391BCF35A800FC960B /* MainViewController.m */,
 				546FEE3B1BCF35A800FC960B /* LoginModalViewController.h */,
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				546FEE3F1BCF35A800FC960B /* Images.xcassets in Resources */,
+				542990091BFE640200D8ED24 /* LoginModal.xib in Resources */,
 				546FEE341BCF35A800FC960B /* Main_iPhone.storyboard in Resources */,
 				546FEE2B1BCF35A800FC960B /* InfoPlist.strings in Resources */,
 			);

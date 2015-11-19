@@ -7,10 +7,6 @@
 
 #import "LoginModalViewController.h"
 
-@interface LoginModalViewController ()
-
-@end
-
 @implementation LoginModalViewController
 
 @synthesize passwordField, emailField;

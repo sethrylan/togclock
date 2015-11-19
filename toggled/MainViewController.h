@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 #import "JPSVolumeButtonHandler.h"
 #import "SelectTableViewController.h"
+#import "Entry.h"
 
 @interface MainViewController : UIViewController<SelectTableDelegate>
 
@@ -17,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *vupSelectButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownSelectButton;
 
-@property (strong, nonatomic) IBOutlet NSMutableDictionary *vupEntry;
-@property (strong, nonatomic) IBOutlet NSMutableDictionary *vdownEntry;
+@property (strong, nonatomic) Entry *vupEntry;
+@property (strong, nonatomic) Entry *vdownEntry;
 
 @end

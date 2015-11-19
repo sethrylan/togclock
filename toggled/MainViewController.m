@@ -108,8 +108,8 @@
         
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
-        selectTableViewController.callback = ^(NSDictionary *entry) {
-            self.vupEntry = [entry mutableCopy];
+        selectTableViewController.callback = ^(NSDictionary *returnValue) {
+            self.vupEntry = [returnValue objectForKey:@"entry"];
         };
         
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -124,8 +124,8 @@
         
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
-        selectTableViewController.callback = ^(NSDictionary *entry) {
-            self.vdownEntry = [entry mutableCopy];
+        selectTableViewController.callback = ^(NSDictionary *returnValue) {
+            self.vdownEntry = [returnValue objectForKey:@"entry"];
         };
         selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         selectTableViewController.navigationController.navigationBarHidden = NO;
@@ -172,8 +172,9 @@
     NSLog(@"self.vdownEntry = %@", self.vdownEntry);
     
     // update vup/vdown buttons
-    //    [self.vupButton setTitle:[self.vupEntry[@"project"]] forState:UIControlStateNormal];
+    [self.vupButton setTitle:[self.vupEntry _projectName] forState:UIControlStateNormal];
 
+    [self.vdownButton setTitle:[self.vdownEntry _projectName] forState:UIControlStateNormal];
 }
 
 @end

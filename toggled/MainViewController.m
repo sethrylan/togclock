@@ -40,9 +40,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // if we haven't checked authentication
-    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"hasCheckedLoginForLaunch"]) {
-        [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"hasCheckedLoginForLaunch"];
+    // if API key doesn't authenticate, then log back in
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"hasCheckedSinceLaunch"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"hasCheckedSinceLaunch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         // if no authentication info available, then force login

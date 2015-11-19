@@ -17,22 +17,6 @@
 {
     // Override point for customization after application launch.
     
-    // see https://developer.apple.com/library/ios/samplecode/GenericKeychain/Listings/ReadMe_txt.html#//apple_ref/doc/uid/DTS40007797-ReadMe_txt-DontLinkElementID_11
-    KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"togglLogin" accessGroup:nil];
-    
-    
-//    [keychainItem setObject:@"password you are saving" forKey:kSecValueData];
-//    [keychainItem setObject:@"username you are saving" forKey:kSecAttrAccount];
-//    
-//    keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"toggltoken" accessGroup:nil];
-
-    self.passwordItem = wrapper;
-//    detailViewController.passwordItem = wrapper;
-    
-    wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:@"Account Number" accessGroup:@"YOUR_APP_ID_HERE.com.yourcompany.GenericKeychainSuite"];
-    self.accountNumberItem = wrapper;
-//    detailViewController.accountNumberItem = wrapper;
-
 //    [window addSubview:navigationController.view];
 //    [window makeKeyAndVisible];
 

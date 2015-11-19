@@ -6,6 +6,7 @@
 //
 
 #import "LoginModalViewController.h"
+#import "KeychainItemWrapper.h"
 
 @implementation LoginModalViewController
 
@@ -44,7 +45,7 @@
     return YES;
 }
 
-- (void)login:(NSString*) username withPassword:(NSString*) password
+- (void)login:(NSString*) username withPassword:(NSString*)password onSuccess:(void (^)(NSData*))successBlock onFailure:(void (^)(NSError*))failureBlock
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
@@ -72,24 +73,58 @@
 //                            NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
                             if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
                             {
-                                [self showLoginFailure];
+                                failureBlock(error);
                             }
                             else
                             {
-                                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                                                     options:NSJSONReadingMutableContainers
-                                                                                       error:nil];
-                                NSLog(@"api_token=%@", [json valueForKeyPath:@"data.api_token"]);
-                                [self dismissViewControllerAnimated:YES completion:Nil];
+                                successBlock(data);
                             }
                         }
                     }];
     [postDataTask resume];
 }
 
+
+// see https://developer.apple.com/library/ios/samplecode/GenericKeychain/Listings/ReadMe_txt.html#//apple_ref/doc/uid/DTS40007797-ReadMe_txt-DontLinkElementID_11
+- (void)saveToKeychain:(NSString*)username withPassword:(NSString*)password withApiToken:(NSString*)apiToken
+{
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"togglLogin" accessGroup:nil];
+    
+    [keychainItem setObject:@"username" forKey:username];
+    [keychainItem setObject:@"password" forKey:password];
+    [keychainItem setObject:@"apiToken" forKey:apiToken];
+
+//    //    keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"toggltoken" accessGroup:nil];
+//    
+//    self.passwordItem = wrapper;
+//    //    detailViewController.passwordItem = wrapper;
+//    
+//    self.accountNumberItem = wrapper;
+    //    detailViewController.accountNumberItem = wrapper;
+
+}
+
 - (IBAction)loginUp:(id)sender
 {
-    [self login:emailField.text withPassword:passwordField.text];
+    NSString *email = emailField.text;
+    NSString *password = passwordField.text;
+    
+    void (^successBlock)(NSData*) = ^void(NSData *data) {
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:nil];
+        NSString *apiToken = [json valueForKeyPath:@"data.api_token"];
+        NSLog(@"api_token=%@", apiToken);
+        
+//        [self saveToKeychain:email withPassword:password withApiToken:apiToken];
+        [self dismissViewControllerAnimated:YES completion:Nil];
+    };
+    
+    void (^failureBlock)(NSError*) = ^void(NSError *error) {
+        [self showLoginFailure];
+    };
+
+    [self login:email withPassword:password onSuccess:successBlock onFailure:failureBlock];
 }
 
 -(void)showLoginFailure

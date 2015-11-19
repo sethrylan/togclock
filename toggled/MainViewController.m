@@ -182,9 +182,11 @@
     // update vup/vdown buttons
     [self.vupProjectLabel setText:[self.vupEntry _projectName]];
     [self.vupDescriptionLabel setText:[self.vupEntry _description]];
-
+    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+    
     [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
     [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
+    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
 }
 
 @end

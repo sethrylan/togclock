@@ -4,9 +4,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPSVolumeButtonHandler.h"
 #import "SelectTableViewController.h"
 
 @interface MainViewController : UIViewController<SelectTableDelegate>
+
+@property JPSVolumeButtonHandler *volumeButtonHandler;
 
 @property (strong, nonatomic) IBOutlet UIButton *vupButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownButton;

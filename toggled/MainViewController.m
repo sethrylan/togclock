@@ -5,11 +5,6 @@
 
 #import "MainViewController.h"
 #import "UIViewController+MJPopupViewController.h"
-#import "JPSVolumeButtonHandler.h"
-
-@interface MainViewController ()
-@property JPSVolumeButtonHandler *volumeButtonHandler;
-@end
 
 @implementation MainViewController
 

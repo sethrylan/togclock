@@ -1,6 +1,5 @@
 
 #import "Project.h"
-#import "Entry.h"
 
 @interface Entry : NSObject
 @property (strong, nonatomic) Project *_project;      // convenience property; constructed

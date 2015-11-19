@@ -4,7 +4,6 @@
 //
 
 #import "SelectTableViewController.h"
-#import "Project.h"
 #import "Entry.h"
 
 @implementation SelectTableViewController

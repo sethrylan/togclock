@@ -16,7 +16,6 @@
     
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
-    
 
     // Register long press gesture
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];

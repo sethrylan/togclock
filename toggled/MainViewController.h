@@ -3,7 +3,6 @@
 //  Copyright (c) 2015 Seth Rylan Gainey. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "JPSVolumeButtonHandler.h"
 #import "SelectTableViewController.h"
 

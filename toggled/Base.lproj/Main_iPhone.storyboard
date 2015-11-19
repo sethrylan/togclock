@@ -123,7 +123,7 @@
                                 <rect key="frame" x="178" y="169" width="75" height="58"/>
                                 <state key="normal" title="login"/>
                                 <connections>
-                                    <action selector="login:" destination="i7W-2u-o9g" eventType="touchUpInside" id="U7s-uU-HTE"/>
+                                    <action selector="loginUp:" destination="i7W-2u-o9g" eventType="touchUpInside" id="Psz-Xj-zsk"/>
                                 </connections>
                             </button>
                         </subviews>

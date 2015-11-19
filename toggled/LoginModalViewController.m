@@ -72,8 +72,7 @@
                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                         if(error == nil)
                         {
-                            NSString * text = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-//                            NSLog(@"Data = %@",text);
+//                            NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
 //                            NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
                             if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
                             {

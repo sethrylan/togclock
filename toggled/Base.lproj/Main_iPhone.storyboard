@@ -94,7 +94,7 @@
         <!--Login Modal View Controller-->
         <scene sceneID="Zj1-D5-iw8">
             <objects>
-                <viewController id="i7W-2u-o9g" customClass="LoginModalViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="i7W-2u-o9g" customClass="LoginModalViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kdf-oc-qs5"/>
                         <viewControllerLayoutGuide type="bottom" id="8f2-v0-hUQ"/>

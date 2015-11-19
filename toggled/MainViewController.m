@@ -5,6 +5,7 @@
 
 #import "MainViewController.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "LoginModalViewController.h"
 
 @implementation MainViewController
 
@@ -35,7 +36,21 @@
         // Volume Down Button Pressed
         [self vdownButtonUp:self];
     }];
+}
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    // if we haven't checked authentication
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"hasCheckedLoginForLaunch"]) {
+        [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"hasCheckedLoginForLaunch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        // if no authentication info available, then force login
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+        LoginModalViewController *loginView = (LoginModalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+        
+        [self presentViewController:loginView animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,8 +14,6 @@
 @end
 
 @protocol SelectTableDelegate<NSObject>
-@property (strong, nonatomic) NSDictionary *vupEntry;
-@property (strong, nonatomic) NSDictionary *vdownEntry;
 @optional
 - (void)tableDismissed:(SelectTableViewController *)selectTableViewController withEntry:(NSDictionary*)entry;
 @end

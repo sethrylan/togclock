@@ -108,7 +108,8 @@
     }
 }
 
-- (void)vupSelect:(UILongPressGestureRecognizer *)recognizer {
+- (void)vupSelect:(UILongPressGestureRecognizer *)recognizer
+{
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"held");
         
@@ -124,7 +125,8 @@
     }
 }
 
-- (void)vdownSelect:(UILongPressGestureRecognizer *)recognizer {
+- (void)vdownSelect:(UILongPressGestureRecognizer *)recognizer
+{
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"held");
         
@@ -178,9 +180,11 @@
     NSLog(@"self.vdownEntry = %@", self.vdownEntry);
     
     // update vup/vdown buttons
-    [self.vupButton setTitle:[self.vupEntry _projectName] forState:UIControlStateNormal];
+    [self.vupProjectLabel setText:[self.vupEntry _projectName]];
+    [self.vupDescriptionLabel setText:[self.vupEntry _description]];
 
-    [self.vdownButton setTitle:[self.vdownEntry _projectName] forState:UIControlStateNormal];
+    [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
+    [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
 }
 
 @end

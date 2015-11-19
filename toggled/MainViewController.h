@@ -18,7 +18,13 @@
 @property (strong, nonatomic) IBOutlet UIButton *vupSelectButton;
 @property (strong, nonatomic) IBOutlet UIButton *vdownSelectButton;
 
+@property (strong, nonatomic) IBOutlet UILabel *vdownProjectLabel;
+@property (strong, nonatomic) IBOutlet UILabel *vdownDescriptionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *vupProjectLabel;
+@property (strong, nonatomic) IBOutlet UILabel *vupDescriptionLabel;
+
 @property (strong, nonatomic) Entry *vupEntry;
 @property (strong, nonatomic) Entry *vdownEntry;
+
 
 @end

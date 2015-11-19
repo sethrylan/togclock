@@ -3,6 +3,8 @@
 //  toggled
 //
 
+#import <UIKit/UIKit.h>
+
 @protocol SelectTableDelegate;
 
 @interface SelectTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>

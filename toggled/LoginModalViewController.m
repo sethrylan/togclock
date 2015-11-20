@@ -6,7 +6,7 @@
 //
 
 #import "LoginModalViewController.h"
-#import "KeychainItemWrapper.h"
+#import "JNKeychain.h"
 
 @implementation LoginModalViewController
 
@@ -84,24 +84,18 @@
     [postDataTask resume];
 }
 
-
-// see https://developer.apple.com/library/ios/samplecode/GenericKeychain/Listings/ReadMe_txt.html#//apple_ref/doc/uid/DTS40007797-ReadMe_txt-DontLinkElementID_11
 - (void)saveToKeychain:(NSString*)username withPassword:(NSString*)password withApiToken:(NSString*)apiToken
 {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"togglLogin" accessGroup:nil];
-    
-    [keychainItem setObject:@"username" forKey:username];
-    [keychainItem setObject:@"password" forKey:password];
-    [keychainItem setObject:@"apiToken" forKey:apiToken];
-
-//    //    keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"toggltoken" accessGroup:nil];
-//    
-//    self.passwordItem = wrapper;
-//    //    detailViewController.passwordItem = wrapper;
-//    
-//    self.accountNumberItem = wrapper;
-    //    detailViewController.accountNumberItem = wrapper;
-
+    if ([JNKeychain saveValue:username forKey:@"username"]
+        && [JNKeychain saveValue:password forKey:@"password"]
+        && [JNKeychain saveValue:apiToken forKey:@"apiToken"])
+    {
+        NSLog(@"Saved!");
+    }
+    else
+    {
+        NSLog(@"Failed to save!");
+    }
 }
 
 - (IBAction)loginUp:(id)sender
@@ -116,7 +110,7 @@
         NSString *apiToken = [json valueForKeyPath:@"data.api_token"];
         NSLog(@"api_token=%@", apiToken);
         
-//        [self saveToKeychain:email withPassword:password withApiToken:apiToken];
+        [self saveToKeychain:email withPassword:password withApiToken:apiToken];
         [self dismissViewControllerAnimated:YES completion:Nil];
     };
     

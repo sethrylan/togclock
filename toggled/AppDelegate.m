@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "KeychainItemWrapper.h"
 
 @implementation AppDelegate
 

@@ -72,6 +72,9 @@
 
             [self.tableView reloadData];
         }
+        else {
+            // TODO: login
+        }
     };
     
     NSURLSessionDataTask *getMeDataTask = [session dataTaskWithRequest:request

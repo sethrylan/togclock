@@ -5,6 +5,7 @@
 
 #import "SelectTableViewController.h"
 #import "Entry.h"
+#import "JNKeychain.h"
 
 @implementation SelectTableViewController
 
@@ -41,7 +42,8 @@
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     
-    NSString *authString = @"d72c72d4e4594c56dae41204d0860ce4:api_token"; // [NSString stringWithFormat:@"%@:%@", [self passwordField], [self password]];
+    NSString *apiToken = [JNKeychain loadValueForKey:@"apiToken"];
+    NSString *authString = [NSString stringWithFormat:@"%@:%@", apiToken, @"api_token"];
     NSData *authData = [authString dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
     

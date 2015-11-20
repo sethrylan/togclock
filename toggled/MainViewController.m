@@ -6,6 +6,7 @@
 #import "MainViewController.h"
 #import "UIViewController+MJPopupViewController.h"
 #import "LoginModalViewController.h"
+#import "JNKeychain.h"
 
 @implementation MainViewController
 
@@ -40,15 +41,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // if API key doesn't authenticate, then log back in
-    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"hasCheckedSinceLaunch"]) {
-        [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"hasCheckedSinceLaunch"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        // if no authentication info available, then force login
+    // if API token doesn't exist, then log back in
+    NSString *apiToken = [JNKeychain loadValueForKey:@"apiToken"];
+    if (!apiToken) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
         LoginModalViewController *loginView = (LoginModalViewController *)[storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
-        
         [self presentViewController:loginView animated:YES completion:nil];
     }
 }

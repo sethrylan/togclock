@@ -5,6 +5,7 @@
 
 #import "MainViewController.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "NSDate+ISO8601.h"
 #import "LoginModalViewController.h"
 #import "JNKeychain.h"
 
@@ -162,6 +163,7 @@
     NSMutableDictionary *timeEntry = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                       [NSNumber numberWithLong:entry._pid], @"pid",
                                       [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"], @"created_with",
+                                      [[NSDate date] asISO8601String], @"start",
                                       nil];
     // create time_entry data. Cannot use a NSDictionary literal because "[n]either keys nor values can have the value nil in containers". See http://clang.llvm.org/docs/ObjectiveCLiterals.html
     if (entry._description)

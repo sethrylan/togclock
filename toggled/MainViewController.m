@@ -43,6 +43,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     // if API token doesn't exist, then log back in
     NSString *apiToken = [JNKeychain loadValueForKey:@"apiToken"];
     if (!apiToken) {

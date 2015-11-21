@@ -104,58 +104,7 @@
         if (self.vdownButton.isSelected)
         {
             NSLog(@"starting entry.");
-            
-            NSMutableDictionary *timeEntry = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                              [NSNumber numberWithLong:self.vdownEntry._pid], @"pid",
-                                              [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"], @"created_with",
-                                              nil];
-            // create time_entry data. Cannot use a NSDictionary literal because "[n]either keys nor values can have the value nil in containers". See http://clang.llvm.org/docs/ObjectiveCLiterals.html
-            if (self.vdownEntry._description)
-            {
-                [timeEntry setObject:self.vdownEntry._description forKey:@"description"];
-            }
-
-            NSDictionary *jsonValues = @{
-                @"time_entry" : timeEntry
-            };
-            
-            NSError *error;
-            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonValues
-                                                               options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                                 error:&error];
-//            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            
-            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-            NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
-            
-            NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
-            NSMutableURLRequest *request = [self makeJSONRequest:@"https://www.toggl.com/api/v8/time_entries/start" withAuth:authString withOperation:@"POST"];
-            [request setHTTPBody:jsonData];
-            
-            NSURLSessionDataTask *postDataTask =
-            [session dataTaskWithRequest:request
-                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                           if(error == nil)
-                           {
-                               // NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
-                               // NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
-                               if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
-                               {
-                                   NSLog(@"unauthorized");
-                                   // TODO: relogin
-                               }
-                               else
-                               {
-                                   NSLog(@"start succeeded");
-                                   NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data
-                                                                                        options:NSJSONReadingMutableContainers
-                                                                                          error:nil];
-                                   long id = [[responseJson[@"data"] objectForKey:@"id"] longValue];
-                                   self.vdownEntry._id = id;
-                               }
-                           }
-                       }];
-            [postDataTask resume];
+            [self startEntry:self.vdownEntry];
         }
         // if UIControlStateNormal then stop vdownEntry
         else
@@ -191,6 +140,61 @@
 
         }
     }
+}
+
+- (void)startEntry:(Entry*)entry
+{
+    NSMutableDictionary *timeEntry = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                      [NSNumber numberWithLong:entry._pid], @"pid",
+                                      [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"], @"created_with",
+                                      nil];
+    // create time_entry data. Cannot use a NSDictionary literal because "[n]either keys nor values can have the value nil in containers". See http://clang.llvm.org/docs/ObjectiveCLiterals.html
+    if (entry._description)
+    {
+        [timeEntry setObject:entry._description forKey:@"description"];
+    }
+    
+    NSDictionary *jsonValues = @{
+                                 @"time_entry" : timeEntry
+                                 };
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonValues
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    //            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
+    NSMutableURLRequest *request = [self makeJSONRequest:@"https://www.toggl.com/api/v8/time_entries/start" withAuth:authString withOperation:@"POST"];
+    [request setHTTPBody:jsonData];
+    
+    NSURLSessionDataTask *postDataTask =
+        [session dataTaskWithRequest:request
+               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                   if(error == nil)
+                   {
+                       // NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
+                       // NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
+                       if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
+                       {
+                           NSLog(@"unauthorized");
+                           // TODO: relogin
+                       }
+                       else
+                       {
+                           NSLog(@"start succeeded");
+                           NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data
+                                                                                        options:NSJSONReadingMutableContainers
+                                                                                          error:nil];
+                           long id = [[responseJson[@"data"] objectForKey:@"id"] longValue];
+                           entry._id = id;
+                       }
+                   }
+               }];
+    [postDataTask resume];
 }
 
 - (NSMutableURLRequest*)makeJSONRequest:(NSString *)urlString withAuth:(NSString *)authString withOperation:(NSString *)op

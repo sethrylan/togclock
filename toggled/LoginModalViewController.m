@@ -17,6 +17,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    // TODO: set username and password to saved values, if they exist
+    
     self.view.backgroundColor = [UIColor clearColor];
 }
 

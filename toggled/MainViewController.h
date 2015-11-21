@@ -8,7 +8,7 @@
 #import "SelectTableViewController.h"
 #import "Entry.h"
 
-@interface MainViewController : UIViewController<SelectTableDelegate>
+@interface MainViewController : UIViewController<SelectTableDelegate, NSURLSessionDelegate>
 
 @property JPSVolumeButtonHandler *volumeButtonHandler;
 

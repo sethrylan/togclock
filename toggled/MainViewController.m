@@ -16,10 +16,11 @@
 
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
+    // set starting titles
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
 
-    // Register long press gesture
+    // register long press gestures
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
     [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
     [self.vupSelectButton addGestureRecognizer:vupSelectButtonLongPress];
@@ -30,6 +31,7 @@
     [self.vdownSelectButton addGestureRecognizer:vdownSelectButtonLongPress];
     [self.vdownSelectButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
     
+    // register volume button presses
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
         [self vupButtonUp:self];
@@ -77,6 +79,9 @@
         } else {
             [self.vupButton setBackgroundColor:[UIColor greenColor]];
         }
+        
+        // if UIControlStateSelected then create and start vupEntry
+        // if UIControlStateNormal, then stop vupEntry
     }
 }
 
@@ -94,7 +99,91 @@
         } else {
             [self.vdownButton setBackgroundColor:[UIColor greenColor]];
         }
+        
+        // if UIControlStateSelected then start vdownEntry (implicitly creates)
+        if (self.vdownButton.isSelected)
+        {
+            NSLog(@"starting entry.");
+            NSDictionary *timeEntry = @{
+                @"pid" : [NSNumber numberWithLong:self.vdownEntry._pid],
+                @"created_with" : [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
+            };
+            
+            // create time_entry data. Cannot use a NSDictionary literal because "[n]either keys nor values can have the value nil in containers". See http://clang.llvm.org/docs/ObjectiveCLiterals.html
+            if (self.vdownEntry._description)
+            {
+                [timeEntry setValue:self.vdownEntry._description forKey:@"description"];
+            }
+
+            NSDictionary *jsonValues = @{
+                @"time_entry" : timeEntry
+            };
+            
+            NSError *error;
+            NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonValues
+                                                               options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                                 error:&error];
+//            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+            NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
+            
+            NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
+            NSMutableURLRequest *request = [self makeJSONRequest:@"https://www.toggl.com/api/v8/time_entries/start" withAuth:authString withOperation:@"POST"];
+            [request setHTTPBody:jsonData];
+            
+            NSURLSessionDataTask *postDataTask =
+            [session dataTaskWithRequest:request
+                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                           if(error == nil)
+                           {
+                               // NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
+                               // NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
+                               if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
+                               {
+                                   NSLog(@"unauthorized");
+                                   // TODO: relogin
+                               }
+                               else
+                               {
+                                   NSLog(@"save succeeded");
+                                   NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data
+                                                                                        options:NSJSONReadingMutableContainers
+                                                                                          error:nil];
+                                   self.vupEntry._id = (long)responseJson[@"data"][@"id"];
+                               }
+                           }
+                       }];
+            [postDataTask resume];
+        }
+        // if UIControlStateNormal then stop vdownEntry
+        else
+        {
+            NSLog(@"stopping entry.");
+        }
+
     }
+}
+
+- (NSMutableURLRequest*)makeJSONRequest:(NSString *)urlString withAuth:(NSString *)authString withOperation:(NSString *)op
+{
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0];
+                  
+    NSData *authData = [authString dataUsingEncoding:NSASCIIStringEncoding];
+    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
+
+    NSDictionary *headers = @{
+                              @"Content-Type":@"application/json",
+                              @"Accept":@"application/json"
+                              };
+    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
+    [request setAllHTTPHeaderFields:headers];
+    
+    [request setHTTPMethod:op];
+    return request;
 }
 
 - (void)vupSelect:(UILongPressGestureRecognizer *)recognizer

@@ -1,11 +1,7 @@
-//
-//  TriangleView.m
-//  toggled
-//
 
-#import "TriangleView.h"
+#import "ButtonMaskView.h"
 
-@implementation TriangleView
+@implementation ButtonMaskView
 
 // stars: http://stackoverflow.com/questions/8445786/how-to-draw-stars-using-quartz-core/8446655#8446655
 // triangle: http://stackoverflow.com/questions/25578090/draw-triangle-ios

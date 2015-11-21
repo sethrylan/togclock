@@ -7,7 +7,7 @@
 #import "JPSVolumeButtonHandler.h"
 #import "SelectTableViewController.h"
 #import "Entry.h"
-#import "TriangleView.h"
+#import "ButtonMaskView.h"
 
 @interface MainViewController : UIViewController<SelectTableDelegate, NSURLSessionDelegate>
 
@@ -24,6 +24,6 @@
 @property (strong, nonatomic) Entry *vupEntry;
 @property (strong, nonatomic) Entry *vdownEntry;
 
-@property (strong, nonatomic) IBOutlet TriangleView *buttonMaskView;
+@property (strong, nonatomic) IBOutlet ButtonMaskView *buttonMaskView;
 
 @end

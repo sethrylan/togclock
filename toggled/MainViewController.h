@@ -24,6 +24,6 @@
 @property (strong, nonatomic) Entry *vupEntry;
 @property (strong, nonatomic) Entry *vdownEntry;
 
-@property (strong, nonatomic) IBOutlet TriangleView *triangleView;
+@property (strong, nonatomic) IBOutlet TriangleView *buttonMaskView;
 
 @end

@@ -11,6 +11,15 @@
 
 @implementation MainViewController
 
+- (void)buttonMaskTap:(UILongPressGestureRecognizer *)recognizer
+{
+    NSLog(@"tap!");
+}
+
+- (IBAction)buttonMaskTouchUp:(id)sender {
+    NSLog(@"touch up!");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -20,6 +29,11 @@
     // set starting titles
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
+    
+    UITapGestureRecognizer *buttonMaskTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskTap:)];
+    [self.buttonMaskView addGestureRecognizer:buttonMaskTap];
+//    [self.triangleView addTarget:self action:@selector(buttonMaskTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+
 
     // register long press gestures
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];

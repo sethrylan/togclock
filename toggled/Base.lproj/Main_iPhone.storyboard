@@ -72,7 +72,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="triangleView" destination="Gyr-mB-OlE" id="z49-Xu-gNT"/>
+                        <outlet property="buttonMaskView" destination="Gyr-mB-OlE" id="R0S-U5-UNw"/>
                         <outlet property="vdownButton" destination="nrs-DZ-7yd" id="sYR-Yd-uRJ"/>
                         <outlet property="vdownDescriptionLabel" destination="CGM-bR-dyI" id="t3P-it-77p"/>
                         <outlet property="vdownProjectLabel" destination="VCz-X1-eMG" id="eJW-tR-HkP"/>

@@ -7,6 +7,14 @@
 
 @implementation TriangleView
 
+// stars: http://stackoverflow.com/questions/8445786/how-to-draw-stars-using-quartz-core/8446655#8446655
+// triangle: http://stackoverflow.com/questions/25578090/draw-triangle-ios
+// mix/max x/y: http://stackoverflow.com/questions/6697614/how-to-draw-a-triangle-programmatically
+// CGPathAddLineToPoint: http://stackoverflow.com/questions/2249683/how-to-draw-polygons-with-cgpath
+// CGContextAddLineToPoint: http://stackoverflow.com/questions/16462604/drawing-a-polygon-with-one-color-for-stroke-and-a-different-one-for-fill
+// UIBezierPath: http://stackoverflow.com/questions/24769050/creating-a-triangle-shape-in-a-uibutton
+
+
 -(void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -24,6 +32,9 @@
         CGContextAddLineToPoint(context, center.x+x, center.y-y);
     }
     CGContextClosePath(context);
+    
+    [[UIColor redColor] setFill];
+    [[UIColor blackColor] setStroke];
     
     CGContextFillPath(context);           // Choose for a filled triangle
     // CGContextSetLineWidth(context, 2); // Choose for a unfilled triangle

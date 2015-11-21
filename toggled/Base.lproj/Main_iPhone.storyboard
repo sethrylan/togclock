@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-O5-VWJ" userLabel="vup">
-                                <rect key="frame" x="99" y="91" width="410" height="79"/>
+                                <rect key="frame" x="20" y="91" width="489" height="79"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="vupButtonDown:" destination="CZ4-MO-1fc" eventType="touchDown" id="30k-HK-w57"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="vdown">
-                                <rect key="frame" x="99" y="4" width="346" height="79"/>
+                                <rect key="frame" x="20" y="4" width="425" height="79"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="vdownButtonDown:" destination="CZ4-MO-1fc" eventType="touchDown" id="zcf-x1-2T7"/>

@@ -81,8 +81,18 @@
             [self.vupButton setBackgroundColor:[UIColor greenColor]];
         }
         
-        // if UIControlStateSelected then create and start vupEntry
-        // if UIControlStateNormal, then stop vupEntry
+        // if UIControlStateSelected then start vupEntry (implicitly creates)
+        if (self.vupButton.isSelected)
+        {
+            NSLog(@"starting entry.");
+            [self startEntry:self.vupEntry];
+        }
+        // if UIControlStateNormal then stop vupEntry
+        else
+        {
+            NSLog(@"stopping entry.");
+            [self stopEntry:self.vupEntry];
+        }
     }
 }
 

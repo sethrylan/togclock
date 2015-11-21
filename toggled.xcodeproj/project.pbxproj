@@ -12,6 +12,7 @@
 		542990091BFE640200D8ED24 /* LoginModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 542990081BFE640200D8ED24 /* LoginModal.xib */; };
 		542990101BFEB22B00D8ED24 /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5429900F1BFEB22B00D8ED24 /* JNKeychain.m */; };
 		542990151C00FC9200D8ED24 /* NSDate+ISO8601.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990141C00FC9200D8ED24 /* NSDate+ISO8601.m */; };
+		542990201C012B0F00D8ED24 /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5429901F1C012B0F00D8ED24 /* TriangleView.m */; };
 		546FEE211BCF35A800FC960B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE201BCF35A800FC960B /* Foundation.framework */; };
 		546FEE231BCF35A800FC960B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE221BCF35A800FC960B /* CoreGraphics.framework */; };
 		546FEE251BCF35A800FC960B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE241BCF35A800FC960B /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		5429900F1BFEB22B00D8ED24 /* JNKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JNKeychain.m; sourceTree = "<group>"; };
 		542990131C00FC7000D8ED24 /* NSDate+ISO8601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ISO8601.h"; sourceTree = "<group>"; };
 		542990141C00FC9200D8ED24 /* NSDate+ISO8601.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601.m"; sourceTree = "<group>"; };
+		5429901E1C012B0400D8ED24 /* TriangleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
+		5429901F1C012B0F00D8ED24 /* TriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
 		546FEE1D1BCF35A800FC960B /* toggled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toggled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FEE201BCF35A800FC960B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		546FEE221BCF35A800FC960B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -197,6 +200,8 @@
 				542990041BFD72D600D8ED24 /* Project.m */,
 				54E1ECA71BFBBB2300123FDA /* Entry.h */,
 				542990061BFD72FB00D8ED24 /* Entry.m */,
+				5429901E1C012B0400D8ED24 /* TriangleView.h */,
+				5429901F1C012B0F00D8ED24 /* TriangleView.m */,
 			);
 			path = toggled;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				542990201C012B0F00D8ED24 /* TriangleView.m in Sources */,
 				542990071BFD72FB00D8ED24 /* Entry.m in Sources */,
 				542990101BFEB22B00D8ED24 /* JNKeychain.m in Sources */,
 				54E1EC9A1BF9A37B00123FDA /* MJPopupBackgroundView.m in Sources */,

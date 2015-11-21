@@ -63,12 +63,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyr-mB-OlE" customClass="TriangleView">
+                                <rect key="frame" x="79" y="53" width="273" height="165"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="u1e-5L-l1D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="triangleView" destination="Gyr-mB-OlE" id="z49-Xu-gNT"/>
                         <outlet property="vdownButton" destination="nrs-DZ-7yd" id="sYR-Yd-uRJ"/>
                         <outlet property="vdownDescriptionLabel" destination="CGM-bR-dyI" id="t3P-it-77p"/>
                         <outlet property="vdownProjectLabel" destination="VCz-X1-eMG" id="eJW-tR-HkP"/>
@@ -129,7 +133,4 @@
             <point key="canvasLocation" x="-72" y="641"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="first" width="30" height="30"/>
-    </resources>
 </document>

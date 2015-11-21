@@ -40,6 +40,7 @@
         // Volume Down Button Pressed
         [self vdownButtonUp:self];
     }];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

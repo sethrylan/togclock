@@ -24,13 +24,13 @@
     // register long press gestures
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
     [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
-    [self.vupSelectButton addGestureRecognizer:vupSelectButtonLongPress];
-    [self.vupSelectButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+    [self.vupButton addGestureRecognizer:vupSelectButtonLongPress];
+    [self.vupButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
     UILongPressGestureRecognizer *vdownSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vdownSelect:)];
     [vdownSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 250ms of press
-    [self.vdownSelectButton addGestureRecognizer:vdownSelectButtonLongPress];
-    [self.vdownSelectButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+    [self.vdownButton addGestureRecognizer:vdownSelectButtonLongPress];
+    [self.vdownButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
     
     // register volume button presses
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{

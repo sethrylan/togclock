@@ -11,14 +11,6 @@
 
 @implementation MainViewController
 
-- (void)buttonMaskTap:(UILongPressGestureRecognizer *)recognizer
-{
-    NSLog(@"tap!");
-}
-
-- (IBAction)buttonMaskTouchUp:(id)sender {
-    NSLog(@"touch up!");
-}
 
 - (void)viewDidLoad
 {
@@ -30,10 +22,12 @@
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
     
+    // register tap and long press gestures for button mask
     UITapGestureRecognizer *buttonMaskTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskTap:)];
     [self.buttonMaskView addGestureRecognizer:buttonMaskTap];
-//    [self.triangleView addTarget:self action:@selector(buttonMaskTouchUp:) forControlEvents:UIControlEventTouchUpInside];
-
+    UILongPressGestureRecognizer *buttonMaskSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskSelect:)];
+    [buttonMaskSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
+    [self.buttonMaskView addGestureRecognizer:buttonMaskSelectButtonLongPress];
 
     // register long press gestures
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
@@ -79,6 +73,11 @@
 }
 
 - (IBAction)vupButtonDown:(id)sender {
+}
+
+- (void)buttonMaskTap:(UILongPressGestureRecognizer *)recognizer
+{
+    NSLog(@"tap!");
 }
 
 - (IBAction)vupButtonUp:(id)sender
@@ -248,6 +247,23 @@
     
     [request setHTTPMethod:op];
     return request;
+}
+
+- (void)buttonMaskSelect:(UILongPressGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"held");
+        
+//        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//        selectTableViewController.delegate = self;
+//        selectTableViewController.callback = ^(NSDictionary *returnValue) {
+//            self.vupEntry = [returnValue objectForKey:@"entry"];
+//        };
+//        
+//        selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+//        selectTableViewController.navigationController.navigationBarHidden = NO;
+//        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
+    }
 }
 
 - (void)vupSelect:(UILongPressGestureRecognizer *)recognizer

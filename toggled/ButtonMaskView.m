@@ -21,7 +21,20 @@
 //    
 //}
 
--(void)drawRect:(CGRect)rect {
+-(void)drawRect:(CGRect)rect
+{
+    [self drawVdownButton:rect];
+    [self drawVupButton:rect];
+}
+
+-(void)drawVupButton:(CGRect)rect
+{
+    
+    
+}
+
+-(void)drawVdownButton:(CGRect)rect
+{
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     int sides = 3;
@@ -45,6 +58,9 @@
     CGContextFillPath(context);           // Choose for a filled triangle
     // CGContextSetLineWidth(context, 2); // Choose for a unfilled triangle
     // CGContextStrokePath(context);      // Choose for a unfilled triangle
+
+    
 }
+
 
 @end

@@ -104,15 +104,15 @@
         if (self.vdownButton.isSelected)
         {
             NSLog(@"starting entry.");
-            NSDictionary *timeEntry = @{
-                @"pid" : [NSNumber numberWithLong:self.vdownEntry._pid],
-                @"created_with" : [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]
-            };
             
+            NSMutableDictionary *timeEntry = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                              [NSNumber numberWithLong:self.vdownEntry._pid], @"pid",
+                                              [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"], @"created_with",
+                                              nil];
             // create time_entry data. Cannot use a NSDictionary literal because "[n]either keys nor values can have the value nil in containers". See http://clang.llvm.org/docs/ObjectiveCLiterals.html
             if (self.vdownEntry._description)
             {
-                [timeEntry setValue:self.vdownEntry._description forKey:@"description"];
+                [timeEntry setObject:self.vdownEntry._description forKey:@"description"];
             }
 
             NSDictionary *jsonValues = @{
@@ -146,11 +146,12 @@
                                }
                                else
                                {
-                                   NSLog(@"save succeeded");
+                                   NSLog(@"start succeeded");
                                    NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data
                                                                                         options:NSJSONReadingMutableContainers
                                                                                           error:nil];
-                                   self.vupEntry._id = (long)responseJson[@"data"][@"id"];
+                                   long id = [[responseJson[@"data"] objectForKey:@"id"] longValue];
+                                   self.vdownEntry._id = id;
                                }
                            }
                        }];
@@ -160,8 +161,35 @@
         else
         {
             NSLog(@"stopping entry.");
-        }
+            
+            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+            NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
+            
+            NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
+            NSString *url = [NSString stringWithFormat:@"https://www.toggl.com/api/v8/time_entries/%ld/stop", self.vdownEntry._id];
+            NSMutableURLRequest *request = [self makeJSONRequest:url withAuth:authString withOperation:@"PUT"];
+            
+            NSURLSessionDataTask *postDataTask =
+            [session dataTaskWithRequest:request
+                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                           if(error == nil)
+                           {
+                               // NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
+                               // NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
+                               if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
+                               {
+                                   NSLog(@"unauthorized");
+                                   // TODO: relogin
+                               }
+                               else
+                               {
+                                   NSLog(@"stop succeeded");
+                               }
+                           }
+                       }];
+            [postDataTask resume];
 
+        }
     }
 }
 

@@ -110,36 +110,40 @@
         else
         {
             NSLog(@"stopping entry.");
-            
-            NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-            NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
-            
-            NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
-            NSString *url = [NSString stringWithFormat:@"https://www.toggl.com/api/v8/time_entries/%ld/stop", self.vdownEntry._id];
-            NSMutableURLRequest *request = [self makeJSONRequest:url withAuth:authString withOperation:@"PUT"];
-            
-            NSURLSessionDataTask *postDataTask =
-            [session dataTaskWithRequest:request
-                       completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                           if(error == nil)
-                           {
-                               // NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
-                               // NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
-                               if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
-                               {
-                                   NSLog(@"unauthorized");
-                                   // TODO: relogin
-                               }
-                               else
-                               {
-                                   NSLog(@"stop succeeded");
-                               }
-                           }
-                       }];
-            [postDataTask resume];
-
+            [self stopEntry:self.vdownEntry];
         }
     }
+}
+
+- (void)stopEntry:(Entry*)entry
+{
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
+    
+    NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
+    NSString *url = [NSString stringWithFormat:@"https://www.toggl.com/api/v8/time_entries/%ld/stop", entry._id];
+    NSMutableURLRequest *request = [self makeJSONRequest:url withAuth:authString withOperation:@"PUT"];
+    
+    NSURLSessionDataTask *postDataTask =
+    [session dataTaskWithRequest:request
+               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                   if(error == nil)
+                   {
+                       // NSLog(@"Data = %@",[[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding]);
+                       // NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
+                       if ((long)[(NSHTTPURLResponse *)response statusCode] == 403)
+                       {
+                           NSLog(@"unauthorized");
+                           // TODO: relogin
+                       }
+                       else
+                       {
+                           NSLog(@"stop succeeded");
+                       }
+                   }
+               }];
+    [postDataTask resume];
+
 }
 
 - (void)startEntry:(Entry*)entry

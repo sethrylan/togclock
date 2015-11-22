@@ -8,9 +8,9 @@
 #import "NSDate+ISO8601.h"
 #import "LoginModalViewController.h"
 #import "JNKeychain.h"
+#import "NSDictionary+Additions.h"
 
 @implementation MainViewController
-
 
 - (void)viewDidLoad
 {
@@ -28,6 +28,18 @@
     // set starting titles
     [self.vdownStatusLabel setText:@"hold to select"];
     [self.vupStatusLabel setText:@"hold to select"];
+    
+    NSDictionary *vdownBounds = [[ButtonMaskView bounds] valueForKey:@"vdown"];
+    CGRect vdownProjectLabelFrame = CGRectMake(
+                                               [vdownBounds doubleForKey:@"left"] + 20, // x
+                                               [vdownBounds doubleForKey:@"top"] + 20, // y
+                                               170,  // width
+                                               20);  // height
+    
+    // create vdownProjectLabel
+    self.vdownProjectLabel = [self makeLabel:@"" withBounds:vdownProjectLabelFrame];
+    [self.view addSubview:self.vdownProjectLabel];
+    
     
     // register tap and long press gestures for button mask
     UITapGestureRecognizer *buttonMaskTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskTap:)];
@@ -62,6 +74,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UILabel*)makeLabel:(NSString*)text withBounds:(CGRect)bounds
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:bounds];
+    //    UIFont * customFont = [UIFont fontWithName:ProximaNovaSemibold size:12]; //custom font
+    //    NSString * text = [self fromSender];
+    //    CGSize labelSize = [text sizeWithFont:customFont constrainedToSize:CGSizeMake(380, 20) lineBreakMode:NSLineBreakByTruncatingTail];
+    label.text = text;
+    //    fromLabel.font = customFont;
+    label.numberOfLines = 1;
+    label.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    label.adjustsFontSizeToFitWidth = YES;
+    //    self.vdownProjectLabel.adjustsLetterSpacingToFitWidth = YES;
+    label.minimumScaleFactor = 10.0f/12.0f;
+    label.clipsToBounds = YES;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.autoresizingMask = UIViewAutoresizingNone;
+    return label;
 }
 
 - (void)buttonMaskTap:(UITapGestureRecognizer *)recognizer

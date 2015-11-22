@@ -5,9 +5,6 @@
 @property (strong, nonatomic) UIColor* vdownColor;
 @property (strong, nonatomic) UIColor* vupColor;
 
-@property (strong, nonatomic) NSDictionary* vdownBounds;
-@property (strong, nonatomic) NSDictionary* vupBounds;
-
 @property CGMutablePathRef vdownPath;
 @property CGMutablePathRef vupPath;
 
@@ -17,6 +14,8 @@
  * @return YES is the point is in the geometry space
  */
 + (BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path;
+
++ (NSDictionary*)bounds;
 
 + (UIColor*)unselectedColor;
 + (UIColor*)activeColor;

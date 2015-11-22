@@ -20,22 +20,27 @@
     return CGPathContainsPoint(path,nil,point,nil);
 }
 
-- (void)drawRect:(CGRect)rect
++ (NSDictionary*)bounds
 {
-    self.vupBounds =
+    NSDictionary *vupBounds =
     @{
-        @"bottom": @310,
-        @"right":  @485,
-        @"left":   @325
+      @"bottom": @310,
+      @"right":  @485,
+      @"left":   @325
     };
     
-    self.vdownBounds =
+    NSDictionary *vdownBounds =
     @{
-        @"top":    @10,
-        @"bottom": @150,
-        @"left":   @380
+      @"top":    @10,
+      @"bottom": @150,
+      @"left":   @0
     };
 
+    return @{@"vdown": vdownBounds, @"vup":vupBounds};
+}
+
+- (void)drawRect:(CGRect)rect
+{
     [self drawVdownButton:rect];
     [self drawVupButton:rect];
 }
@@ -46,11 +51,13 @@
     
     CGContextSetFillColorWithColor(context, [self.vupColor CGColor]);
     
+    NSDictionary *bounds = [[ButtonMaskView bounds] valueForKey:@"vup"];
+    
     self.vupPath = CGPathCreateMutable();
-    CGPathMoveToPoint(self.vupPath, nil,    [self.vupBounds doubleForKey:@"right"], 0);        // start point
-    CGPathAddLineToPoint(self.vupPath, nil, [self.vupBounds doubleForKey:@"right"], [self.vupBounds doubleForKey:@"bottom"]);   // down
-    CGPathAddLineToPoint(self.vupPath, nil, [self.vupBounds doubleForKey:@"left"], [self.vupBounds doubleForKey:@"bottom"]);   // left
-    CGPathAddLineToPoint(self.vupPath, nil, [self.vupBounds doubleForKey:@"left"], 150);   // up
+    CGPathMoveToPoint(self.vupPath, nil,    [bounds doubleForKey:@"right"], 0);        // start point
+    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"right"], [bounds doubleForKey:@"bottom"]);   // down
+    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], [bounds doubleForKey:@"bottom"]);   // left
+    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], 150);   // up
     CGPathAddLineToPoint(self.vupPath, nil, 455, 0);     // up and right
     CGContextAddPath(context, self.vupPath);             // close path
     CGContextFillPath(context);
@@ -71,12 +78,14 @@
     
     CGContextSetFillColorWithColor(context, [self.vdownColor CGColor]);
     
+    NSDictionary *bounds = [[ButtonMaskView bounds] valueForKey:@"vdown"];
+    
     self.vdownPath = CGPathCreateMutable();
     CGPathMoveToPoint(self.vdownPath, nil, 425, 0);       // start point
-    CGPathAddLineToPoint(self.vdownPath, nil, 295, [self.vdownBounds doubleForKey:@"bottom"]);  // down and to left
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, [self.vdownBounds doubleForKey:@"bottom"]);    // left across
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, [self.vdownBounds doubleForKey:@"top"]);     // up
-    CGPathAddLineToPoint(self.vdownPath, nil, [self.vdownBounds doubleForKey:@"left"], [self.vdownBounds doubleForKey:@"top"]);   // right
+    CGPathAddLineToPoint(self.vdownPath, nil, 295, [bounds doubleForKey:@"bottom"]);  // down and to left
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, [bounds doubleForKey:@"bottom"]);    // left across
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, [bounds doubleForKey:@"top"]);     // up
+    CGPathAddLineToPoint(self.vdownPath, nil, 385, [bounds doubleForKey:@"top"]);   // right
     CGPathAddLineToPoint(self.vdownPath, nil, 390, 0);    // up and right
     CGContextAddPath(context, self.vdownPath);            // close path
     CGContextFillPath(context);

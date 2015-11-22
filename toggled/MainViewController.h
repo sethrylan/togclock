@@ -26,4 +26,7 @@
 
 @property (strong, nonatomic) IBOutlet ButtonMaskView *buttonMaskView;
 
+@property (strong, nonatomic) IBOutlet UITableView *historyTable;
+
+
 @end

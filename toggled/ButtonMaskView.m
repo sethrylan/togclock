@@ -22,11 +22,12 @@
 
 + (NSDictionary*)bounds
 {
+    // angle should be 13/15
     NSDictionary *vupBounds =
     @{
       @"bottom": @310,
       @"right":  @485,
-      @"left":   @325
+      @"left":   @(13*23)
     };
     
     NSDictionary *vdownBounds =
@@ -57,7 +58,7 @@
     CGPathMoveToPoint(self.vupPath, nil,    [bounds doubleForKey:@"right"], 0);        // start point
     CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"right"], [bounds doubleForKey:@"bottom"]);   // down
     CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], [bounds doubleForKey:@"bottom"]);   // left
-    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], 150);   // up
+    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], 525 - (15 * 23));   // up   (455-left)/(165) must equal equal 13/15
     CGPathAddLineToPoint(self.vupPath, nil, 455, 0);     // up and right
     CGContextAddPath(context, self.vupPath);             // close path
     CGContextFillPath(context);
@@ -86,7 +87,7 @@
     CGPathAddLineToPoint(self.vdownPath, nil, 0, [bounds doubleForKey:@"bottom"]);    // left across
     CGPathAddLineToPoint(self.vdownPath, nil, 0, [bounds doubleForKey:@"top"]);     // up
     CGPathAddLineToPoint(self.vdownPath, nil, 385, [bounds doubleForKey:@"top"]);   // right
-    CGPathAddLineToPoint(self.vdownPath, nil, 390, 0);    // up and right
+    CGPathAddLineToPoint(self.vdownPath, nil, 395, 0);    // up and right
     CGContextAddPath(context, self.vdownPath);            // close path
     CGContextFillPath(context);
 }

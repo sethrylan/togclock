@@ -54,6 +54,10 @@
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6FX-oK-acr">
+                                <rect key="frame" x="10" y="172" width="295" height="140"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,6 +67,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="historyTable" destination="6FX-oK-acr" id="XTT-Bx-XId"/>
                         <outlet property="vdownDescriptionLabel" destination="CGM-bR-dyI" id="t3P-it-77p"/>
                         <outlet property="vdownStatusLabel" destination="dGl-Cd-6AQ" id="qgt-6v-FUA"/>
                         <outlet property="vupDescriptionLabel" destination="dMY-0g-Aw0" id="7GO-Wm-Fub"/>

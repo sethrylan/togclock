@@ -9,6 +9,7 @@
 #import "LoginModalViewController.h"
 #import "JNKeychain.h"
 #import "NSDictionary+Additions.h"
+#import "HistoryTableViewController.h"
 
 @implementation MainViewController
 
@@ -17,6 +18,12 @@
     [super viewDidLoad];
 
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    
+    HistoryTableViewController *historyTableViewController = [[HistoryTableViewController alloc] init];
+    historyTableViewController.view.frame = self.historyTable.bounds;
+    [self.historyTable addSubview:historyTableViewController.view];
+    [self addChildViewController:historyTableViewController];
+    [historyTableViewController didMoveToParentViewController:self];
     
     self.buttonMaskView = [[ButtonMaskView alloc] initWithFrame:CGRectMake(10,0,500,312)];
     [self.buttonMaskView setVdownColor:[ButtonMaskView unselectedColor]];

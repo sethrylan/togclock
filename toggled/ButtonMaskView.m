@@ -82,15 +82,15 @@
     CGContextFillPath(context);
 }
 
-- (void)setRGBFillColor:(BOOL)isRunning withContext:(CGContextRef)context
+- (void)setRGBFillColor:(BOOL)isActive withContext:(CGContextRef)context
 {
-    if (!isRunning)
+    if (isActive)
     {
-        CGContextSetFillColorWithColor(context, [[ButtonMaskView inactiveColor] CGColor]);
+        CGContextSetFillColorWithColor(context, [[ButtonMaskView activeColor] CGColor]);
     }
     else
     {
-        CGContextSetFillColorWithColor(context, [[ButtonMaskView activeColor] CGColor]);
+        CGContextSetFillColorWithColor(context, [[ButtonMaskView inactiveColor] CGColor]);
     }
 }
 

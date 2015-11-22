@@ -15,5 +15,8 @@
  */
 - (BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path;
 
+- (UIColor*)unselectedColor;
+- (UIColor*)activeColor;
+- (UIColor*)inactiveColor;
 
 @end

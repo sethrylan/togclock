@@ -71,12 +71,27 @@
 {
     if (!isRunning)
     {
-        CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.5); // green color, half transparent
+        CGContextSetFillColorWithColor(context, [[self inactiveColor] CGColor]);
     }
     else
     {
-        CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 0.5); // red color, half transparent
+        CGContextSetFillColorWithColor(context, [[self activeColor] CGColor]);
     }
+}
+
+- (UIColor*)unselectedColor
+{
+    return [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
+}
+
+- (UIColor*)activeColor
+{
+    return [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
+}
+
+- (UIColor*)inactiveColor
+{
+    return [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
 }
 
 @end

@@ -19,12 +19,10 @@
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
     self.buttonMaskView = [[ButtonMaskView alloc] initWithFrame:CGRectMake(10,0,500,312)];
-    [self.buttonMaskView setBackgroundColor:[UIColor whiteColor]];
+    [self.buttonMaskView setVdownRunning:NO];
+    [self.buttonMaskView setVupRunning:NO];
+    [self.buttonMaskView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.buttonMaskView];
-
-//    [self.buttonMaskView ];
-//    hex.strokeColor = [UIColor whiteColor];
-//    hex.fillColor = [UIColor blueColor];
     
     // set starting titles
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
@@ -119,12 +117,16 @@
         {
             NSLog(@"starting entry.");
             [self startEntry:self.vupEntry];
+            [self.buttonMaskView setVupRunning:YES];
+            [self.buttonMaskView setNeedsDisplay];
         }
         // if UIControlStateNormal then stop vupEntry
         else
         {
             NSLog(@"stopping entry.");
             [self stopEntry:self.vupEntry];
+            [self.buttonMaskView setVupRunning:NO];
+            [self.buttonMaskView setNeedsDisplay];
         }
     }
 }
@@ -149,12 +151,16 @@
         {
             NSLog(@"starting entry.");
             [self startEntry:self.vdownEntry];
+            [self.buttonMaskView setVdownRunning:YES];
+            [self.buttonMaskView setNeedsDisplay];
         }
         // if UIControlStateNormal then stop vdownEntry
         else
         {
             NSLog(@"stopping entry.");
             [self stopEntry:self.vdownEntry];
+            [self.buttonMaskView setVdownRunning:NO];
+            [self.buttonMaskView setNeedsDisplay];
         }
     }
 }
@@ -183,6 +189,8 @@
                        else
                        {
                            NSLog(@"stop succeeded");
+                           entry._running = false;
+                           // TODO: update entry with response data
                        }
                    }
                }];
@@ -240,6 +248,8 @@
                                                                                           error:nil];
                            long id = [[responseJson[@"data"] objectForKey:@"id"] longValue];
                            entry._id = id;
+                           entry._running = true;
+                           // TODO: update entry with response data
                        }
                    }
                }];
@@ -271,7 +281,7 @@
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
-        NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
+        NSLog(@"held at x=%f, y=%f", touchPoint.x, touchPoint.y);
         if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vupRect])
         {
             [self vupSelect:recognizer];

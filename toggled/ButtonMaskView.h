@@ -5,6 +5,9 @@
 @property CGRect vdownRect;
 @property CGRect vupRect;
 
+@property BOOL vdownRunning;
+@property BOOL vupRunning;
+
 /**
  * Returns YES is the passed point is in the geometry space
  * @param a point relative to the UIView containing the geometry

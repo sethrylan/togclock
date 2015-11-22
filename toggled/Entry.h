@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString *_stop;
 @property (nonatomic) long _duration;
 @property (strong, nonatomic) NSString *_createdWith;
+@property (nonatomic) BOOL _running;
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary withProjects:(NSArray*)projects;
 - (instancetype)initFromProject:(Project*)project;
 @end

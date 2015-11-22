@@ -24,12 +24,9 @@
 //    
 //}
 
--(BOOL)isPoint:(CGPoint)point insideOfRect:(CGRect)rect
+-(BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path
 {
-    if ( CGRectContainsPoint(rect,point))
-        return  YES;// inside
-    else
-        return  NO;// outside
+    return CGPathContainsPoint(path,nil,point,nil);
 }
 
 -(void)drawRect:(CGRect)rect
@@ -42,13 +39,20 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
-    CGContextStrokePath(context); // do actual stroking
+//    CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
+//    CGContextStrokePath(context); // do actual stroking
     
     [self setRGBFillColor:self.vupRunning withContext:context];
+    
+    self.vupPath = CGPathCreateMutable();
+    CGPathMoveToPoint(self.vupPath, nil, 490, 0);        // start point
+    CGPathAddLineToPoint(self.vupPath, nil, 490, 310);   // down
+    CGPathAddLineToPoint(self.vupPath, nil, 290, 310);   // left
+    CGPathAddLineToPoint(self.vupPath, nil, 290, 140);   // up
+    CGPathAddLineToPoint(self.vupPath, nil, 465, 0);     // up and right
+    CGContextAddPath(context, self.vupPath);             // close path
+    CGContextFillPath(context);
 
-    self.vupRect = CGRectMake(0, 100, 490, 80);
-    CGContextFillRect(context, self.vupRect); // a square at the bottom left-hand corner
 }
 
 -(void)drawVdownButton:(CGRect)rect
@@ -64,27 +68,23 @@
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-//    CGContextSetRGBStrokeColor(context, 1.0, 1.0, 0.0, 1.0); // yellow line
-//    CGContextBeginPath(context);
-//    CGContextMoveToPoint(context, 50.0, 50.0); //start point
-//    CGContextAddLineToPoint(context, 250.0, 100.0);
-//    CGContextAddLineToPoint(context, 250.0, 350.0);
-//    CGContextAddLineToPoint(context, 50.0, 350.0); // end path
-//    CGContextClosePath(context); // close path
-    
-    CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
-    CGContextStrokePath(context); // do actual stroking
-
     [self setRGBFillColor:self.vdownRunning withContext:context];
-
-    self.vdownRect = CGRectMake(0, 10, 425.0, 80.0);
-    CGContextFillRect(context, self.vdownRect); // a square at the bottom left-hand corner
-
-    // CGContextSetLineWidth(context, 2); // Choose for a unfilled triangle
-    // CGContextStrokePath(context);      // Choose for a unfilled triangle
-
- 
     
+    self.vdownPath = CGPathCreateMutable();
+    CGPathMoveToPoint(self.vdownPath, nil, 425, 0);       // start point
+    CGPathAddLineToPoint(self.vdownPath, nil, 350, 120);  // down and to left
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, 120);    // left across
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, 10);     // up
+    CGPathAddLineToPoint(self.vdownPath, nil, 400, 10);   // right
+    CGPathAddLineToPoint(self.vdownPath, nil, 405, 0);    // up and right
+    CGContextAddPath(context, self.vdownPath);            // close path
+    CGContextFillPath(context);
+    
+//    CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
+//    CGContextStrokePath(context); // do actual stroking
+
+//    self.vdownRect = CGRectMake(0, 10, 425.0, 80.0);
+//    CGContextFillRect(context, self.vdownRect); // a square at the bottom left-hand corner
 }
 
 - (void)setRGBFillColor:(BOOL)isRunning withContext:(CGContextRef)context

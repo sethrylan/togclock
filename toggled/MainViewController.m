@@ -70,11 +70,11 @@
     CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
     NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
 
-    if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vupRect])
+    if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
     {
         [self vupButtonUp:recognizer];
     }
-    if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vdownRect])
+    if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
     {
         [self vdownButtonUp:recognizer];
     }
@@ -272,11 +272,11 @@
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
         NSLog(@"held at x=%f, y=%f", touchPoint.x, touchPoint.y);
-        if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vupRect])
+        if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
         {
             [self vupSelect:recognizer];
         }
-        if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vdownRect])
+        if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
         {
             [self vdownSelect:recognizer];
         }

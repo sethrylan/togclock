@@ -17,7 +17,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // TODO: set username and password to saved values, if they exist
+    // set email and password to saved values, if they exist
+    NSString *email = [JNKeychain loadValueForKey:@"email"];
+    NSString *password = [JNKeychain loadValueForKey:@"password"];
+    
+    if (email)
+    {
+        [self.emailField setText:email];
+    }
+    
+    if (password)
+    {
+        [self.passwordField setText:password];
+    }
     
     self.view.backgroundColor = [UIColor clearColor];
 }
@@ -47,7 +59,7 @@
     return YES;
 }
 
-- (void)login:(NSString*) username withPassword:(NSString*)password onSuccess:(void (^)(NSData*))successBlock onFailure:(void (^)(NSError*))failureBlock
+- (void)login:(NSString*)email withPassword:(NSString*)password onSuccess:(void (^)(NSData*))successBlock onFailure:(void (^)(NSError*))failureBlock
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
@@ -57,7 +69,7 @@
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
     
-    NSString *authString = [NSString stringWithFormat:@"%@:%@", username, password];
+    NSString *authString = [NSString stringWithFormat:@"%@:%@", email, password];
     NSData *authData = [authString dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
     
@@ -86,9 +98,9 @@
     [postDataTask resume];
 }
 
-- (void)saveToKeychain:(NSString*)username withPassword:(NSString*)password withApiToken:(NSString*)apiToken
+- (void)saveToKeychain:(NSString*)email withPassword:(NSString*)password withApiToken:(NSString*)apiToken
 {
-    if ([JNKeychain saveValue:username forKey:@"username"]
+    if ([JNKeychain saveValue:email forKey:@"email"]
         && [JNKeychain saveValue:password forKey:@"password"]
         && [JNKeychain saveValue:apiToken forKey:@"apiToken"])
     {

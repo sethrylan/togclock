@@ -62,7 +62,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
-                                <rect key="frame" x="516" y="273" width="32" height="32"/>
+                                <rect key="frame" x="523" y="280" width="25" height="25"/>
                                 <state key="normal" image="menu"/>
                                 <connections>
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>
@@ -139,6 +139,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="32" height="32"/>
+        <image name="menu" width="25" height="25"/>
     </resources>
 </document>

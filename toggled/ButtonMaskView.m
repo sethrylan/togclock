@@ -15,9 +15,9 @@
 // http://stackoverflow.com/questions/1694529/allowing-interaction-with-a-uiview-under-another-uiview
 
 
-+ (BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path
++ (BOOL)isPoint:(CGPoint)point insidePath:(UIBezierPath*)path
 {
-    return CGPathContainsPoint(path,nil,point,nil);
+    return [path containsPoint:point];
 }
 
 + (NSDictionary*)bounds
@@ -54,14 +54,16 @@
     
     NSDictionary *bounds = [[ButtonMaskView bounds] valueForKey:@"vup"];
     
-    self.vupPath = CGPathCreateMutable();
-    CGPathMoveToPoint(self.vupPath, nil,    [bounds doubleForKey:@"right"], 0);        // start point
-    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"right"], [bounds doubleForKey:@"bottom"]);   // down
-    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], [bounds doubleForKey:@"bottom"]);   // left
-    CGPathAddLineToPoint(self.vupPath, nil, [bounds doubleForKey:@"left"], 525 - (15 * 23));   // up   (455-left)/(165) must equal equal 13/15
-    CGPathAddLineToPoint(self.vupPath, nil, 455, 0);     // up and right
-    CGContextAddPath(context, self.vupPath);             // close path
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, nil,    [bounds doubleForKey:@"right"], 0);        // start point
+    CGPathAddLineToPoint(path, nil, [bounds doubleForKey:@"right"], [bounds doubleForKey:@"bottom"]);   // down
+    CGPathAddLineToPoint(path, nil, [bounds doubleForKey:@"left"], [bounds doubleForKey:@"bottom"]);   // left
+    CGPathAddLineToPoint(path, nil, [bounds doubleForKey:@"left"], 525 - (15 * 23));   // up   (455-left)/(165) must equal equal 13/15
+    CGPathAddLineToPoint(path, nil, 455, 0);     // up and right
+    CGContextAddPath(context, path);             // close path
     CGContextFillPath(context);
+    self.vupPath = [UIBezierPath bezierPathWithCGPath:path];
+    CGPathRelease(path);
 }
 
 - (void)drawVdownButton:(CGRect)rect
@@ -81,15 +83,17 @@
     
     NSDictionary *bounds = [[ButtonMaskView bounds] valueForKey:@"vdown"];
     
-    self.vdownPath = CGPathCreateMutable();
-    CGPathMoveToPoint(self.vdownPath, nil, 425, 0);       // start point
-    CGPathAddLineToPoint(self.vdownPath, nil, 295, [bounds doubleForKey:@"bottom"]);  // down and to left
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, [bounds doubleForKey:@"bottom"]);    // left across
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, [bounds doubleForKey:@"top"]);     // up
-    CGPathAddLineToPoint(self.vdownPath, nil, 385, [bounds doubleForKey:@"top"]);   // right
-    CGPathAddLineToPoint(self.vdownPath, nil, 395, 0);    // up and right
-    CGContextAddPath(context, self.vdownPath);            // close path
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, nil, 425, 0);       // start point
+    CGPathAddLineToPoint(path, nil, 295, [bounds doubleForKey:@"bottom"]);  // down and to left
+    CGPathAddLineToPoint(path, nil, 0, [bounds doubleForKey:@"bottom"]);    // left across
+    CGPathAddLineToPoint(path, nil, 0, [bounds doubleForKey:@"top"]);     // up
+    CGPathAddLineToPoint(path, nil, 385, [bounds doubleForKey:@"top"]);   // right
+    CGPathAddLineToPoint(path, nil, 395, 0);    // up and right
+    CGContextAddPath(context, path);            // close path
     CGContextFillPath(context);
+    self.vdownPath = [UIBezierPath bezierPathWithCGPath:path];
+    CGPathRelease(path);
 }
 
 - (void)setRGBFillColor:(BOOL)isActive withContext:(CGContextRef)context

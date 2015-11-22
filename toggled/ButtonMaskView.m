@@ -2,7 +2,7 @@
 #import "ButtonMaskView.h"
 
 @implementation ButtonMaskView
-
+// Other drawing guides: 
 // stars: http://stackoverflow.com/questions/8445786/how-to-draw-stars-using-quartz-core/8446655#8446655
 // triangle: http://stackoverflow.com/questions/25578090/draw-triangle-ios
 // mix/max x/y: http://stackoverflow.com/questions/6697614/how-to-draw-a-triangle-programmatically
@@ -13,16 +13,6 @@
 
 // http://stackoverflow.com/questions/1694529/allowing-interaction-with-a-uiview-under-another-uiview
 
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    
-//    
-//}
-//
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    
-//}
 
 -(BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path
 {
@@ -39,9 +29,6 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-//    CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
-//    CGContextStrokePath(context); // do actual stroking
-    
     [self setRGBFillColor:self.vupRunning withContext:context];
     
     self.vupPath = CGPathCreateMutable();
@@ -52,7 +39,6 @@
     CGPathAddLineToPoint(self.vupPath, nil, 455, 0);     // up and right
     CGContextAddPath(context, self.vupPath);             // close path
     CGContextFillPath(context);
-
 }
 
 -(void)drawVdownButton:(CGRect)rect
@@ -79,12 +65,6 @@
     CGPathAddLineToPoint(self.vdownPath, nil, 390, 0);    // up and right
     CGContextAddPath(context, self.vdownPath);            // close path
     CGContextFillPath(context);
-    
-//    CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
-//    CGContextStrokePath(context); // do actual stroking
-
-//    self.vdownRect = CGRectMake(0, 10, 425.0, 80.0);
-//    CGContextFillRect(context, self.vdownRect); // a square at the bottom left-hand corner
 }
 
 - (void)setRGBFillColor:(BOOL)isRunning withContext:(CGContextRef)context
@@ -98,6 +78,5 @@
         CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 0.5); // red color, half transparent
     }
 }
-
 
 @end

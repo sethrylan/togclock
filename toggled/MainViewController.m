@@ -54,7 +54,6 @@
         // Volume Down Button Pressed
         [self vdownButtonUp:self];
     }];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,12 +72,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)vdownButtonDown:(id)sender {
-}
-
-- (IBAction)vupButtonDown:(id)sender {
 }
 
 - (void)buttonMaskTap:(UITapGestureRecognizer *)recognizer

@@ -21,7 +21,6 @@
                                 <rect key="frame" x="20" y="91" width="489" height="79"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="vupButtonDown:" destination="CZ4-MO-1fc" eventType="touchDown" id="30k-HK-w57"/>
                                     <action selector="vupButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="rcU-F5-uVM"/>
                                 </connections>
                             </button>

@@ -1,5 +1,6 @@
 
 #import "ButtonMaskView.h"
+#import "NSDictionary+Additions.h"
 
 @implementation ButtonMaskView
 // Other drawing guides: 
@@ -21,6 +22,20 @@
 
 - (void)drawRect:(CGRect)rect
 {
+    self.vupBounds =
+    @{
+        @"bottom": @310,
+        @"right":  @485,
+        @"left":   @325
+    };
+    
+    self.vdownBounds =
+    @{
+        @"top":    @10,
+        @"bottom": @150,
+        @"left":   @380
+    };
+
     [self drawVdownButton:rect];
     [self drawVupButton:rect];
 }
@@ -32,10 +47,10 @@
     CGContextSetFillColorWithColor(context, [self.vupColor CGColor]);
     
     self.vupPath = CGPathCreateMutable();
-    CGPathMoveToPoint(self.vupPath, nil, 485, 0);        // start point
-    CGPathAddLineToPoint(self.vupPath, nil, 485, 310);   // down
-    CGPathAddLineToPoint(self.vupPath, nil, 325, 310);   // left
-    CGPathAddLineToPoint(self.vupPath, nil, 325, 150);   // up
+    CGPathMoveToPoint(self.vupPath, nil,    [self.vupBounds doubleForKey:@"right"], 0);        // start point
+    CGPathAddLineToPoint(self.vupPath, nil, [self.vupBounds doubleForKey:@"right"], [self.vupBounds doubleForKey:@"bottom"]);   // down
+    CGPathAddLineToPoint(self.vupPath, nil, [self.vupBounds doubleForKey:@"left"], [self.vupBounds doubleForKey:@"bottom"]);   // left
+    CGPathAddLineToPoint(self.vupPath, nil, [self.vupBounds doubleForKey:@"left"], 150);   // up
     CGPathAddLineToPoint(self.vupPath, nil, 455, 0);     // up and right
     CGContextAddPath(context, self.vupPath);             // close path
     CGContextFillPath(context);
@@ -58,10 +73,10 @@
     
     self.vdownPath = CGPathCreateMutable();
     CGPathMoveToPoint(self.vdownPath, nil, 425, 0);       // start point
-    CGPathAddLineToPoint(self.vdownPath, nil, 295, 150);  // down and to left
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, 150);    // left across
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, 10);     // up
-    CGPathAddLineToPoint(self.vdownPath, nil, 380, 10);   // right
+    CGPathAddLineToPoint(self.vdownPath, nil, 295, [self.vdownBounds doubleForKey:@"bottom"]);  // down and to left
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, [self.vdownBounds doubleForKey:@"bottom"]);    // left across
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, [self.vdownBounds doubleForKey:@"top"]);     // up
+    CGPathAddLineToPoint(self.vdownPath, nil, [self.vdownBounds doubleForKey:@"left"], [self.vdownBounds doubleForKey:@"top"]);   // right
     CGPathAddLineToPoint(self.vdownPath, nil, 390, 0);    // up and right
     CGContextAddPath(context, self.vdownPath);            // close path
     CGContextFillPath(context);

@@ -14,6 +14,7 @@
 		542990151C00FC9200D8ED24 /* NSDate+ISO8601.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990141C00FC9200D8ED24 /* NSDate+ISO8601.m */; };
 		542990201C012B0F00D8ED24 /* ButtonMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */; };
 		542990231C016EC500D8ED24 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990221C016EC500D8ED24 /* MZTimerLabel.m */; };
+		542990291C02252900D8ED24 /* NSDictionary+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990281C02252900D8ED24 /* NSDictionary+Additions.m */; };
 		546FEE211BCF35A800FC960B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE201BCF35A800FC960B /* Foundation.framework */; };
 		546FEE231BCF35A800FC960B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE221BCF35A800FC960B /* CoreGraphics.framework */; };
 		546FEE251BCF35A800FC960B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE241BCF35A800FC960B /* UIKit.framework */; };
@@ -60,6 +61,8 @@
 		5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonMaskView.m; sourceTree = "<group>"; };
 		542990211C016EC500D8ED24 /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
 		542990221C016EC500D8ED24 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
+		542990271C0224DE00D8ED24 /* NSDictionary+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Additions.h"; sourceTree = "<group>"; };
+		542990281C02252900D8ED24 /* NSDictionary+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Additions.m"; sourceTree = "<group>"; };
 		546FEE1D1BCF35A800FC960B /* toggled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toggled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FEE201BCF35A800FC960B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		546FEE221BCF35A800FC960B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -231,6 +234,8 @@
 				54E1ECA01BF9A72300123FDA /* SelectTableViewController.m */,
 				5429901E1C012B0400D8ED24 /* ButtonMaskView.h */,
 				5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */,
+				542990271C0224DE00D8ED24 /* NSDictionary+Additions.h */,
+				542990281C02252900D8ED24 /* NSDictionary+Additions.m */,
 			);
 			path = toggled;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				542990071BFD72FB00D8ED24 /* Entry.m in Sources */,
 				542990101BFEB22B00D8ED24 /* JNKeychain.m in Sources */,
 				54E1EC9A1BF9A37B00123FDA /* MJPopupBackgroundView.m in Sources */,
+				542990291C02252900D8ED24 /* NSDictionary+Additions.m in Sources */,
 				546FEE2D1BCF35A800FC960B /* main.m in Sources */,
 				54E1ECA11BF9A72300123FDA /* SelectTableViewController.m in Sources */,
 				542990051BFD72D600D8ED24 /* Project.m in Sources */,

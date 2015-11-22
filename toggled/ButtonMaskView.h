@@ -2,8 +2,11 @@
 
 @interface ButtonMaskView : UIView
 
-@property UIColor* vdownColor;
-@property UIColor* vupColor;
+@property (strong, nonatomic) UIColor* vdownColor;
+@property (strong, nonatomic) UIColor* vupColor;
+
+@property (strong, nonatomic) NSDictionary* vdownBounds;
+@property (strong, nonatomic) NSDictionary* vupBounds;
 
 @property CGMutablePathRef vdownPath;
 @property CGMutablePathRef vupPath;

@@ -37,7 +37,7 @@
     CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
     CGContextStrokePath(context); // do actual stroking
     CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.5); // green color, half transparent
-    CGContextFillRect(context, CGRectMake(5, 90, 490, 80)); // a square at the bottom left-hand corner
+    CGContextFillRect(context, CGRectMake(0, 100, 490, 80)); // a square at the bottom left-hand corner
 }
 
 -(void)drawVdownButton:(CGRect)rect
@@ -64,7 +64,7 @@
     CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
     CGContextStrokePath(context); // do actual stroking
     CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.5); // green color, half transparent
-    CGContextFillRect(context, CGRectMake(5, 5, 425.0, 80.0)); // a square at the bottom left-hand corner
+    CGContextFillRect(context, CGRectMake(0, 10, 425.0, 80.0)); // a square at the bottom left-hand corner
 
     // CGContextSetLineWidth(context, 2); // Choose for a unfilled triangle
     // CGContextStrokePath(context);      // Choose for a unfilled triangle

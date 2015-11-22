@@ -116,8 +116,13 @@
     cell.textLabel.text = text;
     cell.textLabel.font = [UIFont systemFontOfSize:14.0];
 
+    NSString *description = [[self.previousEntries objectAtIndex:indexPath.row] _description];
+    if (!description)
+    {
+        description = @"";
+    }
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%-42s %@",
-                                 [[[self.previousEntries objectAtIndex:indexPath.row] _description] cStringUsingEncoding:NSASCIIStringEncoding],
+                                 [description cStringUsingEncoding:NSASCIIStringEncoding],
                                  [[self.previousEntries objectAtIndex:indexPath.row] _at]
                                  ];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];

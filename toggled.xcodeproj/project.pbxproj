@@ -157,6 +157,27 @@
 			name = MZTimerLabel;
 			sourceTree = "<group>";
 		};
+		542990251C0170B900D8ED24 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				54E1ECA61BFBBB0E00123FDA /* Project.h */,
+				542990041BFD72D600D8ED24 /* Project.m */,
+				54E1ECA71BFBBB2300123FDA /* Entry.h */,
+				542990061BFD72FB00D8ED24 /* Entry.m */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		542990261C0170D100D8ED24 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				546FEE3E1BCF35A800FC960B /* Images.xcassets */,
+				546FEE321BCF35A800FC960B /* Main_iPhone.storyboard */,
+				542990081BFE640200D8ED24 /* LoginModal.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		546FEE141BCF35A800FC960B = {
 			isa = PBXGroup;
 			children = (
@@ -191,28 +212,23 @@
 		546FEE261BCF35A800FC960B /* toggled */ = {
 			isa = PBXGroup;
 			children = (
+				542990251C0170B900D8ED24 /* Domain */,
 				542990111BFEB24C00D8ED24 /* JNKeychain */,
 				54E1EC9D1BF9A3E500123FDA /* JPSVolumButtonHanlder */,
 				54E1EC9C1BF9A38000123FDA /* MJPopupViewController */,
 				542990241C01707F00D8ED24 /* MZTimerLabel */,
 				542990161C00FC9F00D8ED24 /* NSDate+ISO8601 */,
 				5429900A1BFEAEF600D8ED24 /* UIButton+BackgroundColor */,
+				542990261C0170D100D8ED24 /* Resources */,
 				546FEE271BCF35A800FC960B /* Supporting Files */,
-				546FEE3E1BCF35A800FC960B /* Images.xcassets */,
 				546FEE2F1BCF35A800FC960B /* AppDelegate.h */,
 				546FEE301BCF35A800FC960B /* AppDelegate.m */,
-				546FEE321BCF35A800FC960B /* Main_iPhone.storyboard */,
-				542990081BFE640200D8ED24 /* LoginModal.xib */,
 				546FEE381BCF35A800FC960B /* MainViewController.h */,
 				546FEE391BCF35A800FC960B /* MainViewController.m */,
 				546FEE3B1BCF35A800FC960B /* LoginModalViewController.h */,
 				546FEE3C1BCF35A800FC960B /* LoginModalViewController.m */,
 				54E1EC9F1BF9A6DC00123FDA /* SelectTableViewController.h */,
 				54E1ECA01BF9A72300123FDA /* SelectTableViewController.m */,
-				54E1ECA61BFBBB0E00123FDA /* Project.h */,
-				542990041BFD72D600D8ED24 /* Project.m */,
-				54E1ECA71BFBBB2300123FDA /* Entry.h */,
-				542990061BFD72FB00D8ED24 /* Entry.m */,
 				5429901E1C012B0400D8ED24 /* ButtonMaskView.h */,
 				5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */,
 			);

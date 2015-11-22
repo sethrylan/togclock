@@ -45,14 +45,8 @@
     CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
     CGContextStrokePath(context); // do actual stroking
     
-    if (!self.vupRunning)
-    {
-        CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.5); // green color, half transparent
-    }
-    else
-    {
-        CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 0.5); // red color, half transparent
-    }
+    [self setRGBFillColor:self.vupRunning withContext:context];
+
     self.vupRect = CGRectMake(0, 100, 490, 80);
     CGContextFillRect(context, self.vupRect); // a square at the bottom left-hand corner
 }
@@ -81,14 +75,7 @@
     CGContextSetLineWidth(context, 8.0); // this is set from now on until you explicitly change it
     CGContextStrokePath(context); // do actual stroking
 
-    if (!self.vdownRunning)
-    {
-        CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.5); // green color, half transparent
-    }
-    else
-    {
-        CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 0.5); // red color, half transparent
-    }
+    [self setRGBFillColor:self.vdownRunning withContext:context];
 
     self.vdownRect = CGRectMake(0, 10, 425.0, 80.0);
     CGContextFillRect(context, self.vdownRect); // a square at the bottom left-hand corner
@@ -98,6 +85,18 @@
 
  
     
+}
+
+- (void)setRGBFillColor:(BOOL)isRunning withContext:(CGContextRef)context
+{
+    if (!isRunning)
+    {
+        CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 0.5); // green color, half transparent
+    }
+    else
+    {
+        CGContextSetRGBFillColor(context, 1.0, 0.0, 0.0, 0.5); // red color, half transparent
+    }
 }
 
 

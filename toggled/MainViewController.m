@@ -75,8 +75,10 @@
 - (IBAction)vupButtonDown:(id)sender {
 }
 
-- (void)buttonMaskTap:(UILongPressGestureRecognizer *)recognizer
+- (void)buttonMaskTap:(UITapGestureRecognizer *)recognizer
 {
+    CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
+    NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
     NSLog(@"tap!");
 }
 

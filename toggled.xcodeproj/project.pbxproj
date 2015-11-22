@@ -184,6 +184,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		542990301C027ED000D8ED24 /* NSDictionary+Additions */ = {
+			isa = PBXGroup;
+			children = (
+				542990271C0224DE00D8ED24 /* NSDictionary+Additions.h */,
+				542990281C02252900D8ED24 /* NSDictionary+Additions.m */,
+			);
+			name = "NSDictionary+Additions";
+			sourceTree = "<group>";
+		};
 		546FEE141BCF35A800FC960B = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +233,7 @@
 				54E1EC9C1BF9A38000123FDA /* MJPopupViewController */,
 				542990241C01707F00D8ED24 /* MZTimerLabel */,
 				542990161C00FC9F00D8ED24 /* NSDate+ISO8601 */,
+				542990301C027ED000D8ED24 /* NSDictionary+Additions */,
 				5429900A1BFEAEF600D8ED24 /* UIButton+BackgroundColor */,
 				542990261C0170D100D8ED24 /* Resources */,
 				546FEE271BCF35A800FC960B /* Supporting Files */,
@@ -237,8 +247,6 @@
 				54E1ECA01BF9A72300123FDA /* SelectTableViewController.m */,
 				5429901E1C012B0400D8ED24 /* ButtonMaskView.h */,
 				5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */,
-				542990271C0224DE00D8ED24 /* NSDictionary+Additions.h */,
-				542990281C02252900D8ED24 /* NSDictionary+Additions.m */,
 				5429902D1C026AAF00D8ED24 /* HistoryTableViewController.h */,
 				5429902E1C026AAF00D8ED24 /* HistoryTableViewController.m */,
 			);

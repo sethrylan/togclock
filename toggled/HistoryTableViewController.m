@@ -13,16 +13,16 @@
 {
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,45,320,200) style:UITableViewStylePlain];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-//    tableView.delegate = self;
     tableView.dataSource = self;
     [tableView reloadData];
     self.tableView = tableView;
-//    self.sections = [[NSArray alloc] init];
-//    self.projects = [[NSMutableArray alloc] init];
     self.previousEntries = [[NSMutableArray alloc] init];
-//    self.sections = @[self.projects, self.previousEntries];
     [self getRelatedData];
-    //    NSLog(@"self.entry = %@", self.entry);
+}
+
+// turn off header without needing to reload table
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 0.0;
 }
 
 - (void)viewDidLoad
@@ -117,31 +117,13 @@
     return @"Previous Entries";
 }
 
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-    //    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-    //    oldCell.accessoryType = UITableViewCellAccessoryNone;
-    
-    // add check mark
-    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
-    newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-//    if (self.callback) {
-//        switch (indexPath.section) {
-//            case 0:
-//                self.callback(@{@"entry" : [[Entry alloc] initFromProject:[self.projects objectAtIndex:indexPath.row]]});
-//                break;
-//            default:
-//                self.callback(@{@"entry" : [self.previousEntries objectAtIndex:indexPath.row]});
-//                break;
-//        }
-//    }
-}
-
-//- (IBAction)closePopup:(id)sender
-//{
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(tableDismissed:withEntry:)]) {
-//        [self.delegate tableDismissed:self withEntry:@{@"project" : @"someproject"}];
-//    }
+//- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+//    //    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
+//    //    oldCell.accessoryType = UITableViewCellAccessoryNone;
+//    
+//    // add check mark
+//    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+//    newCell.accessoryType = UITableViewCellAccessoryCheckmark;
 //}
 
 @end

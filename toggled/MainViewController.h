@@ -13,9 +13,6 @@
 
 @property JPSVolumeButtonHandler *volumeButtonHandler;
 
-@property (strong, nonatomic) IBOutlet UIButton *vupButton;
-@property (strong, nonatomic) IBOutlet UIButton *vdownButton;
-
 @property (strong, nonatomic) IBOutlet UILabel *vdownProjectLabel;
 @property (strong, nonatomic) IBOutlet UILabel *vdownDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *vupProjectLabel;

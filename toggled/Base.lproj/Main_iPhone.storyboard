@@ -17,21 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0nI-O5-VWJ" userLabel="vup">
-                                <rect key="frame" x="20" y="91" width="489" height="79"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="vupButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="rcU-F5-uVM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-DZ-7yd" userLabel="vdown">
-                                <rect key="frame" x="20" y="4" width="425" height="79"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="vdownButtonDown:" destination="CZ4-MO-1fc" eventType="touchDown" id="zcf-x1-2T7"/>
-                                    <action selector="vdownButtonUp:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="gl6-uN-W4d"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCz-X1-eMG" userLabel="vdown project label">
                                 <rect key="frame" x="99" y="5" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -72,10 +57,8 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="vdownButton" destination="nrs-DZ-7yd" id="sYR-Yd-uRJ"/>
                         <outlet property="vdownDescriptionLabel" destination="CGM-bR-dyI" id="t3P-it-77p"/>
                         <outlet property="vdownProjectLabel" destination="VCz-X1-eMG" id="eJW-tR-HkP"/>
-                        <outlet property="vupButton" destination="0nI-O5-VWJ" id="ffn-w1-Nfn"/>
                         <outlet property="vupDescriptionLabel" destination="dMY-0g-Aw0" id="7GO-Wm-Fub"/>
                         <outlet property="vupProjectLabel" destination="KhA-G5-APe" id="PFa-g9-Wvb"/>
                     </connections>

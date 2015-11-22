@@ -25,8 +25,7 @@
     [self.view addSubview:self.buttonMaskView];
     
     // set starting titles
-    [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
-    [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];
+    // TODO
     
     // register tap and long press gestures for button mask
     UITapGestureRecognizer *buttonMaskTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskTap:)];
@@ -35,17 +34,6 @@
     [buttonMaskSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
     [self.buttonMaskView addGestureRecognizer:buttonMaskSelectButtonLongPress];
 
-    // register long press gestures
-    UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
-    [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
-    [self.vupButton addGestureRecognizer:vupSelectButtonLongPress];
-//    [self.vupButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
-
-    UILongPressGestureRecognizer *vdownSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vdownSelect:)];
-    [vdownSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 250ms of press
-    [self.vdownButton addGestureRecognizer:vdownSelectButtonLongPress];
-//    [self.vdownButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
-    
     // register volume button presses
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
         // Volume Up Button Pressed
@@ -95,30 +83,25 @@
     //    self.vupButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
     if (self.vupEntry) {
-        self.vupButton.selected = !self.vupButton.selected;
-        [self.vupButton setTitle:@"start" forState:UIControlStateNormal];
-        [self.vupButton setTitle:@"stop" forState:UIControlStateSelected];
+        // update title
+        // TODO
+//        [self.vupButton setTitle:@"start" forState:UIControlStateNormal];
+//        [self.vupButton setTitle:@"stop" forState:UIControlStateSelected];
         
-        if (self.vupButton.selected) {
-            [self.vupButton setBackgroundColor:[UIColor redColor]];
-        } else {
-            [self.vupButton setBackgroundColor:[UIColor greenColor]];
-        }
-        
-        // if UIControlStateSelected then start vupEntry (implicitly creates)
-        if (self.vupButton.isSelected)
-        {
-            NSLog(@"starting entry.");
-            [self startEntry:self.vupEntry];
-            [self.buttonMaskView setVupRunning:YES];
-            [self.buttonMaskView setNeedsDisplay];
-        }
-        // if UIControlStateNormal then stop vupEntry
-        else
+        // if running then stop vupEntry
+        if (self.vupEntry._running)
         {
             NSLog(@"stopping entry.");
             [self stopEntry:self.vupEntry];
             [self.buttonMaskView setVupRunning:NO];
+            [self.buttonMaskView setNeedsDisplay];
+        }
+        // if not running then start vupEntry (implicitly creates)
+        else
+        {
+            NSLog(@"starting entry.");
+            [self startEntry:self.vupEntry];
+            [self.buttonMaskView setVupRunning:YES];
             [self.buttonMaskView setNeedsDisplay];
         }
     }
@@ -129,31 +112,28 @@
     NSLog(@"VDOWN!");
     
     if (self.vdownEntry) {
-        self.vdownButton.selected = !self.vdownButton.selected;
-        [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
-        [self.vdownButton setTitle:@"stop" forState:UIControlStateSelected];
+        // update title
+        // TODO
+//        [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+//        [self.vdownButton setTitle:@"stop" forState:UIControlStateSelected];
         
-        if (self.vdownButton.selected) {
-            [self.vdownButton setBackgroundColor:[UIColor redColor]];
-        } else {
-            [self.vdownButton setBackgroundColor:[UIColor greenColor]];
-        }
-        
-        // if UIControlStateSelected then start vdownEntry (implicitly creates)
-        if (self.vdownButton.isSelected)
-        {
-            NSLog(@"starting entry.");
-            [self startEntry:self.vdownEntry];
-            [self.buttonMaskView setVdownRunning:YES];
-            [self.buttonMaskView setNeedsDisplay];
-        }
-        // if UIControlStateNormal then stop vdownEntry
-        else
+        // if running then stop vdownEntry
+        if (self.vdownEntry._running)
         {
             NSLog(@"stopping entry.");
             [self stopEntry:self.vdownEntry];
             [self.buttonMaskView setVdownRunning:NO];
             [self.buttonMaskView setNeedsDisplay];
+
+        }
+        // if not running then start vdownEntry (implicitly creates)
+        else
+        {
+            NSLog(@"starting entry.");
+            [self startEntry:self.vdownEntry];
+            [self.buttonMaskView setVdownRunning:YES];
+            [self.buttonMaskView setNeedsDisplay];
+
         }
     }
 }
@@ -360,11 +340,13 @@
     // update vup/vdown buttons
     [self.vupProjectLabel setText:[self.vupEntry _projectName]];
     [self.vupDescriptionLabel setText:[self.vupEntry _description]];
-    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+    // TODO: update titble
+//    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
     
     [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
     [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
-    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+    // TODO: update title
+//    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
 }
 
 @end

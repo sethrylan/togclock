@@ -105,25 +105,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:CellIdentifier];
     }
-
+    
+    // see http://stackoverflow.com/questions/494562/setting-custom-uitableviewcells-height for adjust row sizes
+//    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 30.0f);
+    cell.textLabel.font = [UIFont systemFontOfSize:10.0];
     cell.textLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _projectName];
     cell.detailTextLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _description];
     return cell;
 }
-
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"Previous Entries";
-}
-
-//- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-//    //    UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:self.selectedIndexPath];
-//    //    oldCell.accessoryType = UITableViewCellAccessoryNone;
-//    
-//    // add check mark
-//    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
-//    newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-//}
 
 @end

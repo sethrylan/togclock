@@ -33,12 +33,12 @@
     UILongPressGestureRecognizer *vupSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vupSelect:)];
     [vupSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
     [self.vupButton addGestureRecognizer:vupSelectButtonLongPress];
-    [self.vupButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.vupButton addTarget:self action:@selector(vupSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
 
     UILongPressGestureRecognizer *vdownSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(vdownSelect:)];
     [vdownSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 250ms of press
     [self.vdownButton addGestureRecognizer:vdownSelectButtonLongPress];
-    [self.vdownButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.vdownButton addTarget:self action:@selector(vdownSelectButtonTouchUp:) forControlEvents:UIControlEventTouchUpInside];
     
     // register volume button presses
     self.volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
@@ -77,9 +77,17 @@
 
 - (void)buttonMaskTap:(UITapGestureRecognizer *)recognizer
 {
+    // See also using a delegate : http://stackoverflow.com/questions/16618109/how-to-get-uitouch-location-from-uigesturerecognizer
     CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
     NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
-    NSLog(@"tap!");
+    if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vupRect])
+    {
+        [self vupButtonUp:recognizer];
+    }
+    if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vdownRect])
+    {
+        [self vdownButtonUp:recognizer];
+    }
 }
 
 - (IBAction)vupButtonUp:(id)sender
@@ -254,17 +262,16 @@
 - (void)buttonMaskSelect:(UILongPressGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"held");
-        
-//        SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-//        selectTableViewController.delegate = self;
-//        selectTableViewController.callback = ^(NSDictionary *returnValue) {
-//            self.vupEntry = [returnValue objectForKey:@"entry"];
-//        };
-//        
-//        selectTableViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-//        selectTableViewController.navigationController.navigationBarHidden = NO;
-//        [self presentPopupViewController:selectTableViewController animationType:MJPopupViewAnimationFade];
+        CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
+        NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
+        if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vupRect])
+        {
+            [self vupSelect:recognizer];
+        }
+        if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vdownRect])
+        {
+            [self vdownSelect:recognizer];
+        }
     }
 }
 
@@ -301,13 +308,13 @@
     }
 }
 
-- (IBAction)vupSelectButtonTouchUp:(id)sender {
-    NSLog(@"SELECT!");
-}
-
-- (IBAction)vdownSelectButtonTouchUp:(id)sender {
-    NSLog(@"SELECT!");
-}
+//- (IBAction)vupSelectButtonTouchUp:(id)sender {
+//    NSLog(@"SELECT!");
+//}
+//
+//- (IBAction)vdownSelectButtonTouchUp:(id)sender {
+//    NSLog(@"SELECT!");
+//}
 
 // Also set in the plist files, which usually override the VC methods
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations

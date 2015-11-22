@@ -7,6 +7,7 @@
 @property (strong, nonatomic) NSString *_projectName; // convenience property; constructed
 @property (nonatomic) long _uid;
 @property (nonatomic) long _id;
+@property (strong, nonatomic) NSString *_at;
 @property (strong, nonatomic) NSString *_description;
 @property (nonatomic) long _pid;
 @property (strong, nonatomic) NSString *_start;

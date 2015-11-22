@@ -108,10 +108,29 @@
     
     // see http://stackoverflow.com/questions/494562/setting-custom-uitableviewcells-height for adjust row sizes
 //    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 30.0f);
-    cell.textLabel.font = [UIFont systemFontOfSize:10.0];
-    cell.textLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _projectName];
-    cell.detailTextLabel.text = [[self.previousEntries objectAtIndex:indexPath.row] _description];
+    NSString *time = [self formatTime:[[self.previousEntries objectAtIndex:indexPath.row] _duration]];
+    NSString *text = [NSString stringWithFormat:@"%-42s %@",
+                      [[[self.previousEntries objectAtIndex:indexPath.row] _projectName] cStringUsingEncoding:NSASCIIStringEncoding],
+                      time
+                      ];
+    cell.textLabel.text = text;
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%-42s %@",
+                                 [[[self.previousEntries objectAtIndex:indexPath.row] _description] cStringUsingEncoding:NSASCIIStringEncoding],
+                                 [[self.previousEntries objectAtIndex:indexPath.row] _at]
+                                 ];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
     return cell;
+}
+
+- (NSString *)formatTime:(long)totalSeconds
+{
+    int seconds = totalSeconds % 60;
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = (int)(totalSeconds / 3600);
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
 }
 
 @end

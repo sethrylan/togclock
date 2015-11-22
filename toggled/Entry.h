@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *_createdWith;
 @property (nonatomic) BOOL _active;
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary withProjects:(NSArray*)projects;
+- (void)setValues:(NSDictionary*)dictionary withProjects:(NSArray*)projects;
 - (instancetype)initFromProject:(Project*)project;
 @end

@@ -17,14 +17,20 @@
 
 - (instancetype)initWithDictionary:(NSDictionary*)dictionary withProjects:(NSArray*)projects {
     if (self = [super init]) {
-        [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
-            //            NSLog(@"%@ => %@", key, value);
-            NSString *propertyName = [NSString stringWithFormat:@"_%@", key];
-            if ([self respondsToSelector:NSSelectorFromString(propertyName)]) {
-                [self setValue:value forKey:propertyName];
-            }
-        }];
+        [self setValues:dictionary withProjects:projects];
     }
+    
+    return self;
+}
+
+- (void)setValues:(NSDictionary*)dictionary withProjects:(NSArray*)projects {
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
+        //            NSLog(@"%@ => %@", key, value);
+        NSString *propertyName = [NSString stringWithFormat:@"_%@", key];
+        if ([self respondsToSelector:NSSelectorFromString(propertyName)]) {
+            [self setValue:value forKey:propertyName];
+        }
+    }];
     
     // add project info
     if (self._pid && projects && [projects count] > 0) {
@@ -40,8 +46,7 @@
     // set active if duration is <0
     // "If the time entry is currently running, the duration attribute contains a negative value, denoting the start of the time entry in seconds since epoch (Jan 1 1970)"
     self._active = (self._duration < 0);
-    
-    return self;
 }
+
 
 @end

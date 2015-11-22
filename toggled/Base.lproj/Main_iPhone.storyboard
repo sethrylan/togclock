@@ -18,13 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCz-X1-eMG" userLabel="vdown project label">
-                                <rect key="frame" x="99" y="5" width="129" height="21"/>
+                                <rect key="frame" x="43" y="20" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGM-bR-dyI" userLabel="vdown description label">
-                                <rect key="frame" x="310" y="5" width="135" height="21"/>
+                                <rect key="frame" x="254" y="20" width="135" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGl-Cd-6AQ" userLabel="vdown status label">
+                                <rect key="frame" x="171" y="49" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,6 +54,12 @@
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymy-ws-JU0" userLabel="vup status label">
+                                <rect key="frame" x="188" y="120" width="176" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -59,13 +71,15 @@
                     <connections>
                         <outlet property="vdownDescriptionLabel" destination="CGM-bR-dyI" id="t3P-it-77p"/>
                         <outlet property="vdownProjectLabel" destination="VCz-X1-eMG" id="eJW-tR-HkP"/>
+                        <outlet property="vdownStatusLabel" destination="dGl-Cd-6AQ" id="qgt-6v-FUA"/>
                         <outlet property="vupDescriptionLabel" destination="dMY-0g-Aw0" id="7GO-Wm-Fub"/>
                         <outlet property="vupProjectLabel" destination="KhA-G5-APe" id="PFa-g9-Wvb"/>
+                        <outlet property="vupStatusLabel" destination="ymy-ws-JU0" id="jvj-pA-HAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-158" y="97"/>
+            <point key="canvasLocation" x="-170" y="105"/>
         </scene>
         <!--Login Modal View Controller-->
         <scene sceneID="Zj1-D5-iw8">

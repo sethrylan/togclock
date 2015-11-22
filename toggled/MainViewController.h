@@ -15,8 +15,10 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *vdownProjectLabel;
 @property (strong, nonatomic) IBOutlet UILabel *vdownDescriptionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *vdownStatusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *vupProjectLabel;
 @property (strong, nonatomic) IBOutlet UILabel *vupDescriptionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *vupStatusLabel;
 
 @property (strong, nonatomic) Entry *vupEntry;
 @property (strong, nonatomic) Entry *vdownEntry;

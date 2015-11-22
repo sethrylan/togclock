@@ -23,9 +23,11 @@
     [self.buttonMaskView setVupRunning:NO];
     [self.buttonMaskView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.buttonMaskView];
-    
+    self.buttonMaskView.layer.zPosition = -1;
+
     // set starting titles
-    // TODO
+    [self.vdownStatusLabel setText:@"hold to select"];
+    [self.vupStatusLabel setText:@"hold to select"];
     
     // register tap and long press gestures for button mask
     UITapGestureRecognizer *buttonMaskTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskTap:)];
@@ -84,9 +86,7 @@
 
     if (self.vupEntry) {
         // update title
-        // TODO
-//        [self.vupButton setTitle:@"start" forState:UIControlStateNormal];
-//        [self.vupButton setTitle:@"stop" forState:UIControlStateSelected];
+        [self.vupStatusLabel setText:@"start"];
         
         // if running then stop vupEntry
         if (self.vupEntry._running)
@@ -113,9 +113,7 @@
     
     if (self.vdownEntry) {
         // update title
-        // TODO
-//        [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
-//        [self.vdownButton setTitle:@"stop" forState:UIControlStateSelected];
+        [self.vdownStatusLabel setText:@"start"];
         
         // if running then stop vdownEntry
         if (self.vdownEntry._running)
@@ -299,14 +297,6 @@
     }
 }
 
-//- (IBAction)vupSelectButtonTouchUp:(id)sender {
-//    NSLog(@"SELECT!");
-//}
-//
-//- (IBAction)vdownSelectButtonTouchUp:(id)sender {
-//    NSLog(@"SELECT!");
-//}
-
 // Also set in the plist files, which usually override the VC methods
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
@@ -337,16 +327,14 @@
     NSLog(@"self.vupEntry = %@", self.vupEntry);
     NSLog(@"self.vdownEntry = %@", self.vdownEntry);
     
-    // update vup/vdown buttons
+    // update vup/vdown labels
     [self.vupProjectLabel setText:[self.vupEntry _projectName]];
     [self.vupDescriptionLabel setText:[self.vupEntry _description]];
-    // TODO: update titble
-//    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+    [self.vupStatusLabel setText:@"start"];
     
     [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
     [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
-    // TODO: update title
-//    [self.vdownButton setTitle:@"start" forState:UIControlStateNormal];
+    [self.vdownStatusLabel setText:@"start"];
 }
 
 @end

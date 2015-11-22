@@ -14,22 +14,22 @@
 // http://stackoverflow.com/questions/1694529/allowing-interaction-with-a-uiview-under-another-uiview
 
 
--(BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path
++ (BOOL)isPoint:(CGPoint)point insidePath:(CGPathRef)path
 {
     return CGPathContainsPoint(path,nil,point,nil);
 }
 
--(void)drawRect:(CGRect)rect
+- (void)drawRect:(CGRect)rect
 {
     [self drawVdownButton:rect];
     [self drawVupButton:rect];
 }
 
--(void)drawVupButton:(CGRect)rect
+- (void)drawVupButton:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    [self setRGBFillColor:self.vupRunning withContext:context];
+    CGContextSetFillColorWithColor(context, [self.vupColor CGColor]);
     
     self.vupPath = CGPathCreateMutable();
     CGPathMoveToPoint(self.vupPath, nil, 485, 0);        // start point
@@ -41,7 +41,7 @@
     CGContextFillPath(context);
 }
 
--(void)drawVdownButton:(CGRect)rect
+- (void)drawVdownButton:(CGRect)rect
 {
     // 480x320 4s
     // 568x320 5/5s
@@ -54,7 +54,7 @@
 
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    [self setRGBFillColor:self.vdownRunning withContext:context];
+    CGContextSetFillColorWithColor(context, [self.vdownColor CGColor]);
     
     self.vdownPath = CGPathCreateMutable();
     CGPathMoveToPoint(self.vdownPath, nil, 425, 0);       // start point
@@ -71,25 +71,25 @@
 {
     if (!isRunning)
     {
-        CGContextSetFillColorWithColor(context, [[self inactiveColor] CGColor]);
+        CGContextSetFillColorWithColor(context, [[ButtonMaskView inactiveColor] CGColor]);
     }
     else
     {
-        CGContextSetFillColorWithColor(context, [[self activeColor] CGColor]);
+        CGContextSetFillColorWithColor(context, [[ButtonMaskView activeColor] CGColor]);
     }
 }
 
-- (UIColor*)unselectedColor
++ (UIColor*)unselectedColor
 {
-    return [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.5];
+    return [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
 }
 
-- (UIColor*)activeColor
++ (UIColor*)activeColor
 {
     return [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
 }
 
-- (UIColor*)inactiveColor
++ (UIColor*)inactiveColor
 {
     return [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
 }

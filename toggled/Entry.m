@@ -39,7 +39,7 @@
     
     // set active if duration is <0
     // "If the time entry is currently running, the duration attribute contains a negative value, denoting the start of the time entry in seconds since epoch (Jan 1 1970)"
-    self._running = (self._duration < 0);
+    self._active = (self._duration < 0);
     
     return self;
 }

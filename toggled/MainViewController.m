@@ -19,8 +19,8 @@
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
     self.buttonMaskView = [[ButtonMaskView alloc] initWithFrame:CGRectMake(10,0,500,312)];
-    [self.buttonMaskView setVdownRunning:NO];
-    [self.buttonMaskView setVupRunning:NO];
+    [self.buttonMaskView setVdownColor:[ButtonMaskView unselectedColor]];
+    [self.buttonMaskView setVupColor:[ButtonMaskView unselectedColor]];
     [self.buttonMaskView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:self.buttonMaskView];
     self.buttonMaskView.layer.zPosition = -1;
@@ -70,11 +70,11 @@
     CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
     NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
 
-    if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
+    if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
     {
         [self vupButtonUp:recognizer];
     }
-    if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
+    if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
     {
         [self vdownButtonUp:recognizer];
     }
@@ -88,11 +88,11 @@
     if (self.vupEntry) {
         
         // if running then stop vupEntry
-        if (self.vupEntry._running)
+        if (self.vupEntry._active)
         {
             NSLog(@"stopping entry.");
             [self stopEntry:self.vupEntry];
-            [self.buttonMaskView setVupRunning:NO];
+            [self.buttonMaskView setVupColor:[ButtonMaskView inactiveColor]];
             [self.buttonMaskView setNeedsDisplay];
             
             [self.vupStatusLabel reset];
@@ -104,14 +104,14 @@
         else
         {
             // if vup entry is running, stop it before starting vdown
-            if (self.vdownEntry._running)
+            if (self.vdownEntry._active)
             {
                 [self vdownButtonUp:sender];
             }
 
             NSLog(@"starting entry.");
             [self startEntry:self.vupEntry];
-            [self.buttonMaskView setVupRunning:YES];
+            [self.buttonMaskView setVupColor:[ButtonMaskView activeColor]];
             [self.buttonMaskView setNeedsDisplay];
             [self.vupStatusLabel start];
         }
@@ -125,11 +125,11 @@
     if (self.vdownEntry) {
         
         // if running then stop vdownEntry
-        if (self.vdownEntry._running)
+        if (self.vdownEntry._active)
         {
             NSLog(@"stopping entry.");
             [self stopEntry:self.vdownEntry];
-            [self.buttonMaskView setVdownRunning:NO];
+            [self.buttonMaskView setVdownColor:[ButtonMaskView inactiveColor]];
             [self.buttonMaskView setNeedsDisplay];
             
             [self.vdownStatusLabel reset];
@@ -141,13 +141,13 @@
         else
         {
             // if vdown entry is running, stop it before starting vup
-            if (self.vupEntry._running)
+            if (self.vupEntry._active)
             {
                 [self vupButtonUp:sender];
             }
             NSLog(@"starting entry.");
             [self startEntry:self.vdownEntry];
-            [self.buttonMaskView setVdownRunning:YES];
+            [self.buttonMaskView setVdownColor:[ButtonMaskView activeColor]];
             [self.buttonMaskView setNeedsDisplay];
             [self.vdownStatusLabel start];
 
@@ -179,7 +179,7 @@
                        else
                        {
                            NSLog(@"stop succeeded");
-                           entry._running = false;
+                           entry._active = false;
                            // TODO: update entry with response data
                        }
                    }
@@ -238,7 +238,7 @@
                                                                                           error:nil];
                            long id = [[responseJson[@"data"] objectForKey:@"id"] longValue];
                            entry._id = id;
-                           entry._running = true;
+                           entry._active = true;
                            // TODO: update entry with response data
                        }
                    }
@@ -272,11 +272,11 @@
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
         NSLog(@"held at x=%f, y=%f", touchPoint.x, touchPoint.y);
-        if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
+        if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
         {
             [self vupSelect:recognizer];
         }
-        if ([self.buttonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
+        if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
         {
             [self vdownSelect:recognizer];
         }
@@ -289,7 +289,7 @@
         NSLog(@"held");
         
         // stop entry if running
-        if (self.vupEntry._running)
+        if (self.vupEntry._active)
         {
             [self vupButtonUp:recognizer];
         }
@@ -312,7 +312,7 @@
         NSLog(@"held");
         
         // stop entry if running
-        if (self.vdownEntry._running)
+        if (self.vdownEntry._active)
         {
             [self vdownButtonUp:recognizer];
         }

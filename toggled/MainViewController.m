@@ -95,6 +95,11 @@
             [self stopEntry:self.vupEntry];
             [self.buttonMaskView setVupRunning:NO];
             [self.buttonMaskView setNeedsDisplay];
+            
+            [self.vupStatusLabel reset];
+            [self.vupStatusLabel pause];
+            [self.vupStatusLabel setText:@"start"];
+            
         }
         // if not running then start vupEntry (implicitly creates)
         else
@@ -103,6 +108,7 @@
             [self startEntry:self.vupEntry];
             [self.buttonMaskView setVupRunning:YES];
             [self.buttonMaskView setNeedsDisplay];
+            [self.vupStatusLabel start];
         }
     }
 }
@@ -122,6 +128,10 @@
             [self stopEntry:self.vdownEntry];
             [self.buttonMaskView setVdownRunning:NO];
             [self.buttonMaskView setNeedsDisplay];
+            
+            [self.vdownStatusLabel reset];
+            [self.vdownStatusLabel pause];
+            [self.vdownStatusLabel setText:@"start"];
 
         }
         // if not running then start vdownEntry (implicitly creates)
@@ -131,6 +141,7 @@
             [self startEntry:self.vdownEntry];
             [self.buttonMaskView setVdownRunning:YES];
             [self.buttonMaskView setNeedsDisplay];
+            [self.vdownStatusLabel start];
 
         }
     }

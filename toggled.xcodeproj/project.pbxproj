@@ -13,6 +13,7 @@
 		542990101BFEB22B00D8ED24 /* JNKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5429900F1BFEB22B00D8ED24 /* JNKeychain.m */; };
 		542990151C00FC9200D8ED24 /* NSDate+ISO8601.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990141C00FC9200D8ED24 /* NSDate+ISO8601.m */; };
 		542990201C012B0F00D8ED24 /* ButtonMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */; };
+		542990231C016EC500D8ED24 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 542990221C016EC500D8ED24 /* MZTimerLabel.m */; };
 		546FEE211BCF35A800FC960B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE201BCF35A800FC960B /* Foundation.framework */; };
 		546FEE231BCF35A800FC960B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE221BCF35A800FC960B /* CoreGraphics.framework */; };
 		546FEE251BCF35A800FC960B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE241BCF35A800FC960B /* UIKit.framework */; };
@@ -57,6 +58,8 @@
 		542990141C00FC9200D8ED24 /* NSDate+ISO8601.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601.m"; sourceTree = "<group>"; };
 		5429901E1C012B0400D8ED24 /* ButtonMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonMaskView.h; sourceTree = "<group>"; };
 		5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonMaskView.m; sourceTree = "<group>"; };
+		542990211C016EC500D8ED24 /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
+		542990221C016EC500D8ED24 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
 		546FEE1D1BCF35A800FC960B /* toggled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toggled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FEE201BCF35A800FC960B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		546FEE221BCF35A800FC960B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,15 @@
 			name = "NSDate+ISO8601";
 			sourceTree = "<group>";
 		};
+		542990241C01707F00D8ED24 /* MZTimerLabel */ = {
+			isa = PBXGroup;
+			children = (
+				542990211C016EC500D8ED24 /* MZTimerLabel.h */,
+				542990221C016EC500D8ED24 /* MZTimerLabel.m */,
+			);
+			name = MZTimerLabel;
+			sourceTree = "<group>";
+		};
 		546FEE141BCF35A800FC960B = {
 			isa = PBXGroup;
 			children = (
@@ -179,11 +191,12 @@
 		546FEE261BCF35A800FC960B /* toggled */ = {
 			isa = PBXGroup;
 			children = (
-				542990161C00FC9F00D8ED24 /* NSDate+ISO8601 */,
+				542990111BFEB24C00D8ED24 /* JNKeychain */,
 				54E1EC9D1BF9A3E500123FDA /* JPSVolumButtonHanlder */,
 				54E1EC9C1BF9A38000123FDA /* MJPopupViewController */,
+				542990241C01707F00D8ED24 /* MZTimerLabel */,
+				542990161C00FC9F00D8ED24 /* NSDate+ISO8601 */,
 				5429900A1BFEAEF600D8ED24 /* UIButton+BackgroundColor */,
-				542990111BFEB24C00D8ED24 /* JNKeychain */,
 				546FEE271BCF35A800FC960B /* Supporting Files */,
 				546FEE3E1BCF35A800FC960B /* Images.xcassets */,
 				546FEE2F1BCF35A800FC960B /* AppDelegate.h */,
@@ -367,6 +380,7 @@
 				54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */,
 				546FEE3D1BCF35A800FC960B /* LoginModalViewController.m in Sources */,
 				546FEE311BCF35A800FC960B /* AppDelegate.m in Sources */,
+				542990231C016EC500D8ED24 /* MZTimerLabel.m in Sources */,
 				546FEE3A1BCF35A800FC960B /* MainViewController.m in Sources */,
 				542990151C00FC9200D8ED24 /* NSDate+ISO8601.m in Sources */,
 				5471F6CA1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */,

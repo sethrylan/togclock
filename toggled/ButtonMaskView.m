@@ -33,9 +33,9 @@
     
     self.vupPath = CGPathCreateMutable();
     CGPathMoveToPoint(self.vupPath, nil, 485, 0);        // start point
-    CGPathAddLineToPoint(self.vupPath, nil, 490, 310);   // down
-    CGPathAddLineToPoint(self.vupPath, nil, 320, 310);   // left
-    CGPathAddLineToPoint(self.vupPath, nil, 320, 165);   // up
+    CGPathAddLineToPoint(self.vupPath, nil, 485, 310);   // down
+    CGPathAddLineToPoint(self.vupPath, nil, 325, 310);   // left
+    CGPathAddLineToPoint(self.vupPath, nil, 325, 150);   // up
     CGPathAddLineToPoint(self.vupPath, nil, 455, 0);     // up and right
     CGContextAddPath(context, self.vupPath);             // close path
     CGContextFillPath(context);
@@ -58,8 +58,8 @@
     
     self.vdownPath = CGPathCreateMutable();
     CGPathMoveToPoint(self.vdownPath, nil, 425, 0);       // start point
-    CGPathAddLineToPoint(self.vdownPath, nil, 315, 140);  // down and to left
-    CGPathAddLineToPoint(self.vdownPath, nil, 0, 140);    // left across
+    CGPathAddLineToPoint(self.vdownPath, nil, 295, 150);  // down and to left
+    CGPathAddLineToPoint(self.vdownPath, nil, 0, 150);    // left across
     CGPathAddLineToPoint(self.vdownPath, nil, 0, 10);     // up
     CGPathAddLineToPoint(self.vdownPath, nil, 380, 10);   // right
     CGPathAddLineToPoint(self.vdownPath, nil, 390, 0);    // up and right

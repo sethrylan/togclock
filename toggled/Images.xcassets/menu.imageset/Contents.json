@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Menu-100.png",
+      "filename" : "Menu-32.png",
       "scale" : "1x"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Menu-102.png",
+      "filename" : "Menu-512.png",
       "scale" : "3x"
     }
   ],

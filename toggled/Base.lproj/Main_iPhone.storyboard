@@ -61,10 +61,9 @@
                                 <rect key="frame" x="8" y="0.0" width="501" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
-                                <rect key="frame" x="518" y="278" width="30" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="login"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
+                                <rect key="frame" x="516" y="273" width="32" height="32"/>
+                                <state key="normal" image="menu"/>
                                 <connections>
                                     <segue destination="i7W-2u-o9g" kind="modal" modalTransitionStyle="crossDissolve" id="g81-g5-r8P"/>
                                 </connections>
@@ -72,8 +71,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CSY-uu-A94" firstAttribute="top" secondItem="5mv-z8-y3X" secondAttribute="bottom" constant="15" id="bYN-Pz-q2B"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5mv-z8-y3X" secondAttribute="trailing" id="qEe-5I-wRA"/>
+                            <constraint firstItem="CSY-uu-A94" firstAttribute="top" secondItem="5mv-z8-y3X" secondAttribute="bottom" constant="15" id="Nso-kq-07U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5mv-z8-y3X" secondAttribute="trailing" id="SZ6-bI-hkY"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -139,4 +138,7 @@
             <point key="canvasLocation" x="-72" y="641"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="32" height="32"/>
+    </resources>
 </document>

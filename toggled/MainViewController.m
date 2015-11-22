@@ -18,6 +18,14 @@
 
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
+    self.buttonMaskView = [[ButtonMaskView alloc] initWithFrame:CGRectMake(10,0,500,312)];
+    [self.buttonMaskView setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:self.buttonMaskView];
+
+//    [self.buttonMaskView ];
+//    hex.strokeColor = [UIColor whiteColor];
+//    hex.fillColor = [UIColor blueColor];
+    
     // set starting titles
     [self.vupButton setTitle:@"hold to select" forState:UIControlStateNormal];
     [self.vdownButton setTitle:@"hold to select" forState:UIControlStateNormal];

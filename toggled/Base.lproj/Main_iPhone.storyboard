@@ -57,11 +57,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gyr-mB-OlE" customClass="ButtonMaskView">
-                                <rect key="frame" x="10" y="0.0" width="501" height="312"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mv-z8-y3X" userLabel="login">
                                 <rect key="frame" x="523" y="280" width="25" height="25"/>
                                 <state key="normal" image="menu"/>
                                 <connections>
@@ -77,7 +73,6 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="buttonMaskView" destination="Gyr-mB-OlE" id="R0S-U5-UNw"/>
                         <outlet property="vdownButton" destination="nrs-DZ-7yd" id="sYR-Yd-uRJ"/>
                         <outlet property="vdownDescriptionLabel" destination="CGM-bR-dyI" id="t3P-it-77p"/>
                         <outlet property="vdownProjectLabel" destination="VCz-X1-eMG" id="eJW-tR-HkP"/>

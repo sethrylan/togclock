@@ -33,7 +33,7 @@
     UITapGestureRecognizer *buttonMaskTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskTap:)];
     [self.buttonMaskView addGestureRecognizer:buttonMaskTap];
     UILongPressGestureRecognizer *buttonMaskSelectButtonLongPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(buttonMaskSelect:)];
-    [buttonMaskSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 2250ms of press
+    [buttonMaskSelectButtonLongPress setMinimumPressDuration:0.25]; // triggers the action after 250ms of press
     [self.buttonMaskView addGestureRecognizer:buttonMaskSelectButtonLongPress];
 
     // register volume button presses
@@ -69,6 +69,7 @@
     // See also using a delegate : http://stackoverflow.com/questions/16618109/how-to-get-uitouch-location-from-uigesturerecognizer
     CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
     NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
+
     if ([self.buttonMaskView isPoint:touchPoint insideOfRect:self.buttonMaskView.vupRect])
     {
         [self vupButtonUp:recognizer];
@@ -85,8 +86,6 @@
     //    self.vupButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
     if (self.vupEntry) {
-        // update title
-        [self.vupStatusLabel setText:@"start"];
         
         // if running then stop vupEntry
         if (self.vupEntry._running)
@@ -104,6 +103,12 @@
         // if not running then start vupEntry (implicitly creates)
         else
         {
+            // if vup entry is running, stop it before starting vdown
+            if (self.vdownEntry._running)
+            {
+                [self vdownButtonUp:sender];
+            }
+
             NSLog(@"starting entry.");
             [self startEntry:self.vupEntry];
             [self.buttonMaskView setVupRunning:YES];
@@ -118,8 +123,6 @@
     NSLog(@"VDOWN!");
     
     if (self.vdownEntry) {
-        // update title
-        [self.vdownStatusLabel setText:@"start"];
         
         // if running then stop vdownEntry
         if (self.vdownEntry._running)
@@ -137,6 +140,11 @@
         // if not running then start vdownEntry (implicitly creates)
         else
         {
+            // if vdown entry is running, stop it before starting vup
+            if (self.vupEntry._running)
+            {
+                [self vupButtonUp:sender];
+            }
             NSLog(@"starting entry.");
             [self startEntry:self.vdownEntry];
             [self.buttonMaskView setVdownRunning:YES];
@@ -280,6 +288,12 @@
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"held");
         
+        // stop entry if running
+        if (self.vupEntry._running)
+        {
+            [self vupButtonUp:recognizer];
+        }
+        
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;
         selectTableViewController.callback = ^(NSDictionary *returnValue) {
@@ -296,6 +310,12 @@
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         NSLog(@"held");
+        
+        // stop entry if running
+        if (self.vdownEntry._running)
+        {
+            [self vdownButtonUp:recognizer];
+        }
         
         SelectTableViewController *selectTableViewController = [[SelectTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
         selectTableViewController.delegate = self;

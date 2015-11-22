@@ -391,14 +391,20 @@
     NSLog(@"self.vupEntry = %@", self.vupEntry);
     NSLog(@"self.vdownEntry = %@", self.vdownEntry);
     
-    // update vup/vdown labels
-    [self.vupProjectLabel setText:[self.vupEntry _projectName]];
-    [self.vupDescriptionLabel setText:[self.vupEntry _description]];
-    [self.vupStatusLabel setText:@"start"];
-    
-    [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
-    [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
-    [self.vdownStatusLabel setText:@"start"];
+    // update vdown/vup labels
+    if (self.vdownEntry)
+    {
+        [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
+        [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
+        [self.vdownStatusLabel setText:@"start"];
+    }
+
+    if (self.vupEntry)
+    {
+        [self.vupProjectLabel setText:[self.vupEntry _projectName]];
+        [self.vupDescriptionLabel setText:[self.vupEntry _description]];
+        [self.vupStatusLabel setText:@"start"];
+    }
 }
 
 @end

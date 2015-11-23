@@ -8,6 +8,7 @@
 #import "JNKeychain.h"
 #import "NSDate+ISO8601.h"
 #import "NSDate+DateTools.h"
+#import "Utils.h"
 
 @implementation HistoryTableViewController
 
@@ -19,7 +20,7 @@
     [tableView reloadData];
     self.tableView = tableView;
     self.previousEntries = [[NSMutableArray alloc] init];
-    [self getLatestEntries];
+    [self getRelatedData];
 }
 
 // turn off header without needing to reload table
@@ -32,7 +33,19 @@
     [super viewDidLoad];
 }
 
--(void)getLatestEntries
+- (NSArray*)getLatestEntries:(NSArray*)entries withLimit:(long)limit
+{
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"_at" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [entries sortedArrayUsingDescriptors:sortDescriptors];
+    if (limit > [entries count])
+    {
+        limit = [entries count];
+    }
+    return [sortedArray subarrayWithRange:NSMakeRange(0, limit)];
+}
+
+- (void)getRelatedData
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
@@ -70,6 +83,8 @@
                 Entry *entry = [[Entry alloc] initWithDictionary:entryJson withProjects:projects];
                 [self.previousEntries addObject:entry];
             }
+            
+            self.previousEntries = [[self getLatestEntries:self.previousEntries withLimit:3] mutableCopy];
             
             [self.tableView reloadData];
         }

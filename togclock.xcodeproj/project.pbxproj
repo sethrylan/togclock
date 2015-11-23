@@ -30,7 +30,7 @@
 		546FEE471BCF35A800FC960B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE201BCF35A800FC960B /* Foundation.framework */; };
 		546FEE481BCF35A800FC960B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 546FEE241BCF35A800FC960B /* UIKit.framework */; };
 		546FEE501BCF35A800FC960B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 546FEE4E1BCF35A800FC960B /* InfoPlist.strings */; };
-		546FEE521BCF35A800FC960B /* toggledTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 546FEE511BCF35A800FC960B /* toggledTests.m */; };
+		546FEE521BCF35A800FC960B /* togclockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 546FEE511BCF35A800FC960B /* togclockTests.m */; };
 		5471F6CA1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */; };
 		5471F6CB1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */; };
 		54829EEB1BF81E0800F93A86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54829EEA1BF81E0800F93A86 /* Security.framework */; };
@@ -75,14 +75,14 @@
 		542990281C02252900D8ED24 /* NSDictionary+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Additions.m"; sourceTree = "<group>"; };
 		5429902D1C026AAF00D8ED24 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
 		5429902E1C026AAF00D8ED24 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
-		546FEE1D1BCF35A800FC960B /* toggled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toggled.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		546FEE1D1BCF35A800FC960B /* togclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = togclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FEE201BCF35A800FC960B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		546FEE221BCF35A800FC960B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		546FEE241BCF35A800FC960B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		546FEE281BCF35A800FC960B /* toggled-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "toggled-Info.plist"; path = "../toggled-Info.plist"; sourceTree = "<group>"; };
+		546FEE281BCF35A800FC960B /* togclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "togclock-Info.plist"; path = "../togclock-Info.plist"; sourceTree = "<group>"; };
 		546FEE2A1BCF35A800FC960B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		546FEE2C1BCF35A800FC960B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		546FEE2E1BCF35A800FC960B /* toggled-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "toggled-Prefix.pch"; sourceTree = "<group>"; };
+		546FEE2E1BCF35A800FC960B /* togclock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "togclock-Prefix.pch"; sourceTree = "<group>"; };
 		546FEE2F1BCF35A800FC960B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		546FEE301BCF35A800FC960B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		546FEE331BCF35A800FC960B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -91,11 +91,11 @@
 		546FEE3B1BCF35A800FC960B /* LoginModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModalViewController.h; sourceTree = "<group>"; };
 		546FEE3C1BCF35A800FC960B /* LoginModalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginModalViewController.m; sourceTree = "<group>"; };
 		546FEE3E1BCF35A800FC960B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		546FEE441BCF35A800FC960B /* toggledTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = toggledTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		546FEE441BCF35A800FC960B /* togclock.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = togclock.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FEE451BCF35A800FC960B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		546FEE4D1BCF35A800FC960B /* toggledTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "toggledTests-Info.plist"; sourceTree = "<group>"; };
+		546FEE4D1BCF35A800FC960B /* togclockTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "togclockTests-Info.plist"; sourceTree = "<group>"; };
 		546FEE4F1BCF35A800FC960B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		546FEE511BCF35A800FC960B /* toggledTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = toggledTests.m; sourceTree = "<group>"; };
+		546FEE511BCF35A800FC960B /* togclockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = togclockTests.m; sourceTree = "<group>"; };
 		5471F6C81BD453F800DB74C8 /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
 		5471F6C91BD453F800DB74C8 /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
 		54829EEA1BF81E0800F93A86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -223,8 +223,8 @@
 		546FEE141BCF35A800FC960B = {
 			isa = PBXGroup;
 			children = (
-				546FEE261BCF35A800FC960B /* toggled */,
-				546FEE4B1BCF35A800FC960B /* toggledTests */,
+				546FEE261BCF35A800FC960B /* togclock */,
+				546FEE4B1BCF35A800FC960B /* togclockTests */,
 				546FEE1F1BCF35A800FC960B /* Frameworks */,
 				546FEE1E1BCF35A800FC960B /* Products */,
 			);
@@ -233,8 +233,8 @@
 		546FEE1E1BCF35A800FC960B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				546FEE1D1BCF35A800FC960B /* toggled.app */,
-				546FEE441BCF35A800FC960B /* toggledTests.xctest */,
+				546FEE1D1BCF35A800FC960B /* togclock.app */,
+				546FEE441BCF35A800FC960B /* togclock.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		546FEE261BCF35A800FC960B /* toggled */ = {
+		546FEE261BCF35A800FC960B /* togclock */ = {
 			isa = PBXGroup;
 			children = (
 				542990251C0170B900D8ED24 /* Domain */,
@@ -280,6 +280,7 @@
 				54BB51DB1C02931F00A391C1 /* Utils.h */,
 				54BB51DC1C02932B00A391C1 /* Utils.m */,
 			);
+			name = togclock;
 			path = toggled;
 			sourceTree = "<group>";
 		};
@@ -288,24 +289,25 @@
 			children = (
 				546FEE291BCF35A800FC960B /* InfoPlist.strings */,
 				546FEE2C1BCF35A800FC960B /* main.m */,
-				546FEE2E1BCF35A800FC960B /* toggled-Prefix.pch */,
+				546FEE2E1BCF35A800FC960B /* togclock-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		546FEE4B1BCF35A800FC960B /* toggledTests */ = {
+		546FEE4B1BCF35A800FC960B /* togclockTests */ = {
 			isa = PBXGroup;
 			children = (
-				546FEE511BCF35A800FC960B /* toggledTests.m */,
+				546FEE511BCF35A800FC960B /* togclockTests.m */,
 				546FEE4C1BCF35A800FC960B /* Supporting Files */,
 			);
+			name = togclockTests;
 			path = toggledTests;
 			sourceTree = "<group>";
 		};
 		546FEE4C1BCF35A800FC960B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				546FEE4D1BCF35A800FC960B /* toggledTests-Info.plist */,
+				546FEE4D1BCF35A800FC960B /* togclockTests-Info.plist */,
 				546FEE4E1BCF35A800FC960B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -314,7 +316,7 @@
 		54BB51C21C028E6A00A391C1 /* DateTools */ = {
 			isa = PBXGroup;
 			children = (
-				546FEE281BCF35A800FC960B /* toggled-Info.plist */,
+				546FEE281BCF35A800FC960B /* togclock-Info.plist */,
 				54BB51C31C028E6A00A391C1 /* DateTools.bundle */,
 				54BB51C41C028E6A00A391C1 /* DateTools.h */,
 				54BB51C51C028E6A00A391C1 /* DTConstants.h */,
@@ -358,9 +360,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		546FEE1C1BCF35A800FC960B /* toggled */ = {
+		546FEE1C1BCF35A800FC960B /* togclock */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 546FEE551BCF35A800FC960B /* Build configuration list for PBXNativeTarget "toggled" */;
+			buildConfigurationList = 546FEE551BCF35A800FC960B /* Build configuration list for PBXNativeTarget "togclock" */;
 			buildPhases = (
 				546FEE191BCF35A800FC960B /* Sources */,
 				546FEE1A1BCF35A800FC960B /* Frameworks */,
@@ -370,14 +372,14 @@
 			);
 			dependencies = (
 			);
-			name = toggled;
+			name = togclock;
 			productName = toggled;
-			productReference = 546FEE1D1BCF35A800FC960B /* toggled.app */;
+			productReference = 546FEE1D1BCF35A800FC960B /* togclock.app */;
 			productType = "com.apple.product-type.application";
 		};
-		546FEE431BCF35A800FC960B /* toggledTests */ = {
+		546FEE431BCF35A800FC960B /* togclockTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 546FEE581BCF35A800FC960B /* Build configuration list for PBXNativeTarget "toggledTests" */;
+			buildConfigurationList = 546FEE581BCF35A800FC960B /* Build configuration list for PBXNativeTarget "togclockTests" */;
 			buildPhases = (
 				546FEE401BCF35A800FC960B /* Sources */,
 				546FEE411BCF35A800FC960B /* Frameworks */,
@@ -388,9 +390,9 @@
 			dependencies = (
 				546FEE4A1BCF35A800FC960B /* PBXTargetDependency */,
 			);
-			name = toggledTests;
+			name = togclockTests;
 			productName = toggledTests;
-			productReference = 546FEE441BCF35A800FC960B /* toggledTests.xctest */;
+			productReference = 546FEE441BCF35A800FC960B /* togclock.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -411,7 +413,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 546FEE181BCF35A800FC960B /* Build configuration list for PBXProject "toggled" */;
+			buildConfigurationList = 546FEE181BCF35A800FC960B /* Build configuration list for PBXProject "togclock" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -424,8 +426,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				546FEE1C1BCF35A800FC960B /* toggled */,
-				546FEE431BCF35A800FC960B /* toggledTests */,
+				546FEE1C1BCF35A800FC960B /* togclock */,
+				546FEE431BCF35A800FC960B /* togclockTests */,
 			);
 		};
 /* End PBXProject section */
@@ -491,7 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5471F6CB1BD453F800DB74C8 /* JPSVolumeButtonHandler.m in Sources */,
-				546FEE521BCF35A800FC960B /* toggledTests.m in Sources */,
+				546FEE521BCF35A800FC960B /* togclockTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +502,7 @@
 /* Begin PBXTargetDependency section */
 		546FEE4A1BCF35A800FC960B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 546FEE1C1BCF35A800FC960B /* toggled */;
+			target = 546FEE1C1BCF35A800FC960B /* togclock */;
 			targetProxy = 546FEE491BCF35A800FC960B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -614,10 +616,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "toggled/toggled-Prefix.pch";
-				INFOPLIST_FILE = "toggled/toggled-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.lenition.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "toggled/togclock-Prefix.pch";
+				INFOPLIST_FILE = "toggled/togclock-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lenition.togclock;
+				PRODUCT_NAME = togclock;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -632,10 +634,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "toggled/toggled-Prefix.pch";
-				INFOPLIST_FILE = "toggled/toggled-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.lenition.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "toggled/togclock-Prefix.pch";
+				INFOPLIST_FILE = "toggled/togclock-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lenition.togclock;
+				PRODUCT_NAME = togclock;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -652,15 +654,15 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "toggled/toggled-Prefix.pch";
+				GCC_PREFIX_HEADER = "toggled/togclock-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "toggledTests/toggledTests-Info.plist";
+				INFOPLIST_FILE = "toggledTests/togclockTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lenition.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toggled.app/toggled";
+				PRODUCT_NAME = togclock;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/togclock.app/togclock";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -675,11 +677,11 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "toggled/toggled-Prefix.pch";
-				INFOPLIST_FILE = "toggledTests/toggledTests-Info.plist";
+				GCC_PREFIX_HEADER = "toggled/togclock-Prefix.pch";
+				INFOPLIST_FILE = "toggledTests/togclockTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.lenition.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/toggled.app/toggled";
+				PRODUCT_NAME = togclock;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/togclock.app/togclock";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -687,7 +689,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		546FEE181BCF35A800FC960B /* Build configuration list for PBXProject "toggled" */ = {
+		546FEE181BCF35A800FC960B /* Build configuration list for PBXProject "togclock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				546FEE531BCF35A800FC960B /* Debug */,
@@ -696,7 +698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		546FEE551BCF35A800FC960B /* Build configuration list for PBXNativeTarget "toggled" */ = {
+		546FEE551BCF35A800FC960B /* Build configuration list for PBXNativeTarget "togclock" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				546FEE561BCF35A800FC960B /* Debug */,
@@ -705,7 +707,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		546FEE581BCF35A800FC960B /* Build configuration list for PBXNativeTarget "toggledTests" */ = {
+		546FEE581BCF35A800FC960B /* Build configuration list for PBXNativeTarget "togclockTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				546FEE591BCF35A800FC960B /* Debug */,

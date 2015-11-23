@@ -1,6 +1,5 @@
 //
 //  Utils.h
-//  toggled
 //
 
 @interface Utils : NSObject 

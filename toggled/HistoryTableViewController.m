@@ -1,6 +1,5 @@
 //
 //  HistoryTableViewController.m
-//  toggled
 //
 
 #import "HistoryTableViewController.h"

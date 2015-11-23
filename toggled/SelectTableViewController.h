@@ -1,6 +1,5 @@
 //
 //  SelectTableViewController.h
-//  toggled
 //
 
 #import <UIKit/UIKit.h>

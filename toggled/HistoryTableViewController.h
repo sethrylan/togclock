@@ -1,6 +1,5 @@
 //
 //  HistoryTableViewController.h
-//  toggled
 //
 
 @interface HistoryTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSURLSessionDelegate>

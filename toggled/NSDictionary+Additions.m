@@ -1,6 +1,5 @@
 //
 //  NSDictionary+Additions.m
-//  toggled
 //
 
 #import "NSDictionary+Additions.h"

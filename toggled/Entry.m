@@ -1,6 +1,5 @@
 //
 //  Entry.m
-//  toggled
 //
 
 #import "Entry.h"

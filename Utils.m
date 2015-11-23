@@ -1,6 +1,5 @@
 //
 //  Utils.m
-//  toggled
 //
 
 #import <Foundation/Foundation.h>

@@ -1,6 +1,5 @@
 //
 //  SelectTableViewController.m
-//  toggled
 //
 
 #import "SelectTableViewController.h"

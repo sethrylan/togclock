@@ -29,4 +29,17 @@
     return request;
 }
 
++ (NSArray*)getLatestEntries:(NSArray*)entries withLimit:(long)limit
+{
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"_at" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [entries sortedArrayUsingDescriptors:sortDescriptors];
+    if (limit > [entries count])
+    {
+        limit = [entries count];
+    }
+    return [sortedArray subarrayWithRange:NSMakeRange(0, limit)];
+}
+
+
 @end

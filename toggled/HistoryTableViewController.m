@@ -33,18 +33,6 @@
     [super viewDidLoad];
 }
 
-- (NSArray*)getLatestEntries:(NSArray*)entries withLimit:(long)limit
-{
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"_at" ascending:NO];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [entries sortedArrayUsingDescriptors:sortDescriptors];
-    if (limit > [entries count])
-    {
-        limit = [entries count];
-    }
-    return [sortedArray subarrayWithRange:NSMakeRange(0, limit)];
-}
-
 - (void)getRelatedData
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -84,7 +72,7 @@
                 [self.previousEntries addObject:entry];
             }
             
-            self.previousEntries = [[self getLatestEntries:self.previousEntries withLimit:3] mutableCopy];
+            self.previousEntries = [[Utils getLatestEntries:self.previousEntries withLimit:3] mutableCopy];
             
             [self.tableView reloadData];
         }

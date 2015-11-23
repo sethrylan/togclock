@@ -33,7 +33,7 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     
-    self.aboutText.text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    self.aboutText.text = @"Toggled is an application developed as part of an HCI project for CSC554. It emulates the forms of direct manipulation used with chess clock timepieces. Toggled uses basic email and password authentication to a Toggl (toggl.com) account. It will retain your account information until you click 'logout'. If you do not have a Toggl account, you can use test@ncsu.edu with the password 'secret'.";
 }
 
 - (void)didReceiveMemoryWarning

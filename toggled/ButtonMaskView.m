@@ -110,17 +110,22 @@
 
 + (UIColor*)unselectedColor
 {
-    return [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
+//    return [UIColor colorWithRed:135/255.0 green:206/255.0 blue:250/255.0 alpha:0.5];
+    return [UIColor colorWithRed:76/255.0 green:195/255.0 blue:217/255.0 alpha:0.5];
 }
 
 + (UIColor*)activeColor
 {
-    return [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
+//    return [UIColor colorWithRed:178/255.0 green:34/255.0 blue:34/255.0 alpha:0.5];
+    return [UIColor colorWithRed:241/255.0 green:103/255.0 blue:69/255.0 alpha:0.5];
+
 }
 
 + (UIColor*)inactiveColor
 {
-    return [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
+//    return [UIColor colorWithRed:142/255.0 green:252/255.0 blue:0.0/255.0 alpha:0.5];
+    return [UIColor colorWithRed:123/255.0 green:200/255.0 blue:164/255.0 alpha:0.5];
+
 }
 
 @end

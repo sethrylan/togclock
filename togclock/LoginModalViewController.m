@@ -33,7 +33,7 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     
-    self.aboutText.text = @"Togclock is an application developed as part of an HCI project for CSC554. It emulates the forms of direct manipulation used with chess clock timepieces. Togclock uses basic email and password authentication to a Toggl (toggl.com) account. It will retain your account information until you click 'logout'. If you do not have a Toggl account, you can use test@ncsu.edu with the password 'secret'.";
+    self.aboutText.text = @"Togclock is an application developed as part of an HCI project for CSC554. It emulates the forms of direct manipulation used with chess clock timepieces. Togclock uses basic email and password authentication to a Toggl (toggl.com) account. It will retain your account information until you click 'logout'. If you do not have a Toggl account, you can use srgainey@ncsu.edu with the password 'secret'.";
 }
 
 - (void)didReceiveMemoryWarning

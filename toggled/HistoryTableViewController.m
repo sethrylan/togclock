@@ -124,33 +124,36 @@
     }
     
     // see http://stackoverflow.com/questions/494562/setting-custom-uitableviewcells-height for adjust row sizes
-//    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 30.0f);
+    //    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 30.0f);
     NSString *time = @"running";
     long duration = [[self.previousEntries objectAtIndex:indexPath.row] _duration];
     if (duration >= 0)
     {
         time = [self formatTime:[[self.previousEntries objectAtIndex:indexPath.row] _duration]];
     }
-    NSString *text = [NSString stringWithFormat:@"%-42s %@",
+    NSString *text = [NSString stringWithFormat:@"%-21s %@",
                       [[[self.previousEntries objectAtIndex:indexPath.row] _projectName] cStringUsingEncoding:NSASCIIStringEncoding],
                       time
                       ];
     cell.textLabel.text = text;
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.textLabel.font = [UIFont fontWithName:@"Menlo" size:14.0];
 
     NSString *description = [[self.previousEntries objectAtIndex:indexPath.row] _description];
     if (!description)
     {
-        description = @"";
+        description = @" ";
     }
     
     NSDate *at = [NSDate fromISO8601String:[[self.previousEntries objectAtIndex:indexPath.row] _at]];
     NSString *ago = [at timeAgoSinceNow];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%-42s %@",
-                                 [description cStringUsingEncoding:NSASCIIStringEncoding],
-                                 ago
+    
+    NSString *descriptionText = [NSString stringWithFormat:@"%-21s", [description cStringUsingEncoding:NSASCIIStringEncoding]];
+    NSString *agoText = [NSString stringWithFormat:@"%14s", [ago cStringUsingEncoding:NSASCIIStringEncoding]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",
+                                 descriptionText,
+                                 agoText
                                  ];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Menlo" size:12.0];
     return cell;
 }
 

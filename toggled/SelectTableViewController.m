@@ -54,9 +54,9 @@
     void (^parseData)(NSData*, NSURLResponse*, NSError*) = ^(NSData *data, NSURLResponse *response, NSError *error) {
         if(error == nil)
         {
-            NSString * text = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
-            NSLog(@"Data = %@",text);
-            NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
+//            NSString * text = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+//            NSLog(@"Data = %@",text);
+//            NSLog(@"response status code: %ld", (long)[(NSHTTPURLResponse *)response statusCode]);
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                         options:NSJSONReadingMutableContainers
                                                                           error:nil];

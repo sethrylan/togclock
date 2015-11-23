@@ -111,7 +111,6 @@
     
     void(^handler)(UIAlertAction*) = ^(UIAlertAction *action)
     {
-        NSLog(@"done!");
         self.vdownEntry._description = alert.textFields.firstObject.text;
         [self.vdownDescriptionLabel setText:alert.textFields.firstObject.text];
     };
@@ -131,7 +130,6 @@
     
     void(^handler)(UIAlertAction*) = ^(UIAlertAction *action)
     {
-        NSLog(@"done!");
         self.vupEntry._description = alert.textFields.firstObject.text;
         [self.vupDescriptionLabel setText:alert.textFields.firstObject.text];
     };
@@ -178,15 +176,10 @@
 
 - (IBAction)vupButtonUp:(id)sender
 {
-    NSLog(@"VUP!");
-    //    self.vupButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
     if (self.vupEntry) {
-        
         // if running then stop vupEntry
         if (self.vupEntry._active)
         {
-            NSLog(@"stopping entry.");
             [self stopEntry:self.vupEntry];
             [self.buttonMaskView setVupColor:[ButtonMaskView inactiveColor]];
             [self.buttonMaskView setNeedsDisplay];
@@ -206,8 +199,6 @@
             {
                 [self vdownButtonUp:sender];
             }
-
-            NSLog(@"starting entry.");
             [self startEntry:self.vupEntry];
             [self.buttonMaskView setVupColor:[ButtonMaskView activeColor]];
             [self.buttonMaskView setNeedsDisplay];
@@ -218,14 +209,10 @@
 
 - (IBAction)vdownButtonUp:(id)sender
 {
-    NSLog(@"VDOWN!");
-    
     if (self.vdownEntry) {
-        
         // if running then stop vdownEntry
         if (self.vdownEntry._active)
         {
-            NSLog(@"stopping entry.");
             [self stopEntry:self.vdownEntry];
             [self.buttonMaskView setVdownColor:[ButtonMaskView inactiveColor]];
             [self.buttonMaskView setNeedsDisplay];
@@ -245,7 +232,6 @@
             {
                 [self vupButtonUp:sender];
             }
-            NSLog(@"starting entry.");
             [self startEntry:self.vdownEntry];
             [self.buttonMaskView setVdownColor:[ButtonMaskView activeColor]];
             [self.buttonMaskView setNeedsDisplay];
@@ -278,7 +264,7 @@
                        }
                        else
                        {
-                           NSLog(@"stop succeeded");
+//                           NSLog(@"stop succeeded");
                            entry._active = false;
                            // TODO: update entry with response data
                        }
@@ -332,7 +318,7 @@
                        }
                        else
                        {
-                           NSLog(@"start succeeded");
+//                           NSLog(@"start succeeded");
                            NSDictionary *responseJson = [NSJSONSerialization JSONObjectWithData:data
                                                                                         options:NSJSONReadingMutableContainers
                                                                                           error:nil];
@@ -365,8 +351,6 @@
 - (void)vupSelect:(UILongPressGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"held");
-        
         // stop entry if running
         if (self.vupEntry._active)
         {
@@ -388,8 +372,6 @@
 - (void)vdownSelect:(UILongPressGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"held");
-        
         // stop entry if running
         if (self.vdownEntry._active)
         {
@@ -433,9 +415,9 @@
 - (void)tableDismissed:(SelectTableViewController *)selectTableViewController withEntry:(NSDictionary *)entry
 {
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationFade];
-    NSLog(@"passedentry = %@", entry);
-    NSLog(@"self.vupEntry = %@", self.vupEntry);
-    NSLog(@"self.vdownEntry = %@", self.vdownEntry);
+//    NSLog(@"passedentry = %@", entry);
+//    NSLog(@"self.vupEntry = %@", self.vupEntry);
+//    NSLog(@"self.vdownEntry = %@", self.vdownEntry);
     
     // update vdown/vup labels
     if (self.vdownEntry)

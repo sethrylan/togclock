@@ -25,7 +25,7 @@
 
 - (void)setValues:(NSDictionary*)dictionary withProjects:(NSArray*)projects {
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL* stop) {
-                    NSLog(@"%@ => %@", key, value);
+//      NSLog(@"%@ => %@", key, value);
         NSString *propertyName = [NSString stringWithFormat:@"_%@", key];
         if ([self respondsToSelector:NSSelectorFromString(propertyName)]) {
             [self setValue:value forKey:propertyName];

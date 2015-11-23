@@ -104,7 +104,7 @@
         && [JNKeychain saveValue:password forKey:@"password"]
         && [JNKeychain saveValue:apiToken forKey:@"apiToken"])
     {
-        NSLog(@"Saved!");
+//        NSLog(@"Saved!");
     }
     else
     {
@@ -121,9 +121,7 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                              options:NSJSONReadingMutableContainers
                                                                error:nil];
-        NSString *apiToken = [json valueForKeyPath:@"data.api_token"];
-        NSLog(@"api_token=%@", apiToken);
-        
+        NSString *apiToken = [json valueForKeyPath:@"data.api_token"];        
         [self saveToKeychain:email withPassword:password withApiToken:apiToken];
         [self dismissViewControllerAnimated:YES completion:Nil];
     };

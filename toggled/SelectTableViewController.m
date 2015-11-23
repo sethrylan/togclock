@@ -6,6 +6,7 @@
 #import "SelectTableViewController.h"
 #import "Entry.h"
 #import "JNKeychain.h"
+#import "Utils.h"
 
 @implementation SelectTableViewController
 
@@ -24,7 +25,6 @@
     self.previousEntries = [[NSMutableArray alloc] init];
     self.sections = @[self.projects, self.previousEntries];
     [self getRelatedData];
-//    NSLog(@"self.entry = %@", self.entry);
 }
 
 - (void)viewDidLoad
@@ -69,6 +69,8 @@
                 Entry *entry = [[Entry alloc] initWithDictionary:entryJson withProjects:self.projects];
                 [self.previousEntries addObject:entry];
             }
+            
+            self.previousEntries = [[Utils getLatestEntries:self.previousEntries withLimit:10] mutableCopy];
 
             [self.tableView reloadData];
         }

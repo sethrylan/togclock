@@ -105,19 +105,74 @@
     return label;
 }
 
+- (void)vdownDescriptionLabelTap:(UITapGestureRecognizer *)recognizer
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"enter description" preferredStyle:UIAlertControllerStyleAlert];
+    
+    void(^handler)(UIAlertAction*) = ^(UIAlertAction *action)
+    {
+        NSLog(@"done!");
+        self.vdownEntry._description = alert.textFields.firstObject.text;
+        [self.vdownDescriptionLabel setText:alert.textFields.firstObject.text];
+    };
+
+    [alert addAction:[UIAlertAction actionWithTitle:@"done"
+                                              style:UIAlertActionStyleDefault
+                                            handler:handler]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"description:";
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)vupDescriptionLabelTap:(UITapGestureRecognizer *)recognizer
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"enter description" preferredStyle:UIAlertControllerStyleAlert];
+    
+    void(^handler)(UIAlertAction*) = ^(UIAlertAction *action)
+    {
+        NSLog(@"done!");
+        self.vupEntry._description = alert.textFields.firstObject.text;
+        [self.vupDescriptionLabel setText:alert.textFields.firstObject.text];
+    };
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"done"
+                                              style:UIAlertActionStyleDefault
+                                            handler:handler]];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"description:";
+    }];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)buttonMaskTap:(UITapGestureRecognizer *)recognizer
 {
     // See also using a delegate : http://stackoverflow.com/questions/16618109/how-to-get-uitouch-location-from-uigesturerecognizer
     CGPoint touchPoint = [recognizer locationInView: self.buttonMaskView];
     NSLog(@"x=%f, y=%f", touchPoint.x, touchPoint.y);
-
-    if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
-    {
-        [self vupButtonUp:recognizer];
-    }
+    
     if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
     {
-        [self vdownButtonUp:recognizer];
+        if (CGRectContainsPoint(self.vdownDescriptionLabel.frame, touchPoint) && !self.vdownEntry._description)
+        {
+            [self vdownDescriptionLabelTap:recognizer];
+        }
+        else
+        {
+            [self vdownButtonUp:recognizer];
+        }
+    }
+    
+    if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
+    {
+        if (CGRectContainsPoint(self.vupDescriptionLabel.frame, touchPoint) && !self.vupEntry._description)
+        {
+            [self vupDescriptionLabelTap:recognizer];
+        }
+        else
+        {
+            [self vupButtonUp:recognizer];
+        }
     }
 }
 
@@ -388,7 +443,21 @@
         [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
         [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
         [self.vdownStatusLabel setText:@"start"];
-        [self.buttonMaskView setVdownColor:[ButtonMaskView inactiveColor]];
+
+        if (self.vdownEntry._active)
+        {
+            [self.buttonMaskView setVdownColor:[ButtonMaskView activeColor]];
+        }
+        else
+        {
+            [self.buttonMaskView setVdownColor:[ButtonMaskView inactiveColor]];
+        }
+
+        if (!self.vdownEntry._description)
+        {
+            [self.vdownDescriptionLabel setText:@"<set description>"];
+        }
+        
         [self.buttonMaskView setNeedsDisplay];
     }
 
@@ -397,7 +466,20 @@
         [self.vupProjectLabel setText:[self.vupEntry _projectName]];
         [self.vupDescriptionLabel setText:[self.vupEntry _description]];
         [self.vupStatusLabel setText:@"start"];
-        [self.buttonMaskView setVupColor:[ButtonMaskView inactiveColor]];
+        if (self.vupEntry._active)
+        {
+            [self.buttonMaskView setVupColor:[ButtonMaskView activeColor]];
+        }
+        else
+        {
+            [self.buttonMaskView setVupColor:[ButtonMaskView inactiveColor]];
+        }
+        
+        if (!self.vupEntry._description)
+        {
+            [self.vupDescriptionLabel setText:@"<set description>"];
+        }
+        
         [self.buttonMaskView setNeedsDisplay];
     }
 }

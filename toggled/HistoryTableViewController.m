@@ -19,7 +19,7 @@
     [tableView reloadData];
     self.tableView = tableView;
     self.previousEntries = [[NSMutableArray alloc] init];
-    [self getRelatedData];
+    [self getLatestEntries];
 }
 
 // turn off header without needing to reload table
@@ -32,7 +32,7 @@
     [super viewDidLoad];
 }
 
--(void)getRelatedData
+-(void)getLatestEntries
 {
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];

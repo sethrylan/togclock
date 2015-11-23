@@ -42,6 +42,7 @@
 		54BB51D81C028E6A00A391C1 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BB51CE1C028E6A00A391C1 /* DTTimePeriodCollection.m */; };
 		54BB51D91C028E6A00A391C1 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BB51D01C028E6A00A391C1 /* DTTimePeriodGroup.m */; };
 		54BB51DA1C028E6A00A391C1 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BB51D21C028E6A00A391C1 /* NSDate+DateTools.m */; };
+		54BB51DD1C02932B00A391C1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BB51DC1C02932B00A391C1 /* Utils.m */; };
 		54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */; };
 		54E1EC9A1BF9A37B00123FDA /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC971BF9A37B00123FDA /* MJPopupBackgroundView.m */; };
 		54E1EC9B1BF9A37B00123FDA /* UIViewController+MJPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E1EC991BF9A37B00123FDA /* UIViewController+MJPopupViewController.m */; };
@@ -114,6 +115,8 @@
 		54BB51D01C028E6A00A391C1 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTimePeriodGroup.m; sourceTree = "<group>"; };
 		54BB51D11C028E6A00A391C1 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
 		54BB51D21C028E6A00A391C1 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
+		54BB51DB1C02931F00A391C1 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../Utils.h; sourceTree = "<group>"; };
+		54BB51DC1C02932B00A391C1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../Utils.m; sourceTree = "<group>"; };
 		54E1EC821BF9833E00123FDA /* UIButton+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+BackgroundColor.h"; sourceTree = "<group>"; };
 		54E1EC831BF9833E00123FDA /* UIButton+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BackgroundColor.m"; sourceTree = "<group>"; };
 		54E1EC961BF9A37B00123FDA /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				5429901F1C012B0F00D8ED24 /* ButtonMaskView.m */,
 				5429902D1C026AAF00D8ED24 /* HistoryTableViewController.h */,
 				5429902E1C026AAF00D8ED24 /* HistoryTableViewController.m */,
+				54BB51DB1C02931F00A391C1 /* Utils.h */,
+				54BB51DC1C02932B00A391C1 /* Utils.m */,
 			);
 			path = toggled;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 				54E1EC841BF9833E00123FDA /* UIButton+BackgroundColor.m in Sources */,
 				546FEE3D1BCF35A800FC960B /* LoginModalViewController.m in Sources */,
 				54BB51D91C028E6A00A391C1 /* DTTimePeriodGroup.m in Sources */,
+				54BB51DD1C02932B00A391C1 /* Utils.m in Sources */,
 				54BB51D41C028E6A00A391C1 /* DTConstants.m in Sources */,
 				546FEE311BCF35A800FC960B /* AppDelegate.m in Sources */,
 				54BB51D51C028E6A00A391C1 /* DTError.m in Sources */,

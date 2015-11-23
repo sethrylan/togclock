@@ -10,6 +10,7 @@
 #import "JNKeychain.h"
 #import "NSDictionary+Additions.h"
 #import "HistoryTableViewController.h"
+#import "Utils.h"
 
 @implementation MainViewController
 
@@ -202,7 +203,7 @@
     
     NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
     NSString *url = [NSString stringWithFormat:@"https://www.toggl.com/api/v8/time_entries/%ld/stop", entry._id];
-    NSMutableURLRequest *request = [self makeJSONRequest:url withAuth:authString withOperation:@"PUT"];
+    NSMutableURLRequest *request = [Utils makeJSONRequest:url withAuth:authString withOperation:@"PUT"];
     
     NSURLSessionDataTask *postDataTask =
     [session dataTaskWithRequest:request
@@ -255,7 +256,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: self delegateQueue: [NSOperationQueue mainQueue]];
     
     NSString *authString = [NSString stringWithFormat:@"%@:api_token", [JNKeychain loadValueForKey:@"apiToken"]];
-    NSMutableURLRequest *request = [self makeJSONRequest:@"https://www.toggl.com/api/v8/time_entries/start" withAuth:authString withOperation:@"POST"];
+    NSMutableURLRequest *request = [Utils makeJSONRequest:@"https://www.toggl.com/api/v8/time_entries/start" withAuth:authString withOperation:@"POST"];
     [request setHTTPBody:jsonData];
     
     NSURLSessionDataTask *postDataTask =
@@ -284,27 +285,6 @@
                    }
                }];
     [postDataTask resume];
-}
-
-- (NSMutableURLRequest*)makeJSONRequest:(NSString *)urlString withAuth:(NSString *)authString withOperation:(NSString *)op
-{
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
-                  
-    NSData *authData = [authString dataUsingEncoding:NSASCIIStringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]];
-
-    NSDictionary *headers = @{
-                              @"Content-Type":@"application/json",
-                              @"Accept":@"application/json"
-                              };
-    [request setValue:authValue forHTTPHeaderField:@"Authorization"];
-    [request setAllHTTPHeaderFields:headers];
-    
-    [request setHTTPMethod:op];
-    return request;
 }
 
 - (void)buttonMaskSelect:(UILongPressGestureRecognizer *)recognizer

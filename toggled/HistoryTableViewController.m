@@ -123,6 +123,9 @@
                                       reuseIdentifier:CellIdentifier];
     }
     
+    cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
+    
     // see http://stackoverflow.com/questions/494562/setting-custom-uitableviewcells-height for adjust row sizes
     //    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 30.0f);
     NSString *time = @"running";
@@ -131,29 +134,38 @@
     {
         time = [self formatTime:[[self.previousEntries objectAtIndex:indexPath.row] _duration]];
     }
-    NSString *text = [NSString stringWithFormat:@"%-21s %@",
-                      [[[self.previousEntries objectAtIndex:indexPath.row] _projectName] cStringUsingEncoding:NSASCIIStringEncoding],
-                      time
-                      ];
+    
+    NSString *padding = @"";
+    NSString *text;
+    do
+    {
+        padding = [padding stringByAppendingString:@" "];
+        text = [NSString stringWithFormat:@"%@%@%@",
+            [[self.previousEntries objectAtIndex:indexPath.row] _projectName],
+            padding,
+            time
+         ];
+    }
+    while ([self findWidthForText:text havingMaximumHeight:cell.frame.size.height andFont:cell.textLabel.font] < self.view.frame.size.width - 35);
     cell.textLabel.text = text;
-    cell.textLabel.font = [UIFont fontWithName:@"Menlo" size:14.0];
 
     NSString *description = [[self.previousEntries objectAtIndex:indexPath.row] _description];
     if (!description)
     {
         description = @" ";
     }
-    
+
     NSDate *at = [NSDate fromISO8601String:[[self.previousEntries objectAtIndex:indexPath.row] _at]];
     NSString *ago = [at timeAgoSinceNow];
+    padding = @"";
+    do
+    {
+        padding = [padding stringByAppendingString:@" "];
+        text = [NSString stringWithFormat:@"%@%@%@", description, padding, ago];
+    }
+    while ([self findWidthForText:text havingMaximumHeight:cell.frame.size.height andFont:cell.detailTextLabel.font] < self.view.frame.size.width - 35);
+    cell.detailTextLabel.text = text;
     
-    NSString *descriptionText = [NSString stringWithFormat:@"%-21s", [description cStringUsingEncoding:NSASCIIStringEncoding]];
-    NSString *agoText = [NSString stringWithFormat:@"%14s", [ago cStringUsingEncoding:NSASCIIStringEncoding]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",
-                                 descriptionText,
-                                 agoText
-                                 ];
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Menlo" size:12.0];
     return cell;
 }
 
@@ -164,6 +176,20 @@
     int hours = (int)(totalSeconds / 3600);
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
+}
+
+- (CGFloat)findWidthForText:(NSString *)text havingMaximumHeight:(CGFloat)heightValue andFont:(UIFont *)font {
+    CGSize size = CGSizeZero;
+    if (text)
+    {
+#ifdef __IPHONE_7_0
+        CGRect frame = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, heightValue) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{ NSFontAttributeName:font } context:nil];
+        size = CGSizeMake(frame.size.width, frame.size.height + 1);
+#else
+        size = [text sizeWithFont:font constrainedToSize:CGSizeMake(CGFLOAT_MAX, heightValue) lineBreakMode:NSLineBreakByWordWrapping];
+#endif
+    }
+    return size.width;
 }
 
 @end

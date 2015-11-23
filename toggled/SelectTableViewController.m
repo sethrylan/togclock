@@ -14,7 +14,8 @@
 
 - (void)loadView
 {
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,45,320,200) style:UITableViewStylePlain];
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,320,screenBounds.size.height) style:UITableViewStylePlain];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     tableView.delegate = self;
     tableView.dataSource = self;

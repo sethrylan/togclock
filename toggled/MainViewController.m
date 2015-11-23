@@ -140,6 +140,8 @@
             [self.vupStatusLabel pause];
             [self.vupStatusLabel setText:@"start"];
             
+            // refresh history table
+            [[self.childViewControllers objectAtIndex: 0] loadView];
         }
         // if not running then start vupEntry (implicitly creates)
         else
@@ -176,7 +178,9 @@
             [self.vdownStatusLabel reset];
             [self.vdownStatusLabel pause];
             [self.vdownStatusLabel setText:@"start"];
-
+            
+            // refresh history table
+            [[self.childViewControllers objectAtIndex: 0] loadView];
         }
         // if not running then start vdownEntry (implicitly creates)
         else

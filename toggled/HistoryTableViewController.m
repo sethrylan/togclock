@@ -125,7 +125,12 @@
     
     // see http://stackoverflow.com/questions/494562/setting-custom-uitableviewcells-height for adjust row sizes
 //    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 30.0f);
-    NSString *time = [self formatTime:[[self.previousEntries objectAtIndex:indexPath.row] _duration]];
+    NSString *time = @"running";
+    long duration = [[self.previousEntries objectAtIndex:indexPath.row] _duration];
+    if (duration >= 0)
+    {
+        time = [self formatTime:[[self.previousEntries objectAtIndex:indexPath.row] _duration]];
+    }
     NSString *text = [NSString stringWithFormat:@"%-42s %@",
                       [[[self.previousEntries objectAtIndex:indexPath.row] _projectName] cStringUsingEncoding:NSASCIIStringEncoding],
                       time

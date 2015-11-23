@@ -151,7 +151,7 @@
     
     if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vdownPath])
     {
-        if (CGRectContainsPoint(self.vdownDescriptionLabel.frame, touchPoint) && !self.vdownEntry._description)
+        if (CGRectContainsPoint(self.vdownDescriptionLabel.frame, touchPoint) && self.vdownEntry && !self.vdownEntry._description)
         {
             [self vdownDescriptionLabelTap:recognizer];
         }
@@ -163,7 +163,7 @@
     
     if ([ButtonMaskView isPoint:touchPoint insidePath:self.buttonMaskView.vupPath])
     {
-        if (CGRectContainsPoint(self.vupDescriptionLabel.frame, touchPoint) && !self.vupEntry._description)
+        if (CGRectContainsPoint(self.vupDescriptionLabel.frame, touchPoint) && self.vupEntry && !self.vupEntry._description)
         {
             [self vupDescriptionLabelTap:recognizer];
         }

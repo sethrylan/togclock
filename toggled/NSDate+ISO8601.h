@@ -13,4 +13,7 @@
  */
 - (NSString *)asISO8601String;
 
++ (NSDate *)fromISO8601String:(NSString *)iso8601String;
+
+
 @end

@@ -6,6 +6,8 @@
 #import "HistoryTableViewController.h"
 #import "Entry.h"
 #import "JNKeychain.h"
+#import "NSDate+ISO8601.h"
+#import "NSDate+DateTools.h"
 
 @implementation HistoryTableViewController
 
@@ -121,9 +123,12 @@
     {
         description = @"";
     }
+    
+    NSDate *at = [NSDate fromISO8601String:[[self.previousEntries objectAtIndex:indexPath.row] _at]];
+    NSString *ago = [at timeAgoSinceNow];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%-42s %@",
                                  [description cStringUsingEncoding:NSASCIIStringEncoding],
-                                 [[self.previousEntries objectAtIndex:indexPath.row] _at]
+                                 ago
                                  ];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
     return cell;

@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ozr-fT-Gqv">
-                                <rect key="frame" x="180" y="93" width="207" height="30"/>
+                                <rect key="frame" x="48" y="73" width="207" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                 <connections>
@@ -100,7 +100,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TjH-UI-t72">
-                                <rect key="frame" x="180" y="139" width="207" height="30"/>
+                                <rect key="frame" x="48" y="119" width="207" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
@@ -108,17 +108,34 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udQ-qe-bXI">
-                                <rect key="frame" x="246" y="170" width="75" height="58"/>
+                                <rect key="frame" x="114" y="150" width="75" height="58"/>
                                 <state key="normal" title="login"/>
                                 <connections>
                                     <action selector="loginUp:" destination="i7W-2u-o9g" eventType="touchUpInside" id="Psz-Xj-zsk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMD-r9-jkP" userLabel="logout">
+                                <rect key="frame" x="410" y="234" width="75" height="58"/>
+                                <state key="normal" title="logout">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutUp:" destination="i7W-2u-o9g" eventType="touchUpInside" id="yhT-0w-vLY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-jN-QPb">
+                                <rect key="frame" x="371" y="33" width="152" height="181"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="aboutText" destination="wF2-jN-QPb" id="eBQ-uU-0pI"/>
                         <outlet property="emailField" destination="ozr-fT-Gqv" id="aMx-gP-0gn"/>
+                        <outlet property="logoutButton" destination="WMD-r9-jkP" id="pP7-Dc-5G4"/>
                         <outlet property="passwordField" destination="TjH-UI-t72" id="H6m-jG-ITX"/>
                     </connections>
                 </viewController>

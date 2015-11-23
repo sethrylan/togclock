@@ -388,6 +388,8 @@
         [self.vdownProjectLabel setText:[self.vdownEntry _projectName]];
         [self.vdownDescriptionLabel setText:[self.vdownEntry _description]];
         [self.vdownStatusLabel setText:@"start"];
+        [self.buttonMaskView setVdownColor:[ButtonMaskView inactiveColor]];
+        [self.buttonMaskView setNeedsDisplay];
     }
 
     if (self.vupEntry)
@@ -395,6 +397,8 @@
         [self.vupProjectLabel setText:[self.vupEntry _projectName]];
         [self.vupDescriptionLabel setText:[self.vupEntry _description]];
         [self.vupStatusLabel setText:@"start"];
+        [self.buttonMaskView setVupColor:[ButtonMaskView inactiveColor]];
+        [self.buttonMaskView setNeedsDisplay];
     }
 }
 

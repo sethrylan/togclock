@@ -455,7 +455,7 @@
 
         if (!self.vdownEntry._description)
         {
-            [self.vdownDescriptionLabel setText:@"<set description>"];
+            [self.vdownDescriptionLabel setText:@"<touch to set description>"];
         }
         
         [self.buttonMaskView setNeedsDisplay];
@@ -477,7 +477,7 @@
         
         if (!self.vupEntry._description)
         {
-            [self.vupDescriptionLabel setText:@"<set description>"];
+            [self.vupDescriptionLabel setText:@"<touch to set description>"];
         }
         
         [self.buttonMaskView setNeedsDisplay];

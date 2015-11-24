@@ -1,5 +1,5 @@
 
-Background
+## Background
 
 Togclock is a [Toggl](toggl.com) client whichthat uses the volume buttons to enable starting and stopping time entries.
 

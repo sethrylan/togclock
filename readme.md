@@ -1,7 +1,6 @@
 
 Background
 
+Togclock is a [Toggl](toggl.com) client whichthat uses the volume buttons to enable starting and stopping time entries.
 
-References
-
-[Stanford University Developing iOS 7 Apps](https://www.youtube.com/watch?v=ZqKbN_C4Yvg)
+![alt tag](https://raw.githubusercontent.com/sethrylan/togclock/master/togclock-5.png)

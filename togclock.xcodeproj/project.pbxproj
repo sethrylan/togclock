@@ -79,7 +79,7 @@
 		546FEE201BCF35A800FC960B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		546FEE221BCF35A800FC960B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		546FEE241BCF35A800FC960B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		546FEE281BCF35A800FC960B /* togclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "togclock-Info.plist"; path = "../togclock-Info.plist"; sourceTree = "<group>"; };
+		546FEE281BCF35A800FC960B /* togclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "togclock-Info.plist"; sourceTree = "<group>"; };
 		546FEE2A1BCF35A800FC960B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		546FEE2C1BCF35A800FC960B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		546FEE2E1BCF35A800FC960B /* togclock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "togclock-Prefix.pch"; sourceTree = "<group>"; };
@@ -286,6 +286,7 @@
 		546FEE271BCF35A800FC960B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				546FEE281BCF35A800FC960B /* togclock-Info.plist */,
 				546FEE291BCF35A800FC960B /* InfoPlist.strings */,
 				546FEE2C1BCF35A800FC960B /* main.m */,
 				546FEE2E1BCF35A800FC960B /* togclock-Prefix.pch */,
@@ -314,7 +315,6 @@
 		54BB51C21C028E6A00A391C1 /* DateTools */ = {
 			isa = PBXGroup;
 			children = (
-				546FEE281BCF35A800FC960B /* togclock-Info.plist */,
 				54BB51C31C028E6A00A391C1 /* DateTools.bundle */,
 				54BB51C41C028E6A00A391C1 /* DateTools.h */,
 				54BB51C51C028E6A00A391C1 /* DTConstants.h */,
@@ -636,7 +636,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.lenition.togclock;
 				PRODUCT_NAME = togclock;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -654,7 +654,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.lenition.togclock;
 				PRODUCT_NAME = togclock;
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
